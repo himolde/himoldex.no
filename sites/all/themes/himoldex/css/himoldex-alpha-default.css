@@ -1,0 +1,19 @@
+/* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+
+div#one-user-wrapper {
+    height: 96px;
+}
+div#block-search-form {
+    float: right;
+}
+
+/* Logos */
+a.study-small-logo {
+    font-size: 18px;
+}
+
+img.study-small-logo {
+    display: inline-block;
+    width: 100%;
+}
+

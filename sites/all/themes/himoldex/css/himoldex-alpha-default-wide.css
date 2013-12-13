@@ -1,0 +1,30 @@
+/* This file will hold styles that are loaded using the same media query as the wide grid. */
+
+/* Search box */
+input#edit-search-block-form--2 {
+    width: 200px;
+    font-size: 16px;
+}
+
+/* Text logo */
+p#textlogo a {
+    text-decoration: none;
+}
+p#textlogo {
+    font-family: arial;
+    margin-bottom: 0px
+}
+p#textlogo span {
+    color: #0456a0;
+    font-size: 54px;
+}
+p#textlogo span#x {
+    /* color: #009ee2; */
+    /* color: #CC1A2A; */
+    color: red;
+    font-size: 64px;
+    font-weight: bold;
+}
+p#textlogo span.desc {
+    font-size: 35px;
+}
