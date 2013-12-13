@@ -1,0 +1,5 @@
+name = HiMoldeX
+description = Custom code for himoldex.no
+core = 7.x
+dependencies[] = pathauto
+dependencies[] = views

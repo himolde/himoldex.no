@@ -1,0 +1,282 @@
+<?php
+
+/**
+ *  * Implements hook_views_api().
+ *   */
+function himoldex_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+/**
+ * Fix in date/pathauto module
+ */
+function himoldex_pathauto_alias_alter(&$alias, array &$context) {
+  if ($context['module'] == 'node' && $context['type'] == 'video') {
+    // Remove the buggy date token.
+    $alias = str_replace('-000000', '', $alias);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Making it clear that we use our full names for user registration.
+ */
+function himoldex_form_user_login_alter(&$form, &$form_state, $form_id) {
+  $form['name']['#description'] = 'Ditt vanlige brukernavn ved Høgskolen i Molde.';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Room and phone shouldn't be editable.
+ */
+function himoldex_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_room']['#disabled'] = TRUE;
+  $form['field_phone']['#disabled'] = TRUE;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function himoldex_block_info() {
+  $blocks['studyhandbook_and_samordnaopptak'] = array(
+    'info' => t('HimoldeX: Lenke til studiehåndbok og Samordna opptak'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['studyhandbook_and_subjects'] = array(
+    'info' => t('HimoldeX: Lenke til studiehåndbok og informasjon om emnestudent'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['studyhandbook'] = array(
+    'info' => t('HimoldeX: Lenke til studiehåndbok'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['about_social'] = array(
+    'info' => t('HimoldeX: Lenker til Om-siden og sosiale tjenester'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['banner_small'] = array(
+    'info' => t('HimoldeX: Banner liten'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['banner'] = array(
+    'info' => t('HimoldeX: Banner'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_big_logo'] = array(
+    'info' => t('HimoldeX: Stor logo for studium'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_logistikk'] = array(
+    'info' => 'HimoldeX: Liten logo for logistikk',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_okonomi'] = array(
+    'info' => 'HimoldeX: Liten logo for økonomi',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_samfunn'] = array(
+    'info' => 'HimoldeX: Liten logo for juss og samfunnsfag',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_idrett'] = array(
+    'info' => 'HimoldeX: Liten logo for idrett',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_sykepleie'] = array(
+    'info' => 'HimoldeX: Liten logo for sykepleie',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_vernepleie'] = array(
+    'info' => 'HimoldeX: Liten logo for vernepleie',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_it'] = array(
+    'info' => 'HimoldeX: Liten logo for IT',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['study_small_logo_ALL'] = array(
+    'info' => 'HimoldeX: Liten logo for alle emner',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function himoldex_block_view($delta = '') {
+  //The $delta parameter tells us which block is being requested.
+  $block['subject'] = '<none>';
+  switch ($delta) {
+    case 'studyhandbook_and_samordnaopptak':
+    case 'studyhandbook_and_subjects':
+    case 'studyhandbook':
+    case 'about_social':
+    case 'banner':
+    case 'banner_small':
+    case 'study_big_logo':
+      $block['content'] = _himoldex_block_contents($delta);
+      break;
+    case 'study_small_logo_logistikk':
+      $block['content'] = _himoldex_block_contents($delta, 'Logistikk');
+      break;
+    case 'study_small_logo_okonomi':
+      $block['content'] = _himoldex_block_contents($delta, 'Økonomi');
+      break;
+    case 'study_small_logo_samfunn':
+      $block['content'] = _himoldex_block_contents($delta, 'Juss og samfunnsfag');
+      break;
+    case 'study_small_logo_idrett':
+      $block['content'] = _himoldex_block_contents($delta, 'Idrett');
+      break;
+    case 'study_small_logo_sykepleie':
+      $block['content'] = _himoldex_block_contents($delta, 'Sykepleie');
+      break;
+    case 'study_small_logo_vernepleie':
+      $block['content'] = _himoldex_block_contents($delta, 'Vernepleie');
+      break;
+    case 'study_small_logo_it':
+      $block['content'] = _himoldex_block_contents($delta, 'IT');
+      break;
+    case 'study_small_logo_ALL':
+      $block['content'] = _himoldex_block_contents($delta, 'Alle emner');
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Produces the actual block content.
+ */
+function _himoldex_block_contents($which_block, $title='') {
+    switch ($which_block) {
+    case 'studyhandbook_and_samordnaopptak':
+      $html = <<<EOM
+<p>
+    Les i <a href="http://himolde.studiehandbok.no/">studiehåndboken</a> for mer informasjon 
+    om våre studier og gå til <a href="http://www.samordnaopptak.no/">Samordna opptak</a> for å søke. 
+    Søknadsfrist 15. april.
+</p>
+EOM;
+      return array('#markup' => $html);
+    case 'studyhandbook_and_subjects':
+      $html = <<<EOM
+<ul>
+<li>Les i <a href="http://himolde.studiehandbok.no/">studiehåndboken</a> for mer informasjon om våre studier.</li>
+<li>Du kan søke om å bli <a href="http://www.himolde.no/studier/Sider/Opptak/Opptak-til-enkeltemne.aspx">emnestudent</a> innen 15. august.</li>
+</ul>
+EOM;
+      return array('#markup' => $html);
+    case 'studyhandbook':
+      $html = <<<EOM
+<p>
+    Les i <a href="http://himolde.studiehandbok.no/">studiehåndboken</a> for mer informasjon 
+    om våre studier.
+</p>
+EOM;
+      return array('#markup' => $html);
+    case 'about_social':
+      $html = <<<EOM
+<table id="about-social">
+<tbody><tr>
+<td class="left35"><a href="/side/om-himoldex">Om HiMoldeX</a> 
+</td>
+<td class="center30">Følg oss på 
+<a href="http://www.facebook.com/himolde" target="_blank"><img src="/img/fb.png"></a> 
+<a href="http://twitter.com/himolde" target="_blank"><img src="/img/twitter.png"></a> 
+<a href="http://www.youtube.com/user/himoldex" target="_blank"><img src="/img/youtube.png"></a>  
+</td>
+<td class="right35">
+Kontakt oss på <a target="_blank" href="mailto:post@himoldex.no">post@himoldex.no</a> 
+</td>
+</tr>
+</tbody>
+</table>
+EOM;
+      return array('#markup' => $html);
+    case 'about_social_old':
+      $html = <<<EOM
+<p id="about-social">
+<a href="/side/om-himoldex">Om HiMoldeX</a> | Følg oss på 
+<a href="http://www.facebook.com/himolde" target="_blank"><img src="/img/fb.png" /></a> 
+<a href="http://twitter.com/himolde" target="_blank"><img src="/img/twitter.png" /></a> 
+<a href="http://www.youtube.com/user/himoldex" target="_blank"><img src="/img/youtube.png" /></a> | 
+Kontakt oss på <a href="mailto:post@himoldex.no" target="_blank">post@himoldex.no</a> | Vår offisielle hjemmeside:
+<a href="http://www.himolde.no" target="_blank">www.himolde.no</a> 
+</p>
+EOM;
+      return array('#markup' => $html);
+    case 'banner_small':
+      $html = <<<EOM
+<p>
+<a href="/"><img src="/img/banner-liten-2013-03-11.jpg" width="100%" 
+title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
+På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
+</p>
+EOM;
+      return array('#markup' => $html);
+    case 'banner':
+      $html = <<<EOM
+<p>
+<a href="/"><img src="/img/banner-2013-03-11.jpg" width="100%" 
+title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
+På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
+</p>
+EOM;
+      return array('#markup' => $html);
+    case 'study_big_logo':
+      $path = current_path();
+      $path_alias = drupal_lookup_path('alias',$path);
+      $studium = str_replace('studium/', '', $path_alias);
+      $html = <<<EOM
+<p><img src="/img/$studium-stor.jpg" width="100%" /></p>
+EOM;
+      return array('#markup' => $html);
+    default:
+      $name = str_replace('study_small_logo_', '', $which_block);
+      if ($name == 'samfunn') {
+        $name = 'juss-og-samfunnsfag';
+      }
+      if ($name == 'ALL') {
+        $path = 'emner';
+        $img = '/img/alle-emner.jpg';
+      } 
+      else {
+        $img = '/img/' . $name . '.png';
+        $path = 'studium/' . $name;
+      }
+      // if ($name == 'ALL') {
+      if (false) {
+        $html = <<<EOM
+<div style="position: relative;">
+<div style="position: absolute; top: 20px; left: 20px;">
+<a class="study-small-logo" href="$path" style="color: white;">$title</a>
+</div>
+<p><a href="$path"><img class="study-small-logo" src="$img" alt=""/></a></p>
+</div>
+EOM;
+      }
+      else {
+        $html = <<<EOM
+<p class="study-small-logo">
+<a href="$path"><img class="study-small-logo" alt="" src="$img"></a> 
+<a class="study-small-logo" href="$path">$title</a>
+</p>
+EOM;
+      }
+      return array('#markup' => $html);
+  }
+}
+
+/**
+ * Implements hook_block_view_MODULE_DELTA_alter().
+function himoldex_block_view_himoldex_study_small_logo_it_alter(&$data, $block) {
+  dpm($data);
+  dpm($block);
+}
+ */
+
