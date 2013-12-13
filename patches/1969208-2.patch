@@ -1,0 +1,22 @@
+diff --git a/modules/node/node.module b/modules/node/node.module
+index f20c229..ea64f02 100644
+--- a/modules/node/node.module
++++ b/modules/node/node.module
+@@ -3433,7 +3433,16 @@ function _node_query_node_access_alter($query, $type) {
+       }
+       // Otherwise attach it to the node query itself.
+       else {
+-        $query->exists($subquery);
++        // If it's a left join to entity table and entity does not exist (i.e. entity_id is null)
++        // skip access check.
++        if($tableinfo['join type'] == 'LEFT'){
++          $subquery_cond = db_or();
++          $subquery_cond->exists($subquery);
++          $subquery_cond->isNull("$nalias.$field");
++          $query->condition($subquery_cond);
++        }else{
++          $query->exists($subquery);
++        }
+       }
+     }
+   }
