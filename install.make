@@ -30,6 +30,8 @@ projects[entity][version] = "1.2"
 
 projects[entityreference][version] = "1.1"
 
+projects[features][version] = "2.0"
+
 projects[field_group][version] = "1.3"
 
 projects[flexslider][version] = "2.0-alpha3"
