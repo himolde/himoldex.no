@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the himoldex_ct_video feature.
+ */
+
+include_once 'himoldex_ct_video.features.inc';

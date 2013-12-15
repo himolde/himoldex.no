@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the himoldex_ct_studyplan feature.
+ */
+
+include_once 'himoldex_ct_studyplan.features.inc';

@@ -1,0 +1,17 @@
+name = HiMoldeX studyplan content type
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = link
+dependencies[] = list
+dependencies[] = node
+dependencies[] = options
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_study_desc
+features[field_base][] = field_study_handbook
+features[field_base][] = field_study_type
+features[field_instance][] = node-studyplan-field_study_desc
+features[field_instance][] = node-studyplan-field_study_handbook
+features[field_instance][] = node-studyplan-field_study_type
+features[node][] = studyplan

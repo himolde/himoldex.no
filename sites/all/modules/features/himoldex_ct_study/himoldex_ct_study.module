@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the himoldex_ct_study feature.
+ */
+
+include_once 'himoldex_ct_study.features.inc';
