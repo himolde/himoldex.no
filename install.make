@@ -5,6 +5,8 @@ api = 2
 projects[drupal][version] = "7.24"
 projects[drupal][patch][] = "http://himoldex.no/patches/1969208-2.patch"
 
+defaults[projects][subdir] = "contrib"
+
 ; Modules
 projects[admin_menu][version] = "3.0-rc4"
 

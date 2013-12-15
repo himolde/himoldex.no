@@ -6,10 +6,7 @@ sites/*/files
 sites/*/private
 
 # Ignore all non-custom themes/modules, and all libraries.
-sites/*/modules/*
-!sites/all/modules/custom
-!sites/all/modules/features
-!sites/all/modules/patches
+sites/*/modules/contrib
 sites/*/themes/*
 !sites/*/themes/himoldex
 sites/*/libraries
@@ -22,8 +19,9 @@ robots.txt
 /INSTALL*.txt
 /LICENSE.txt
 /MAINTAINERS.txt
-/UPGRADE.txt
+/PATCHES.txt
 /README.txt
+/UPGRADE.txt
 sites/README.txt
 sites/all/README.txt
 sites/all/modules/README.txt
