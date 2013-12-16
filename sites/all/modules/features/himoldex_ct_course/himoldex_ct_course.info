@@ -10,6 +10,7 @@ dependencies[] = link
 dependencies[] = node
 dependencies[] = options
 dependencies[] = text
+features[ctools][] = field_group:field_group:1
 features[features_api][] = api:2
 features[field_base][] = field_course_code
 features[field_base][] = field_course_consumers
