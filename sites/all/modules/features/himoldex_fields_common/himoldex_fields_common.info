@@ -1,4 +1,4 @@
-name = himoldex_fields_common
+name = HiMoldeX common (base) fields
 core = 7.x
 package = Features
 dependencies[] = features
