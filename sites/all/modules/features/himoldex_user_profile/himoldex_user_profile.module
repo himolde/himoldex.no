@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the himoldex_user_profile feature.
+ */
+
+include_once 'himoldex_user_profile.features.inc';
