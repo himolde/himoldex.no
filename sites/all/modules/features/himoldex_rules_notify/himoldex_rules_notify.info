@@ -1,0 +1,9 @@
+name = HiMoldeX notification rules
+core = 7.x
+package = Features
+dependencies[] = entity
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = rules_when_content_updated
+features[rules_config][] = rules_when_new_content_created
+features[rules_config][] = rules_when_new_user_created
