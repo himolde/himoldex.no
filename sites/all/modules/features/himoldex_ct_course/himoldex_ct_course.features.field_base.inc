@@ -234,7 +234,7 @@ function himoldex_ct_course_field_default_field_bases() {
         'view' => array(
           'args' => array(),
           'display_name' => 'entityreference_1',
-          'view_name' => 'lectures',
+          'view_name' => 'lecturers',
         ),
       ),
       'target_type' => 'user',

@@ -34,8 +34,8 @@ div.field-name-field-study-handbook {
     list-style: none;
 }
 
-div.view-emnemeny h2, 
-div.view-emnemeny h3, 
+div.view-course-menu h2, 
+div.view-course-menu h3, 
 div.view-studyplans-categorized h2, 
 div.view-studyplans-categorized h3, 
 div.bigmenu h2, 
@@ -48,7 +48,7 @@ div.view-studyplans-categorized h3 {
     font-size: 15px;
 }
 
-div.view-emnemeny a, 
+div.view-course-menu a, 
 div.view-studyplans-categorized a, 
 div.bigmenu a, 
 a.study-small-logo,
@@ -61,7 +61,7 @@ a.study-small-logo,
     border-bottom: 1px solid white;
 }
 
-div.view-emnemeny a.active, 
+div.view-course-menu a.active, 
 div.view-studyplans-categorized a.active, 
 div.bigmenu a.active, 
 #block-menu-menu-all a.active {
@@ -69,7 +69,7 @@ div.bigmenu a.active,
     background-color: #005DA1;
 }
 
-div.view-emnemeny a:hover, 
+div.view-course-menu a:hover, 
 div.view-studyplans-categorized a:hover, 
 div.bigmenu a:hover, 
 a.study-small-logo:hover,
