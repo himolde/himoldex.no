@@ -1,0 +1,841 @@
+<?php
+/**
+ * @file
+ * himoldex_views_video.views_default.inc
+ */
+
+/**
+ * Implements hook_views_default_views().
+ */
+function himoldex_views_video_views_default_views() {
+  $export = array();
+
+  $view = new view();
+  $view->name = 'all_videos';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Videoer - alle';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Alle videoer';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mer';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Synkende';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'neste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'siste »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'field_course_code' => 'field_course_code',
+    'title' => 'title',
+    'field_video_dato' => 'field_video_dato',
+    'title_1' => 'title_1',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'field_course_code' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_video_dato' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title_1' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Relasjon: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['id'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['field'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['label'] = 'Emne';
+  /* Felt: Innhold: Kode */
+  $handler->display->display_options['fields']['field_course_code']['id'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['field'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['relationship'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['fields']['field_course_code']['label'] = 'Emnekode';
+  /* Felt: Innhold: Tittel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
+  $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
+  /* Felt: Innhold: Dato */
+  $handler->display->display_options['fields']['field_video_dato']['id'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['settings'] = array(
+    'format_type' => 'shortest',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Sorteringskriterium: Innhold: Kode (field_course_code) */
+  $handler->display->display_options['sorts']['field_course_code_value']['id'] = 'field_course_code_value';
+  $handler->display->display_options['sorts']['field_course_code_value']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['sorts']['field_course_code_value']['field'] = 'field_course_code_value';
+  $handler->display->display_options['sorts']['field_course_code_value']['relationship'] = 'reverse_field_course_video_node';
+  /* Sorteringskriterium: Innhold: Dato (field_video_dato) */
+  $handler->display->display_options['sorts']['field_video_dato_value']['id'] = 'field_video_dato_value';
+  $handler->display->display_options['sorts']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['sorts']['field_video_dato_value']['field'] = 'field_video_dato_value';
+  $handler->display->display_options['sorts']['field_video_dato_value']['order'] = 'DESC';
+  /* Sorteringskriterium: Innhold: Innleggsdato */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  /* Filter criterion: Innhold: Type (field_video_type) */
+  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
+    'lecture' => 'lecture',
+  );
+  $handler->display->display_options['filters']['field_video_type_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_video_type_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['operator_id'] = 'field_video_type_value_op';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['operator'] = 'field_video_type_value_op';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['identifier'] = 'videotype';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Søk: Search Terms */
+  $handler->display->display_options['filters']['keys']['id'] = 'keys';
+  $handler->display->display_options['filters']['keys']['table'] = 'search_index';
+  $handler->display->display_options['filters']['keys']['field'] = 'keys';
+  $handler->display->display_options['filters']['keys']['group'] = 1;
+  $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['label'] = 'Søk';
+  $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
+  $handler->display->display_options['filters']['keys']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'videoer';
+  $translatables['all_videos'] = array(
+    t('Master'),
+    t('Alle videoer'),
+    t('mer'),
+    t('Bruk'),
+    t('Nullstill'),
+    t('Sortér på'),
+    t('Stigende'),
+    t('Synkende'),
+    t('Elementer per side'),
+    t('- Alle -'),
+    t('Offset'),
+    t('« første'),
+    t('‹ forrige'),
+    t('neste ›'),
+    t('siste »'),
+    t('Emne'),
+    t('Emnekode'),
+    t('Tittel'),
+    t('Dato'),
+    t('Type'),
+    t('Søk'),
+    t('Page'),
+  );
+  $export['all_videos'] = $view;
+
+  $view = new view();
+  $view->name = 'video_field_picker';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Video - feltvelger';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mer';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Synkende';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'neste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'siste »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relasjon: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['id'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['field'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['label'] = 'Emne';
+  /* Felt: Innhold: Tittel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
+  $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
+  /* Sorteringskriterium: Innhold: Kode (field_course_code) */
+  $handler->display->display_options['sorts']['field_course_code_value']['id'] = 'field_course_code_value';
+  $handler->display->display_options['sorts']['field_course_code_value']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['sorts']['field_course_code_value']['field'] = 'field_course_code_value';
+  $handler->display->display_options['sorts']['field_course_code_value']['relationship'] = 'reverse_field_course_video_node';
+  /* Sorteringskriterium: Innhold: Tittel */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  /* Filter criterion: Innhold: Type (field_video_type) */
+  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
+    'info' => 'info',
+  );
+
+  /* Display: Informasjonsvideo */
+  $handler = $view->new_display('entityreference', 'Informasjonsvideo', 'entityreference_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+
+  /* Display: Emnevideoer */
+  $handler = $view->new_display('entityreference', 'Emnevideoer', 'entityreference_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'field_course_code' => 'field_course_code',
+    'title' => 'title',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Innhold: Kode */
+  $handler->display->display_options['fields']['field_course_code']['id'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['field'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['relationship'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['fields']['field_course_code']['label'] = '';
+  $handler->display->display_options['fields']['field_course_code']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_code']['empty'] = '----';
+  /* Felt: Innhold: Tittel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
+  $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  /* Filter criterion: Innhold: Type (field_video_type) */
+  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
+    'lecture' => 'lecture',
+    'short' => 'short',
+    'solution' => 'solution',
+  );
+  $translatables['video_field_picker'] = array(
+    t('Master'),
+    t('mer'),
+    t('Bruk'),
+    t('Nullstill'),
+    t('Sortér på'),
+    t('Stigende'),
+    t('Synkende'),
+    t('Elementer per side'),
+    t('- Alle -'),
+    t('Offset'),
+    t('« første'),
+    t('‹ forrige'),
+    t('neste ›'),
+    t('siste »'),
+    t('Emne'),
+    t('Informasjonsvideo'),
+    t('Emnevideoer'),
+    t('----'),
+  );
+  $export['video_field_picker'] = $view;
+
+  $view = new view();
+  $view->name = 'videos';
+  $view->description = 'Lister over alle videoer i et emne';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Videoer';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Videoer';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mer';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Synkende';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'nid' => 'nid',
+    'field_video_type' => 'field_video_type',
+    'field_video_topic' => 'field_video_topic',
+    'field_video_dato' => 'field_video_dato',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'nid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_video_type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_video_topic' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_video_dato' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Relasjon: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['id'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['field'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['label'] = 'Emne som refererer til video';
+  /* Felt: Innhold: NID */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
+  $handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
+  /* Felt: Innhold: Type */
+  $handler->display->display_options['fields']['field_video_type']['id'] = 'field_video_type';
+  $handler->display->display_options['fields']['field_video_type']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['fields']['field_video_type']['field'] = 'field_video_type';
+  /* Felt: Innhold: Tema */
+  $handler->display->display_options['fields']['field_video_topic']['id'] = 'field_video_topic';
+  $handler->display->display_options['fields']['field_video_topic']['table'] = 'field_data_field_video_topic';
+  $handler->display->display_options['fields']['field_video_topic']['field'] = 'field_video_topic';
+  $handler->display->display_options['fields']['field_video_topic']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_video_topic']['alter']['path'] = 'node/[nid]?width=700&height=650';
+  $handler->display->display_options['fields']['field_video_topic']['alter']['link_class'] = 'colorbox-node';
+  /* Felt: Innhold: Dato */
+  $handler->display->display_options['fields']['field_video_dato']['id'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['settings'] = array(
+    'format_type' => 'shortest',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Sorteringskriterium: Innhold: Dato (field_video_dato) */
+  $handler->display->display_options['sorts']['field_video_dato_value']['id'] = 'field_video_dato_value';
+  $handler->display->display_options['sorts']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['sorts']['field_video_dato_value']['field'] = 'field_video_dato_value';
+  $handler->display->display_options['sorts']['field_video_dato_value']['order'] = 'DESC';
+  /* Sorteringskriterium: Innhold: Innleggsdato */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Innhold: NID */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['title'] = 'Videoer i %1';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'course' => 'course',
+  );
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+
+  /* Display: Forelesninger */
+  $handler = $view->new_display('page', 'Forelesninger', 'page');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  /* Filter criterion: Innhold: Type (field_video_type) */
+  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
+    'lecture' => 'lecture',
+  );
+  $handler->display->display_options['path'] = 'node/%/forelesninger';
+  $handler->display->display_options['menu']['title'] = 'Forelesninger';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+
+  /* Display: Kortvideoer */
+  $handler = $view->new_display('page', 'Kortvideoer', 'page_1');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  /* Filter criterion: Innhold: Type (field_video_type) */
+  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
+    'short' => 'short',
+  );
+  $handler->display->display_options['path'] = 'node/%/kortvideoer';
+  $handler->display->display_options['menu']['title'] = 'Kortvideoer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+
+  /* Display: Løsningsvideoer */
+  $handler = $view->new_display('page', 'Løsningsvideoer', 'page_2');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  /* Filter criterion: Innhold: Type (field_video_type) */
+  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
+    'solution' => 'solution',
+  );
+  $handler->display->display_options['path'] = 'node/%/losningsvideoer';
+  $handler->display->display_options['menu']['title'] = 'Løsningsvideoer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+
+  /* Display: Videoer */
+  $handler = $view->new_display('page', 'Videoer', 'page_3');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Innhold: Type (field_video_type) */
+  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
+  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
+  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
+    'lecture' => 'lecture',
+  );
+  $handler->display->display_options['filters']['field_video_type_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['operator_id'] = 'field_video_type_value_op';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['operator'] = 'field_video_type_value_op';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['field_video_type_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['path'] = 'node/%/videoer';
+  $handler->display->display_options['menu']['title'] = 'Videoer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $translatables['videos'] = array(
+    t('Master'),
+    t('Videoer'),
+    t('mer'),
+    t('Bruk'),
+    t('Nullstill'),
+    t('Sortér på'),
+    t('Stigende'),
+    t('Synkende'),
+    t('Emne som refererer til video'),
+    t('NID'),
+    t('Type'),
+    t('Tema'),
+    t('Dato'),
+    t('Alle'),
+    t('Videoer i %1'),
+    t('Forelesninger'),
+    t('Kortvideoer'),
+    t('Løsningsvideoer'),
+  );
+  $export['videos'] = $view;
+
+  $view = new view();
+  $view->name = 'videos_unused';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Ubrukte videoer';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Ubrukte videoer';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mer';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Synkende';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'neste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'siste »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'field_course_code' => 'field_course_code',
+    'title' => 'title',
+    'delete_node' => 'delete_node',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'field_course_code' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'delete_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Relasjon: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['id'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['field'] = 'reverse_field_course_video_node';
+  $handler->display->display_options['relationships']['reverse_field_course_video_node']['label'] = 'Emne';
+  /* Felt: Innhold: Kode */
+  $handler->display->display_options['fields']['field_course_code']['id'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['field'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['relationship'] = 'reverse_field_course_video_node';
+  /* Felt: Innhold: Tittel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Felt: Innhold: Slett lenke */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  /* Sorteringskriterium: Innhold: Tittel */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Sorteringskriterium: Innhold: Kode (field_course_code) */
+  $handler->display->display_options['sorts']['field_course_code_value']['id'] = 'field_course_code_value';
+  $handler->display->display_options['sorts']['field_course_code_value']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['sorts']['field_course_code_value']['field'] = 'field_course_code_value';
+  $handler->display->display_options['sorts']['field_course_code_value']['relationship'] = 'reverse_field_course_video_node';
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  /* Filter criterion: Innhold: Tittel */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Tittel';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+    8 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'admin/videos';
+  $translatables['videos_unused'] = array(
+    t('Master'),
+    t('Ubrukte videoer'),
+    t('mer'),
+    t('Bruk'),
+    t('Nullstill'),
+    t('Sortér på'),
+    t('Stigende'),
+    t('Synkende'),
+    t('Elementer per side'),
+    t('- Alle -'),
+    t('Offset'),
+    t('« første'),
+    t('‹ forrige'),
+    t('neste ›'),
+    t('siste »'),
+    t('Emne'),
+    t('Kode'),
+    t('Tittel'),
+    t('Slett lenke'),
+    t('Page'),
+  );
+  $export['videos_unused'] = $view;
+
+  return $export;
+}

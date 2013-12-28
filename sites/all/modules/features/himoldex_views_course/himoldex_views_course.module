@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the himoldex_views_course feature.
+ */
+
+include_once 'himoldex_views_course.features.inc';
