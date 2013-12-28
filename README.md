@@ -24,9 +24,6 @@ http://www.lullabot.com/articles/strategies-for-patch-management
 Status
 ------
 
-This project is a hack:
-
-* The configuration is in the database.
+* Features are used for most configuration - content types, views, rules.
 * The Omega sub-theme is hackish.
-
-There is no guarantee that best practive is followed.
+* There is no guarantee that best practive is followed.
