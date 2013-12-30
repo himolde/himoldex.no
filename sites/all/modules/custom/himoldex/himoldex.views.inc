@@ -1,6 +1,24 @@
 <?php
 
 /**
+ * Implements hook_views_pre_view().
+ */
+function himoldex_views_pre_view(&$view, &$display_id, &$args) {
+  if ($view->name == 'videos') {
+    // Find path (to decide which course we are viewing)
+    $current_path = current_path();
+    $path = drupal_lookup_path('alias', $current_path);
+    if (empty($path)) {
+      $path = $current_path;
+    }
+    // Remove video date filter for all courses but MAT110.
+    if ($path != 'node/5/videoer') {
+      $view->set_item($display_id, 'filter', 'field_video_dato_value', NULL);
+    }
+  }
+}
+
+/**
  * Implements hook_views_pre_render().
  */
 function himoldex_views_pre_render(&$view) {

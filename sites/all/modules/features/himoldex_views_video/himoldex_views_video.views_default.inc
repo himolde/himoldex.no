@@ -660,6 +660,28 @@ function himoldex_views_video_views_default_views() {
     7 => 0,
     8 => 0,
   );
+  /* Filter criterion: Innhold: Dato (field_video_dato) */
+  $handler->display->display_options['filters']['field_video_dato_value']['id'] = 'field_video_dato_value';
+  $handler->display->display_options['filters']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['filters']['field_video_dato_value']['field'] = 'field_video_dato_value';
+  $handler->display->display_options['filters']['field_video_dato_value']['value']['value'] = '2014';
+  $handler->display->display_options['filters']['field_video_dato_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_video_dato_value']['expose']['operator_id'] = 'field_video_dato_value_op';
+  $handler->display->display_options['filters']['field_video_dato_value']['expose']['label'] = 'År';
+  $handler->display->display_options['filters']['field_video_dato_value']['expose']['operator'] = 'field_video_dato_value_op';
+  $handler->display->display_options['filters']['field_video_dato_value']['expose']['identifier'] = 'period';
+  $handler->display->display_options['filters']['field_video_dato_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_video_dato_value']['granularity'] = 'year';
+  $handler->display->display_options['filters']['field_video_dato_value']['year_range'] = '2013:2014';
   $handler->display->display_options['path'] = 'node/%/videoer';
   $handler->display->display_options['menu']['title'] = 'Videoer';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -683,6 +705,7 @@ function himoldex_views_video_views_default_views() {
     t('Forelesninger'),
     t('Kortvideoer'),
     t('Løsningsvideoer'),
+    t('År'),
   );
   $export['videos'] = $view;
 
