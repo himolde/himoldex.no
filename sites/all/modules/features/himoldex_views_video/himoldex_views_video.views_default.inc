@@ -771,6 +771,21 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['fields']['field_course_code']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_course_code']['alter']['suffix'] = '&nbsp;-';
   $handler->display->display_options['fields']['field_course_code']['element_label_colon'] = FALSE;
+  /* Felt: Innhold: Dato */
+  $handler->display->display_options['fields']['field_video_dato']['id'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['label'] = '';
+  $handler->display->display_options['fields']['field_video_dato']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_video_dato']['alter']['text'] = '([field_video_dato])';
+  $handler->display->display_options['fields']['field_video_dato']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_dato']['settings'] = array(
+    'format_type' => 'shortest',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Felt: Innhold: NID */
   $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
   $handler->display->display_options['fields']['nid_1']['table'] = 'node';
@@ -788,6 +803,7 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid_1]?width=700&height=650';
+  $handler->display->display_options['fields']['title']['alter']['alt'] = 'Dato: [field_video_dato]';
   $handler->display->display_options['fields']['title']['alter']['link_class'] = 'colorbox-node';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
@@ -797,22 +813,6 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '700';
   $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '650';
   $handler->display->display_options['fields']['title']['node_in_colorbox_rel'] = '';
-  /* Felt: Innhold: Dato */
-  $handler->display->display_options['fields']['field_video_dato']['id'] = 'field_video_dato';
-  $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
-  $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
-  $handler->display->display_options['fields']['field_video_dato']['label'] = '';
-  $handler->display->display_options['fields']['field_video_dato']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_video_dato']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_video_dato']['alter']['text'] = '([field_video_dato])';
-  $handler->display->display_options['fields']['field_video_dato']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_video_dato']['settings'] = array(
-    'format_type' => 'shortest',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
   /* Sorteringskriterium: Innhold: Dato (field_video_dato) */
   $handler->display->display_options['sorts']['field_video_dato_value']['id'] = 'field_video_dato_value';
   $handler->display->display_options['sorts']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
@@ -857,6 +857,7 @@ function himoldex_views_video_views_default_views() {
     t('Emne'),
     t('&nbsp;-'),
     t('([field_video_dato])'),
+    t('Dato: [field_video_dato]'),
     t('Type'),
     t('Blokk'),
   );
