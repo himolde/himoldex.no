@@ -8,4 +8,5 @@ features[features_api][] = api:2
 features[views_view][] = all_videos
 features[views_view][] = video_field_picker
 features[views_view][] = videos
+features[views_view][] = videos_last
 features[views_view][] = videos_unused
