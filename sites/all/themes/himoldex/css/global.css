@@ -145,6 +145,11 @@ div#zone-prefooter {
     margin-top: 20px;
 }
 
+/* After branding */
+div#zone-postbranding {
+    margin-bottom: 20px;
+}
+
 /* About link and social buttons */
 p#about-social, table#about-social {
     color: black;

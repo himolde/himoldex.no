@@ -9,6 +9,10 @@
     <?php print render($page['header']); ?>
   <?php endif; ?>
   
+  <?php if (isset($page['postbranding'])) : ?>
+    <?php print render($page['postbranding']); ?>
+  <?php endif; ?>
+
   <?php if (isset($page['content'])) : ?>
     <?php print render($page['content']); ?>
   <?php endif; ?>  
