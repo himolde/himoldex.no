@@ -16,3 +16,9 @@ div#block-search-form {
 a.study-small-logo {
     font-size: 12px;
 }
+
+/* YouTube player */
+.yt_container_third {
+    width: 220px;
+    height: 124px;
+}

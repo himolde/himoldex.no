@@ -32,3 +32,9 @@ p#textlogo span#x {
 p#textlogo span.desc {
     font-size: 33px;
 }
+
+/* YouTube player */
+.yt_container_third {
+    width: 300px;
+    height: 169px;
+}

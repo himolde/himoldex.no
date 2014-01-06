@@ -194,3 +194,9 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* YouTube player */
+.yt_container_third {
+    width: 320px;
+    height: 180px;
+}
