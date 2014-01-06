@@ -802,6 +802,7 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
   $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
   $handler->display->display_options['fields']['field_video_dato']['label'] = '';
+  $handler->display->display_options['fields']['field_video_dato']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_video_dato']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_video_dato']['alter']['text'] = '([field_video_dato])';
   $handler->display->display_options['fields']['field_video_dato']['element_label_colon'] = FALSE;
