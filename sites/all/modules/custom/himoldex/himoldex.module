@@ -227,7 +227,7 @@ EOM;
   var player;
   function onYouTubePlayerAPIReady() {
     player = new YT.Player('yt_player', {
-      playerVars: { 'autoplay': 1, 'autohide': 1, 'rel': 0,},
+      playerVars: { 'autoplay': 1, 'autohide': 1, 'rel': 0, 'showinfo': 0},
       height: '100%',
       width: '100%',
       videoId: 'ue_UTxmtx5Y',
