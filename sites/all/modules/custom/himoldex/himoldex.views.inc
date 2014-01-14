@@ -11,8 +11,8 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
     if (empty($path)) {
       $path = $current_path;
     }
-    // Remove video date filter for all courses but MAT110.
-    if ($path != 'node/5/videoer') {
+    // Remove video date filter for all courses but MAT110 and BØK500.
+    if (($path != 'node/5/videoer') && ($path != 'node/98/videoer')) {
       $view->set_item($display_id, 'filter', 'field_video_dato_value', NULL);
     }
   }
