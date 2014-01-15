@@ -218,7 +218,7 @@ EOM;
     case 'promo_video':
       $html = <<<EOM
 <!-- iframe src="//www.youtube.com/embed/ue_UTxmtx5Y?rel=0&amp;autoplay=1" frameborder="0" width="352" height="198"></iframe -->
-<div class="yt_container_third"><div id="yt_player"></div></div>
+<div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
 <script type="text/javascript">// <![CDATA[
   var tag = document.createElement('script');
   tag.src = "http://www.youtube.com/player_api";
