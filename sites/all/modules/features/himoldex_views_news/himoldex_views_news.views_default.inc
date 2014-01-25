@@ -83,7 +83,7 @@ function himoldex_views_news_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Alle nyheter';
+  $handler->display->display_options['title'] = 'Alle nyheter og kunngjøringer';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -235,7 +235,7 @@ function himoldex_views_news_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<h2 class="block-title">Siste kunngjøringer</a></h2>
+  $handler->display->display_options['header']['area']['content'] = '<h2 class="block-title"><a href="/nyheter">Siste kunngjøringer</a></h2>
 ';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -283,7 +283,7 @@ function himoldex_views_news_views_default_views() {
     t('neste ›'),
     t('siste »'),
     t('Page'),
-    t('Alle nyheter'),
+    t('Alle nyheter og kunngjøringer'),
     t('Blokk for nyheter'),
     t('Siste nyheter'),
     t('<h2 class="block-title"><a href="/nyheter">Siste nyheter</a></h2>
@@ -299,7 +299,7 @@ function himoldex_views_news_views_default_views() {
     t('Les nyheten'),
     t('Blokk for kunngjøringer'),
     t('Siste kunngjøringer'),
-    t('<h2 class="block-title">Siste kunngjøringer</a></h2>
+    t('<h2 class="block-title"><a href="/nyheter">Siste kunngjøringer</a></h2>
 '),
   );
   $export['news'] = $view;
