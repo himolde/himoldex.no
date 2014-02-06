@@ -56,49 +56,6 @@ function himoldex_ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_announcement'
-  $field_instances['node-news-field_announcement'] = array(
-    'bundle' => 'news',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_announcement',
-    'label' => 'Kunngjøring',
-    'readmore_behaviour' => 'default',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 1,
-    ),
-  );
-
   // Exported field_instance: 'node-news-field_course'
   $field_instances['node-news-field_course'] = array(
     'bundle' => 'news',
@@ -140,7 +97,6 @@ function himoldex_ct_news_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Emne');
   t('Innhold');
-  t('Kunngjøring');
 
   return $field_instances;
 }

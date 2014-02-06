@@ -92,57 +92,6 @@ function himoldex_views_news_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['path'] = 'nyheter';
 
-  /* Display: Blokk for nyheter */
-  $handler = $view->new_display('block', 'Blokk for nyheter', 'block');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Siste nyheter';
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Topptekst: Global: Tekstområde */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<h2 class="block-title"><a href="/nyheter">Siste nyheter</a></h2>
-';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Innhold: Publisert */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'news' => 'news',
-  );
-  /* Filter criterion: Innhold: Emne (field_course) */
-  $handler->display->display_options['filters']['field_course_target_id']['id'] = 'field_course_target_id';
-  $handler->display->display_options['filters']['field_course_target_id']['table'] = 'field_data_field_course';
-  $handler->display->display_options['filters']['field_course_target_id']['field'] = 'field_course_target_id';
-  $handler->display->display_options['filters']['field_course_target_id']['operator'] = 'empty';
-  /* Filter criterion: Innhold: Kunngjøring (field_announcement) */
-  $handler->display->display_options['filters']['field_announcement_value']['id'] = 'field_announcement_value';
-  $handler->display->display_options['filters']['field_announcement_value']['table'] = 'field_data_field_announcement';
-  $handler->display->display_options['filters']['field_announcement_value']['field'] = 'field_announcement_value';
-  $handler->display->display_options['filters']['field_announcement_value']['operator'] = 'not';
-  $handler->display->display_options['filters']['field_announcement_value']['value'] = array(
-    1 => '1',
-  );
-
   /* Display: Strøm */
   $handler = $view->new_display('feed', 'Strøm', 'feed_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
@@ -259,13 +208,6 @@ function himoldex_views_news_views_default_views() {
   $handler->display->display_options['filters']['field_course_target_id']['table'] = 'field_data_field_course';
   $handler->display->display_options['filters']['field_course_target_id']['field'] = 'field_course_target_id';
   $handler->display->display_options['filters']['field_course_target_id']['operator'] = 'empty';
-  /* Filter criterion: Innhold: Kunngjøring (field_announcement) */
-  $handler->display->display_options['filters']['field_announcement_value']['id'] = 'field_announcement_value';
-  $handler->display->display_options['filters']['field_announcement_value']['table'] = 'field_data_field_announcement';
-  $handler->display->display_options['filters']['field_announcement_value']['field'] = 'field_announcement_value';
-  $handler->display->display_options['filters']['field_announcement_value']['value'] = array(
-    1 => '1',
-  );
   $translatables['news'] = array(
     t('Master'),
     t('Nyheter'),
@@ -284,10 +226,6 @@ function himoldex_views_news_views_default_views() {
     t('siste »'),
     t('Page'),
     t('Alle nyheter og kunngjøringer'),
-    t('Blokk for nyheter'),
-    t('Siste nyheter'),
-    t('<h2 class="block-title"><a href="/nyheter">Siste nyheter</a></h2>
-'),
     t('Strøm'),
     t('HiMoldeX - nyheter'),
     t('Brødtekst'),
