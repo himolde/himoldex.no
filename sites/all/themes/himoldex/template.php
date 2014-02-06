@@ -42,16 +42,16 @@ function himoldex_preprocess_search_result(&$variables) {
 
 
 function himoldex_field__field_study_handbook__studyplan($variables){
-    $prefix = '<p>Les i ';
-    $suffix = ' for formell beskrivelse av studiet';
-    list($month, $day) = explode(':', date("n:j", time()));
-    if (($month == '2') || ($month == '3') || (($month == '4') && ($day < 16))) {
-         $suffix .= ' og gå til <a href="http://www.samordnaopptak.no/">Samordna opptak</a> for å søke. Søknadsfrist 15. april';
-    }
-    $suffix .= '.</p>';
-    $variables['items'][0]['#prefix'] = $prefix;
-    $variables['items'][0]['#suffix'] = $suffix;
-    return theme_field($variables);
+  $prefix = '<p>Les i ';
+  $suffix = ' for formell beskrivelse av studiet';
+  list($month, $day) = explode(':', date("n:j", time()));
+  if (($month == '2') || ($month == '3') || (($month == '4') && ($day < 16))) {
+    $suffix .= ' og gå til <a href="http://www.samordnaopptak.no/">Samordna opptak</a> for å søke. Søknadsfrist 15. april';
+  }
+  $suffix .= '.</p>';
+  $variables['items'][0]['#prefix'] = $prefix;
+  $variables['items'][0]['#suffix'] = $suffix;
+  return theme_field($variables);
 }
 
 /**
@@ -60,7 +60,8 @@ function himoldex_field__field_study_handbook__studyplan($variables){
 function himoldex_username($variables) {
   if (!empty($variables['name_raw'])) {
     $name = check_plain($variables['name_raw']);
-  } else {
+  } 
+  else {
     $name = $variables['name'];
   }
   if (isset($variables['link_path'])) {
@@ -82,11 +83,11 @@ function himoldex_username($variables) {
  * Adding h3 to the menu. Will probably be removed later ...
  */
 function himoldex_menu_link($variables) {
-    if ($variables['element']['#original_link']['menu_name'] == 'menu-all') {
-        $variables['element']['#localized_options']['html'] = TRUE;
-        $variables['element']['#title'] = '<h3>' . $variables['element']['#title'] . '</h3>';
-    }
-    return theme_menu_link($variables);
+  if ($variables['element']['#original_link']['menu_name'] == 'menu-all') {
+    $variables['element']['#localized_options']['html'] = TRUE;
+    $variables['element']['#title'] = '<h3>' . $variables['element']['#title'] . '</h3>';
+  }
+  return theme_menu_link($variables);
 }
 
 /**
