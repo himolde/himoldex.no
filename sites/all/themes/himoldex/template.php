@@ -88,3 +88,12 @@ function himoldex_menu_link($variables) {
     }
     return theme_menu_link($variables);
 }
+
+/**
+ * Removing the more link in the aggregator blocks.
+ */
+function himoldex_more_link ($array) {
+  if (stristr($array['url'], 'aggregator')) {
+    return "";
+  }
+}
