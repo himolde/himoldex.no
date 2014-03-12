@@ -309,9 +309,10 @@ EOM;
 
 /**
  * Implements hook_block_view_MODULE_DELTA_alter().
-function himoldex_block_view_himoldex_study_small_logo_it_alter(&$data, $block) {
-  dpm($data);
-  dpm($block);
-}
+ *
+ * Turning the aggregator block title into a link.
  */
+function himoldex_block_view_aggregator_feed_1_alter(&$data, $block) {
+  $data['subject'] = '<a href="http://www.himolde.no/aktuelt/">' . $data['subject']. '</a>'; 
+}
 
