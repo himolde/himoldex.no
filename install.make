@@ -24,8 +24,6 @@ projects[custom_search][version] = "1.14"
 
 projects[date][version] = "2.6"
 
-projects[devel][version] = "1.3"
-
 projects[diff][version] = "3.2"
 
 projects[entity][version] = "1.3"
