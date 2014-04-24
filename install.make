@@ -20,7 +20,7 @@ projects[colorbox][version] = "2.5"
 
 projects[colorbox_node][version] = "3.2"
 
-projects[custom_search][version] = "1.14"
+projects[custom_search][version] = "1.16"
 
 projects[date][version] = "2.6"
 
