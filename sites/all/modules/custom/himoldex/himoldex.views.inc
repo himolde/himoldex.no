@@ -11,8 +11,15 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
     if (empty($path)) {
       $path = $current_path;
     }
-    // Remove video date filter for all courses but MAT001, MAT110 and BØK500.
-    if (($path != 'node/86/videoer') && ($path != 'node/5/videoer') && ($path != 'node/98/videoer')) {
+    // Remove video date filter for all courses but MAT001, MAT100, MAT110 and BØK500.
+    $exclude_nids = array(
+      'mat001' => 86,
+      'mat100' => 80,
+      'mat110' => 5,
+      'bok500' => 98,
+    );
+    $nid = preg_replace('#node/([0-9]+)/videoer#', '$1', $path);
+    if (!in_array($nid, $exclude_nids)) {
       $view->set_item($display_id, 'filter', 'field_video_dato_value', NULL);
     }
   }
