@@ -102,6 +102,10 @@ function himoldex_block_info() {
     'info' => 'HimoldeX: Liten logo for IT',
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
+  $blocks['study_small_logo_euv'] = array(
+    'info' => 'HimoldeX: Liten logo for EUV',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
   $blocks['study_small_logo_ALL'] = array(
     'info' => 'HimoldeX: Liten logo for alle emner',
     'cache' => DRUPAL_CACHE_PER_PAGE,
@@ -146,6 +150,9 @@ function himoldex_block_view($delta = '') {
       break;
     case 'study_small_logo_it':
       $block['content'] = _himoldex_block_contents($delta, 'IT');
+      break;
+    case 'study_small_logo_euv':
+      $block['content'] = _himoldex_block_contents($delta, 'Videre- og etterutdanning');
       break;
     case 'study_small_logo_ALL':
       $block['content'] = _himoldex_block_contents($delta, 'Alle emner');
@@ -275,6 +282,9 @@ EOM;
       $name = str_replace('study_small_logo_', '', $which_block);
       if ($name == 'samfunn') {
         $name = 'juss-og-samfunnsfag';
+      }
+      else if ($name == 'euv') {
+        $name = 'videre-og-etterutdanning';
       }
       if ($name == 'ALL') {
         $path = 'emner';
