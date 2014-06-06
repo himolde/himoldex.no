@@ -20,6 +20,27 @@ function himoldex_pathauto_alias_alter(&$alias, array &$context) {
 }
 
 /**
+ * Implements hook_node_validate().
+ *
+ * - Avoid duplicate course codes.
+ */
+function himoldex_node_validate($node, $form) {
+  $course_type = 'course';
+  if ($node->type == $course_type) {
+    $course_code = $node->field_course_code[LANGUAGE_NONE][0]['value'];
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', $course_type)
+      ->fieldCondition('field_course_code', 'value', $course_code, '=');
+    $result = $query->execute();
+    if (isset($result['node'])) {
+      form_set_error('field_course_code', t('Det fins allerede et emne med denne koden.'));
+    }
+  }
+}
+
+
+/**
  * Implements hook_form_FORM_ID_alter().
  *
  * Making it clear that we use our full names for user registration.
