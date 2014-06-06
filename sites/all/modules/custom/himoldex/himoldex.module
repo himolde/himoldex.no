@@ -323,6 +323,6 @@ EOM;
  * Turning the aggregator block title into a link.
  */
 function himoldex_block_view_aggregator_feed_1_alter(&$data, $block) {
-  $data['subject'] = '<a href="http://www.himolde.no/aktuelt/">' . $data['subject']. '</a>'; 
+  $data['subject'] = '<a href="http://panorama.himolde.no/" title="Nyheter fra Panorama - Høgskolen i Moldes uavhengige nettavis">' . $data['subject']. '</a>'; 
 }
 
