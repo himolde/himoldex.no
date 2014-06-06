@@ -23,6 +23,7 @@ features[fe_block_settings][] = himoldex-banner_small
 features[fe_block_settings][] = himoldex-promo_video
 features[fe_block_settings][] = himoldex-study_big_logo
 features[fe_block_settings][] = himoldex-study_small_logo_ALL
+features[fe_block_settings][] = himoldex-study_small_logo_euv
 features[fe_block_settings][] = himoldex-study_small_logo_idrett
 features[fe_block_settings][] = himoldex-study_small_logo_it
 features[fe_block_settings][] = himoldex-study_small_logo_logistikk

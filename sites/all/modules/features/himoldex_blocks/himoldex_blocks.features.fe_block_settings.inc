@@ -47,7 +47,7 @@ function himoldex_blocks_default_fe_block_settings() {
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['comment-recent'] = array(
@@ -335,10 +335,48 @@ studium/*',
         'weight' => 0,
       ),
       'himoldex' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'himoldex',
+        'weight' => -27,
+      ),
+      'omega' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'omega',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 1,
+  );
+
+  $export['himoldex-study_small_logo_euv'] = array(
+    'cache' => 4,
+    'custom' => 0,
+    'delta' => 'study_small_logo_euv',
+    'module' => 'himoldex',
+    'node_types' => array(),
+    'pages' => '<front>',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'himoldex' => array(
         'region' => 'postscript_fourth',
         'status' => 1,
         'theme' => 'himoldex',
-        'weight' => -20,
+        'weight' => -29,
       ),
       'omega' => array(
         'region' => '',
@@ -376,7 +414,7 @@ studium/*',
         'region' => 'postscript_fourth',
         'status' => 1,
         'theme' => 'himoldex',
-        'weight' => -21,
+        'weight' => -30,
       ),
       'omega' => array(
         'region' => '',
@@ -854,7 +892,7 @@ forelesere',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['menu-menu-log-in'] = array(
@@ -2022,7 +2060,7 @@ studium/vernepleie',
         'region' => 'postscript_fourth',
         'status' => 1,
         'theme' => 'himoldex',
-        'weight' => -19,
+        'weight' => -28,
       ),
       'omega' => array(
         'region' => '',
@@ -2153,7 +2191,7 @@ studium/vernepleie',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   return $export;
