@@ -25,15 +25,20 @@ function himoldex_pathauto_alias_alter(&$alias, array &$context) {
  * - Avoid duplicate course codes.
  */
 function himoldex_node_validate($node, $form) {
-  // Only validate new nodes.
-  if (!empty($node->nid)) {
-    return;
-  }
-  // Onlye validate courses.
+  // Only validate courses.
   $course_type = 'course';
   if ($node->type == $course_type) {
     $node_wrapper = entity_metadata_wrapper('node', $node);
     $course_code = $node_wrapper->field_course_code->value();
+    // Don't validate existing nodes with unchanged course code.
+    if (!empty($node->nid)) {
+      $orig_node = node_load($node->nid);
+      $orig_node_wrapper = entity_metadata_wrapper('node', $orig_node);
+      $orig_course_code = $orig_node_wrapper->field_course_code->value();
+      if ($course_code == $orig_course_code) {
+	return;
+      }
+    }
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', $course_type)
