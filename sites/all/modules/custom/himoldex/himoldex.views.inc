@@ -11,8 +11,12 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
     if (empty($path)) {
       $path = $current_path;
     }
-    // Remove video date filter for all courses but MAT001, MAT100, MAT110 and BØK500.
+    // Remove video date filter for the following courses.
     $exclude_nids = array(
+      'ibe110' => 8,
+      'ibe151' => 78,
+      'ibe312' => 34,
+      'ibe430' => 87,
       'mat001' => 86,
       'mat100' => 80,
       'mat110' => 5,
