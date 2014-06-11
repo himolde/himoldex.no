@@ -21,7 +21,7 @@ function himoldex_ct_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -66,7 +66,7 @@ function himoldex_ct_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -291,6 +291,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
           'colorbox_image_style' => '',
           'colorbox_multivalue_index' => NULL,
           'colorbox_node_style' => 'medium',
+          'colorbox_node_style_first' => '',
         ),
         'type' => 'colorbox',
         'weight' => 1,
@@ -390,7 +391,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -424,6 +425,49 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
+  // Exported field_instance: 'node-course-field_course_promovideo'
+  $field_instances['node-course-field_course_promovideo'] = array(
+    'bundle' => 'course',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_promovideo',
+    'label' => 'Promovideo',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'youtube',
+      'settings' => array(),
+      'type' => 'youtube',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-course-field_course_video'
   $field_instances['node-course-field_course_video'] = array(
     'bundle' => 'course',
@@ -435,7 +479,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -487,6 +531,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
   t('Illustrasjonsbilde');
   t('Kode');
   t('Navn');
+  t('Promovideo');
   t('Relevante studier');
   t('Video');
 

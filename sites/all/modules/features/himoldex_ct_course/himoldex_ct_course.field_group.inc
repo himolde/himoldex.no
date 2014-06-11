@@ -83,6 +83,7 @@ function himoldex_ct_course_field_group_info() {
       2 => 'field_course_homepage',
       3 => 'field_course_lecture',
       4 => 'field_course_fb_group',
+      5 => 'field_course_promovideo',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
