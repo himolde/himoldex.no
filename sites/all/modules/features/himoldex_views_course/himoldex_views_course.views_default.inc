@@ -70,8 +70,26 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['alter']['path'] = 'user/[uid]?width=600&height=600';
   $handler->display->display_options['fields']['picture']['alter']['link_class'] = 'colorbox-node';
+  $handler->display->display_options['fields']['picture']['element_type'] = 'p';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
+  /* Felt: Innhold: Promovideo */
+  $handler->display->display_options['fields']['field_course_promovideo']['id'] = 'field_course_promovideo';
+  $handler->display->display_options['fields']['field_course_promovideo']['table'] = 'field_data_field_course_promovideo';
+  $handler->display->display_options['fields']['field_course_promovideo']['field'] = 'field_course_promovideo';
+  $handler->display->display_options['fields']['field_course_promovideo']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['field_course_promovideo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_promovideo']['click_sort_column'] = 'input';
+  $handler->display->display_options['fields']['field_course_promovideo']['settings'] = array(
+    'youtube_size' => 'responsive',
+    'youtube_width' => '',
+    'youtube_height' => '',
+    'youtube_autoplay' => 1,
+    'youtube_showinfo' => 1,
+    'youtube_controls' => 0,
+    'youtube_autohide' => 0,
+    'youtube_iv_load_policy' => 0,
+  );
   /* Sorteringskriterium: Innhold: Innleggsdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -114,6 +132,7 @@ function himoldex_views_course_views_default_views() {
     t('Stigende'),
     t('Synkende'),
     t('Foreleser'),
+    t('Promovideo'),
     t('Alle'),
     t('Block'),
   );
