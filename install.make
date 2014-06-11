@@ -62,8 +62,7 @@ projects[panels][version] = "3.3"
 
 projects[pathauto][version] = "1.2"
 
-projects[pathologic][version] = "2.11"
-projects[pathologic][patch][] = "http://himoldex.no/sites/all/modules/patches/pathologic-2098043-1.patch"
+projects[pathologic][version] = "2.12"
 
 projects[publishcontent][version] = "1.2"
 
