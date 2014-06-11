@@ -16,9 +16,9 @@ projects[ctools][version] = "1.4"
 
 projects[coffee][version] = "1.0"
 
-projects[colorbox][version] = "2.5"
+projects[colorbox][version] = "2.6"
 
-projects[colorbox_node][version] = "3.2"
+projects[colorbox_node][version] = "3.3"
 
 projects[custom_search][version] = "1.16"
 
@@ -89,7 +89,7 @@ projects[views][version] = "3.8"
 
 projects[wysiwyg][version] = "2.2"
 
-projects[youtube][version] = "1.0"
+projects[youtube][version] = "1.2"
 
 ; Themes
 projects[omega][version] = "3.1"
