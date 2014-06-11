@@ -58,7 +58,7 @@ projects[module_filter][version] = "1.8"
 
 projects[omega_tools][version] = "3.0-rc4"
 
-projects[panels][version] = "3.3"
+projects[panels][version] = "3.4"
 
 projects[pathauto][version] = "1.2"
 
@@ -77,13 +77,13 @@ projects[references_dialog][patch][] = "http://himoldex.no/sites/all/modules/pat
 
 projects[revision_deletion][version] = "1.x-dev"
 
-projects[rules][version] = "2.6"
+projects[rules][version] = "2.7"
 
 projects[subpathauto][version] = "1.3"
 
 projects[token][version] = "1.5"
 
-projects[transliteration][version] = "3.1"
+projects[transliteration][version] = "3.2"
 
 projects[views][version] = "3.8"
 
