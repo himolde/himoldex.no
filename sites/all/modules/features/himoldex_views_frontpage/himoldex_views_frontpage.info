@@ -1,4 +1,4 @@
-name = himoldex_views_frontpage
+name = HiMoldeX views for frontpage
 core = 7.x
 package = Features
 dependencies[] = flexslider_views
