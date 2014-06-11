@@ -40,7 +40,7 @@ projects[flexslider][version] = "2.0-alpha3"
 
 projects[google_analytics][version] = "1.4"
 
-projects[imce][version] = "1.7"
+projects[imce][version] = "1.9"
 
 projects[imce_wysiwyg][version] = "1.0"
 
@@ -64,11 +64,11 @@ projects[pathauto][version] = "1.2"
 
 projects[pathologic][version] = "2.12"
 
-projects[publishcontent][version] = "1.2"
+projects[publishcontent][version] = "1.3"
 
-projects[readmorecontrol][version] = "1.0"
+projects[readmorecontrol][version] = "1.2"
 
-projects[realname][version] = "1.1"
+projects[realname][version] = "1.2"
 
 projects[redirect][version] = "1.0-rc1"
 
