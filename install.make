@@ -22,11 +22,11 @@ projects[colorbox_node][version] = "3.3"
 
 projects[custom_search][version] = "1.16"
 
-projects[date][version] = "2.6"
+projects[date][version] = "2.7"
 
 projects[diff][version] = "3.2"
 
-projects[entity][version] = "1.3"
+projects[entity][version] = "1.5"
 
 projects[entityreference][version] = "1.1"
 
@@ -34,7 +34,7 @@ projects[features_extra][version] = "1.0-beta1"
 
 projects[features][version] = "2.0"
 
-projects[field_group][version] = "1.3"
+projects[field_group][version] = "1.4"
 
 projects[flexslider][version] = "2.0-alpha3"
 
