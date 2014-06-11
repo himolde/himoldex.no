@@ -44,11 +44,11 @@ projects[imce][version] = "1.7"
 
 projects[imce_wysiwyg][version] = "1.0"
 
-projects[l10n_update][version] = "1.0-beta3"
+projects[l10n_update][version] = "1.0"
 
-projects[ldap][version] = "2.0-beta5"
+projects[ldap][version] = "2.0-beta8"
 
-projects[libraries][version] = "2.1"
+projects[libraries][version] = "2.2"
 
 projects[link][version] = "1.2"
 
