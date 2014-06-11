@@ -79,6 +79,7 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['field_course_promovideo']['field'] = 'field_course_promovideo';
   $handler->display->display_options['fields']['field_course_promovideo']['element_label_type'] = 'h3';
   $handler->display->display_options['fields']['field_course_promovideo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_promovideo']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_course_promovideo']['click_sort_column'] = 'input';
   $handler->display->display_options['fields']['field_course_promovideo']['settings'] = array(
     'youtube_size' => 'responsive',
