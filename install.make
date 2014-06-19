@@ -79,6 +79,8 @@ projects[revision_deletion][version] = "1.x-dev"
 
 projects[rules][version] = "2.7"
 
+projects[securelogin][version] = "1.4"
+
 projects[subpathauto][version] = "1.3"
 
 projects[token][version] = "1.5"
