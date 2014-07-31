@@ -29,6 +29,14 @@ p#textlogo span.desc {
     font-size: 35px;
 }
 
+/* YouTube link handling */
+a.yt_desktop {
+    display: inline;
+}
+a.yt_not_desktop {
+    display: none;
+}
+
 /* YouTube player */
 .yt_container_third {
     width: 380px;

@@ -200,6 +200,11 @@ img {
     height: auto;
 }
 
+/* YouTube link handling */
+a.yt_desktop {
+    display: none;
+}
+
 /* YouTube player */
 .yt_container_third {
     width: 320px;
