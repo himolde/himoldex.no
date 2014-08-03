@@ -16,7 +16,7 @@ projects[ctools][version] = "1.4"
 
 projects[coffee][version] = "1.0"
 
-projects[colorbox][version] = "2.6"
+projects[colorbox][version] = "2.7"
 
 projects[colorbox_node][version] = "3.3"
 
@@ -32,13 +32,13 @@ projects[entityreference][version] = "1.1"
 
 projects[features_extra][version] = "1.0-beta1"
 
-projects[features][version] = "2.0"
+projects[features][version] = "2.1"
 
 projects[field_group][version] = "1.4"
 
 projects[flexslider][version] = "2.0-alpha3"
 
-projects[google_analytics][version] = "1.4"
+projects[google_analytics][version] = "2.0"
 
 projects[imce][version] = "1.9"
 
