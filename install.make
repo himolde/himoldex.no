@@ -72,8 +72,7 @@ projects[realname][version] = "1.2"
 
 projects[redirect][version] = "1.0-rc1"
 
-projects[references_dialog][version] = "1.0-alpha4"
-projects[references_dialog][patch][] = "http://himoldex.no/sites/all/modules/patches/references_dialog-1780626-6.patch"
+projects[references_dialog][version] = "1.0-beta1"
 
 projects[revision_deletion][version] = "1.x-dev"
 
