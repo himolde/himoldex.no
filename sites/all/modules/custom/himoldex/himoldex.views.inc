@@ -21,6 +21,7 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
       'mat100' => 80,
       'mat110' => 5,
       'bok500' => 98,
+      'tra310' => 239,
     );
     $nid = preg_replace('#node/([0-9]+)/videoer#', '$1', $path);
     if (!in_array($nid, $exclude_nids)) {
