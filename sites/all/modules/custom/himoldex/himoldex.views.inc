@@ -13,6 +13,7 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
     }
     // Remove video date filter for the following courses.
     $exclude_nids = array(
+      'bok500' => 98,
       'ibe110' => 8,
       'ibe151' => 78,
       'ibe312' => 34,
@@ -20,7 +21,8 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
       'mat001' => 86,
       'mat100' => 80,
       'mat110' => 5,
-      'bok500' => 98,
+      'mat210' => 136,
+      'scm500' => 214,
       'tra310' => 239,
     );
     $nid = preg_replace('#node/([0-9]+)/videoer#', '$1', $path);
