@@ -15,6 +15,9 @@ function himoldex_rules_notify_default_rules_configuration() {
       "OWNER" : "rules",
       "REQUIRES" : [ "rules" ],
       "ON" : { "node_update" : [] },
+      "IF" : [
+        { "NOT node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "video" : "video" } } } }
+      ],
       "DO" : [
         { "mail" : {
             "to" : "nordhaug+himoldex@himolde.no",
@@ -32,6 +35,9 @@ function himoldex_rules_notify_default_rules_configuration() {
       "OWNER" : "rules",
       "REQUIRES" : [ "rules" ],
       "ON" : { "node_insert" : [] },
+      "IF" : [
+        { "NOT node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "video" : "video" } } } }
+      ],
       "DO" : [
         { "mail" : {
             "to" : "nordhaug+himoldex@himolde.no",
