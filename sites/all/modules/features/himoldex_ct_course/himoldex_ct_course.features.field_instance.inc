@@ -519,9 +519,60 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
+  // Exported field_instance: 'node-course-field_youtube_playlist'
+  $field_instances['node-course-field_youtube_playlist'] = array(
+    'bundle' => 'course',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the ID of the YouTube playlist - see https://www.youtube.com/playlist?list=<strong>PlayListID</strong>',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_youtube_playlist',
+    'label' => 'Youtube-spilleliste',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Beskrivelse');
+  t('Enter the ID of the YouTube playlist - see https://www.youtube.com/playlist?list=<strong>PlayListID</strong>');
   t('Facebook-gruppe');
   t('Foreleser');
   t('Hjemmeside');
@@ -534,6 +585,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
   t('Promovideo');
   t('Relevante studier');
   t('Video');
+  t('Youtube-spilleliste');
 
   return $field_instances;
 }
