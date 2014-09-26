@@ -20,6 +20,70 @@ function himoldex_pathauto_alias_alter(&$alias, array &$context) {
 }
 
 /**
+ * Implements hook_node_prepare().
+ *
+ * - Add new videos from YouTube playlist.
+ */
+function himoldex_node_prepare($node) {
+  if (!empty($node->nid) && ($node->type == 'course')) {
+    $node_wrapper = entity_metadata_wrapper('node', $node);
+    $youtube_playlist = $node_wrapper->field_youtube_playlist->value();
+    if ($youtube_playlist) {
+      $videos_added = 0;
+      $glib_info = libraries_info('google-api-php-client');
+      $glib_path = libraries_get_path('google-api-php-client');
+      set_include_path(get_include_path() . PATH_SEPARATOR . DRUPAL_ROOT . '/' . $glib_path . '/' . $glib_info['path']);
+      libraries_load('google-api-php-client');
+      require_once 'Google/Service/YouTube.php';
+      $client = new Google_Client();
+      $client->setApplicationName("HiMoldeX");
+      // FIXME: Move API key to settings.
+      $client->setDeveloperKey('AIzaSyAaxdSVmR7z4svlhm0V1nL1a0azqQ0gG8E');
+      $service = new Google_Service_YouTube($client);
+      $optParams = array('playlistId' => $youtube_playlist, 'maxResults' => 50);
+      $results = $service->playlistItems->listPlaylistItems('snippet', $optParams);
+      foreach($results['items'] as $item) {
+        $video_id = $item['snippet']['resourceId']['videoId'];
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'video')
+          ->fieldCondition('field_video_youtube', 'video_id', $video_id, '=');
+        $result = $query->execute();
+	if (!isset($result['node'])) {
+          $videos_added++;
+          $video_title = $item['snippet']['title'];
+          $youtube_videolink = "https://www.youtube.com/watch?v=" . $video_id;
+          $video_published = $item['snippet']['publishedAt'];
+          list ($video_date, $dummy) = explode('T', $video_published);
+
+          $node = new stdClass();
+          $node->type = 'video';
+          node_object_prepare($node);
+
+          $node->language = 'nb';
+          $node->field_video_type[LANGUAGE_NONE][0]['value'] = 'lecture';
+          $node->field_video_topic[LANGUAGE_NONE][0]['value'] = $video_title;
+          $node->field_video_youtube[LANGUAGE_NONE][0]['input'] = $youtube_videolink;
+          $node->field_video_youtube[LANGUAGE_NONE][0]['video_id'] = $video_id;
+          $node->field_video_dato[LANGUAGE_NONE][0] = array(
+            'value' =>  "$video_date 00:00:00",
+            'timezone' => 'Europe/Oslo',
+            'timezone_db' =>   'Europe/Oslo',
+            'date_type' => 'datetime',
+          );
+
+          node_save($node);
+          drupal_set_message("Opprettet video '$video_title' automatisk fra spillelisten på YouTube.");
+	}
+      }
+      if ($videos_added == 0) {
+          drupal_set_message("Ingen nye videoer funnet i spillelisten på YouTube.");
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_node_validate().
  *
  * - Avoid duplicate course codes.
