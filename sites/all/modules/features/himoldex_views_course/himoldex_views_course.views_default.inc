@@ -574,6 +574,23 @@ function himoldex_views_course_views_default_views() {
       'label' => 'Bruker: Uid',
     ),
   );
+
+  /* Display: Side */
+  $handler = $view->new_display('page', 'Side', 'page_1');
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Bruker: Authentication name */
+  $handler->display->display_options['arguments']['authname']['id'] = 'authname';
+  $handler->display->display_options['arguments']['authname']['table'] = 'authmap';
+  $handler->display->display_options['arguments']['authname']['field'] = 'authname';
+  $handler->display->display_options['arguments']['authname']['relationship'] = 'field_course_lecture_target_id';
+  $handler->display->display_options['arguments']['authname']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['authname']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['authname']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['authname']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['authname']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['authname']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['authname']['limit'] = '0';
+  $handler->display->display_options['path'] = 'innbygging/%/emner';
   $translatables['courses_given'] = array(
     t('Master'),
     t('Foreleste emner'),
@@ -588,6 +605,7 @@ function himoldex_views_course_views_default_views() {
     t('Block'),
     t('Content pane'),
     t('View panes'),
+    t('Side'),
   );
   $export['courses_given'] = $view;
 
