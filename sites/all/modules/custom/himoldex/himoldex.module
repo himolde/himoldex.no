@@ -43,6 +43,11 @@ function himoldex_node_prepare($node) {
       $optParams = array('playlistId' => $youtube_playlist, 'maxResults' => 50);
       $results = $service->playlistItems->listPlaylistItems('snippet', $optParams);
       foreach($results['items'] as $item) {
+        $video_title = $item['snippet']['title'];
+        // Skip promo videos.
+        if (stripos($video_title, ' Promo') !== FALSE) {
+          continue;
+        } 
         $video_id = $item['snippet']['resourceId']['videoId'];
         $query = new EntityFieldQuery();
         $query->entityCondition('entity_type', 'node')
@@ -51,7 +56,6 @@ function himoldex_node_prepare($node) {
         $result = $query->execute();
 	if (!isset($result['node'])) {
           $videos_added++;
-          $video_title = $item['snippet']['title'];
           $youtube_videolink = "https://www.youtube.com/watch?v=" . $video_id;
           $video_published = $item['snippet']['publishedAt'];
           list ($video_date, $dummy) = explode('T', $video_published);
