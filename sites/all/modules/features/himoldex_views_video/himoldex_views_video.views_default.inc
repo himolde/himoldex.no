@@ -931,6 +931,10 @@ function himoldex_views_video_views_default_views() {
 
   /* Display: Blokk */
   $handler = $view->new_display('block', 'Blokk', 'block_1');
+
+  /* Display: Side */
+  $handler = $view->new_display('page', 'Side', 'page_1');
+  $handler->display->display_options['path'] = 'innbygging/siste-videoer';
   $translatables['videos_last'] = array(
     t('Master'),
     t('De siste videoene'),
@@ -947,6 +951,7 @@ function himoldex_views_video_views_default_views() {
     t('[title_1]'),
     t('Type'),
     t('Blokk'),
+    t('Side'),
   );
   $export['videos_last'] = $view;
 
