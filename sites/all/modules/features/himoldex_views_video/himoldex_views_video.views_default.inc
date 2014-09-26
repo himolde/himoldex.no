@@ -537,11 +537,11 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['sorts']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
   $handler->display->display_options['sorts']['field_video_dato_value']['field'] = 'field_video_dato_value';
   $handler->display->display_options['sorts']['field_video_dato_value']['order'] = 'DESC';
-  /* Sorteringskriterium: Innhold: Innleggsdato */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sorteringskriterium: Innhold: Video (field_course_video:delta) */
+  $handler->display->display_options['sorts']['delta']['id'] = 'delta';
+  $handler->display->display_options['sorts']['delta']['table'] = 'field_data_field_course_video';
+  $handler->display->display_options['sorts']['delta']['field'] = 'delta';
+  $handler->display->display_options['sorts']['delta']['order'] = 'DESC';
   /* Contextual filter: Innhold: NID */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
