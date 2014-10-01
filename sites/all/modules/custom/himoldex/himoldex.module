@@ -32,7 +32,7 @@ function himoldex_node_prepare($node) {
       $videos_added = 0;
       // Use caching to get last used page token.
       $pagetoken_cache_id = 'himoldex:youtube_playlist_pagetoken:' . $node->nid;
-      $pagetoken_cache = cache_get($pagetoken_cache_id);
+      $pagetoken_cache = cache_get($pagetoken_cache_id, 'cache_himoldex');
       if (!$pagetoken_cache) {
         $pageToken = '';
       }
@@ -51,13 +51,14 @@ function himoldex_node_prepare($node) {
       $client->setDeveloperKey('AIzaSyAaxdSVmR7z4svlhm0V1nL1a0azqQ0gG8E');
       $service = new Google_Service_YouTube($client);
       // Fetch only 10 items on each display of the node edit page
-      $optParams = array('playlistId' => $youtube_playlist, 'pageToken' => $pageToken, 'maxResults' => 10);
+      $itemsPerRequest = 10;
+      $optParams = array('playlistId' => $youtube_playlist, 'pageToken' => $pageToken, 'maxResults' => $itemsPerRequest);
       $results = $service->playlistItems->listPlaylistItems('snippet', $optParams);
       // Warn if there are more videos to fetch (and cache the next page token to use).
       if (isset($results['nextPageToken'])) {
-	cache_set($pagetoken_cache_id, $results['nextPageToken']);
-	$message = sprintf('Hentet 10 videoer fra spillelisten, men det er flere - <a href="%s">last siden på nytt</a>. (pageToken: %s)',
-          request_uri(), $pageToken);
+	cache_set($pagetoken_cache_id, $results['nextPageToken'], 'cache_himoldex');
+	$message = sprintf('Hentet %s videoer fra spillelisten, men det er flere - <a href="%s">last siden på nytt</a>. (pageToken: %s)',
+          $itemsPerRequest, request_uri(), $pageToken);
         drupal_set_message($message, 'warning');
       }
       // Loop over videos in playlist and check if they exists on HiMoldeX.

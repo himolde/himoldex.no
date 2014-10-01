@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Add separate cache table
+ */
+function himoldex_update_7000() {
+  $schema['cache_himoldex'] = drupal_get_schema_unprocessed('system', 'cache');
+  return db_create_table('cache_himoldex', $schema['cache_himoldex']);
+}
+
