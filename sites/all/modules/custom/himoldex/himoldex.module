@@ -30,6 +30,16 @@ function himoldex_node_prepare($node) {
     $youtube_playlist = $node_wrapper->field_youtube_playlist->value();
     if ($youtube_playlist) {
       $videos_added = 0;
+      // Use caching to get last used page token.
+      $pagetoken_cache_id = 'himoldex:youtube_playlist_pagetoken:' . $node->nid;
+      $pagetoken_cache = cache_get($pagetoken_cache_id);
+      if (!$pagetoken_cache) {
+        $pageToken = '';
+      }
+      else {
+	$pageToken = $pagetoken_cache->data;
+      }
+      // Setup YouTube/Google API
       $glib_info = libraries_info('google-api-php-client');
       $glib_path = libraries_get_path('google-api-php-client');
       set_include_path(get_include_path() . PATH_SEPARATOR . DRUPAL_ROOT . '/' . $glib_path . '/' . $glib_info['path']);
@@ -40,8 +50,17 @@ function himoldex_node_prepare($node) {
       // FIXME: Move API key to settings.
       $client->setDeveloperKey('AIzaSyAaxdSVmR7z4svlhm0V1nL1a0azqQ0gG8E');
       $service = new Google_Service_YouTube($client);
-      $optParams = array('playlistId' => $youtube_playlist, 'maxResults' => 50);
+      // Fetch only 10 items on each display of the node edit page
+      $optParams = array('playlistId' => $youtube_playlist, 'pageToken' => $pageToken, 'maxResults' => 10);
       $results = $service->playlistItems->listPlaylistItems('snippet', $optParams);
+      // Warn if there are more videos to fetch (and cache the next page token to use).
+      if (isset($results['nextPageToken'])) {
+	cache_set($pagetoken_cache_id, $results['nextPageToken']);
+	$message = sprintf('Hentet 10 videoer fra spillelisten, men det er flere - <a href="%s">last siden på nytt</a>. (pageToken: %s)',
+          request_uri(), $pageToken);
+        drupal_set_message($message, 'warning');
+      }
+      // Loop over videos in playlist and check if they exists on HiMoldeX.
       foreach($results['items'] as $item) {
         $video_title = $item['snippet']['title'];
         // Skip promo videos.
@@ -54,7 +73,7 @@ function himoldex_node_prepare($node) {
           ->entityCondition('bundle', 'video')
           ->fieldCondition('field_video_youtube', 'video_id', $video_id, '=');
         $result = $query->execute();
-	if (!isset($result['node'])) {
+        if (!isset($result['node'])) {
           $videos_added++;
           $youtube_videolink = "https://www.youtube.com/watch?v=" . $video_id;
           $video_published = $item['snippet']['publishedAt'];
@@ -78,12 +97,12 @@ function himoldex_node_prepare($node) {
 
           node_save($node);
           drupal_set_message("Opprettet video '$video_title' automatisk fra spillelisten på YouTube.");
-	}
+        }
       }
       if ($videos_added == 0) {
-          drupal_set_message("Ingen nye videoer funnet i spillelisten på YouTube.");
+        drupal_set_message("Ingen nye videoer funnet i spillelisten på YouTube.");
       }
-    }
+   }
   }
 }
 
