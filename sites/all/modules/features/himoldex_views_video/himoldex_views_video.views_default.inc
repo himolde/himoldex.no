@@ -48,7 +48,8 @@ function himoldex_views_video_views_default_views() {
     'field_course_code' => 'field_course_code',
     'title' => 'title',
     'field_video_dato' => 'field_video_dato',
-    'title_1' => 'title_1',
+    'edit_node' => 'edit_node',
+    'delete_node' => 'edit_node',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -63,7 +64,7 @@ function himoldex_views_video_views_default_views() {
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
-      'separator' => '',
+      'separator' => ' ',
       'empty_column' => 0,
     ),
     'field_video_dato' => array(
@@ -73,9 +74,12 @@ function himoldex_views_video_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'title_1' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
+    'edit_node' => array(
+      'align' => '',
+      'separator' => ' / ',
+      'empty_column' => 0,
+    ),
+    'delete_node' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -111,6 +115,18 @@ function himoldex_views_video_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  /* Felt: Innhold: Rediger lenke */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Felt: Innhold: Slett lenke */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
   /* Sorteringskriterium: Innhold: Kode (field_course_code) */
   $handler->display->display_options['sorts']['field_course_code_value']['id'] = 'field_course_code_value';
   $handler->display->display_options['sorts']['field_course_code_value']['table'] = 'field_data_field_course_code';
@@ -356,15 +372,6 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'video' => 'video',
-  );
-  /* Filter criterion: Innhold: Type (field_video_type) */
-  $handler->display->display_options['filters']['field_video_type_value']['id'] = 'field_video_type_value';
-  $handler->display->display_options['filters']['field_video_type_value']['table'] = 'field_data_field_video_type';
-  $handler->display->display_options['filters']['field_video_type_value']['field'] = 'field_video_type_value';
-  $handler->display->display_options['filters']['field_video_type_value']['value'] = array(
-    'lecture' => 'lecture',
-    'short' => 'short',
-    'solution' => 'solution',
   );
   $translatables['video_field_picker'] = array(
     t('Master'),
