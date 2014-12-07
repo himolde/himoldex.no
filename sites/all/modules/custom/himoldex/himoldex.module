@@ -182,8 +182,8 @@ function himoldex_block_info() {
     'info' => t('HimoldeX: Promovideo (YouTube)'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
-  $blocks['latest_video'] = array(
-    'info' => t('HimoldeX: Siste video (YouTube)'),
+  $blocks['latest_lecture'] = array(
+    'info' => t('HimoldeX: Siste forelesning (YouTube)'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   $blocks['banner_small'] = array(
@@ -249,7 +249,7 @@ function himoldex_block_view($delta = '') {
     case 'studyhandbook':
     case 'about_social':
     case 'promo_video':
-    case 'latest_video':
+    case 'latest_lecture':
     case 'banner':
     case 'banner_small':
     case 'study_big_logo':
@@ -358,11 +358,12 @@ EOM;
 	$html .= _himoldex_youtube_js($youtube_video_id);
       }
       return array('#markup' => $html);
-    case 'latest_video':
+    case 'latest_lecture':
       // Get the ID of the latest video.
       $query = new EntityFieldQuery();
       $query->entityCondition('entity_type', 'node')
 	->entityCondition('bundle', 'video')
+	->fieldCondition('field_video_type', 'value', 'lecture', '=')
 	->propertyOrderBy('created', 'DESC')
 	->range(0,1);
       $result = $query->execute();
