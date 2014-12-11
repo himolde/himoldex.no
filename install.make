@@ -38,7 +38,7 @@ projects[field_group][version] = "1.4"
 
 projects[flexslider][version] = "2.0-alpha3"
 
-projects[google_analytics][version] = "2.0"
+projects[google_analytics][version] = "2.1"
 
 projects[imce][version] = "1.9"
 
