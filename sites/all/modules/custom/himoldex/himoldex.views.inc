@@ -22,6 +22,7 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
       'mat100' => 80,
       'mat110' => 5,
       'mat210' => 136,
+      'scm200' => 769,
       'scm500' => 214,
       'tra310' => 239,
     );
