@@ -8,7 +8,7 @@ projects[drupal][patch][] = "http://himoldex.no/patches/1969208-2.patch"
 defaults[projects][subdir] = "contrib"
 
 ; Modules
-projects[admin_menu][version] = "3.0-rc4"
+projects[admin_menu][version] = "3.0-rc5"
 
 projects[auto_entitylabel][version] = "1.2"
 
