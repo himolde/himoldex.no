@@ -52,7 +52,7 @@ projects[libraries][version] = "2.2"
 
 projects[link][version] = "1.2"
 
-projects[linkit][version] = "2.6"
+projects[linkit][version] = "2.7"
 
 projects[module_filter][version] = "1.8"
 
