@@ -156,8 +156,10 @@ p#about-social, table#about-social {
     background-color: #EDEBE9;
     padding: 10px;
 }
+body.context-nyheter #about-social,
 body.context-foreleser #about-social,
 body.context-emne #about-social,
+body.page-node-videoer #about-social,
 body.front #about-social {
     margin-top: 20px;
 }
