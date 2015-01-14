@@ -26,6 +26,7 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
       'mat210' => 136,
       'scm200' => 769,
       'scm500' => 214,
+      'sok200' => 796,
       'tra310' => 239,
     );
     $nid = preg_replace('#node/([0-9]+)/videoer#', '$1', $path);
