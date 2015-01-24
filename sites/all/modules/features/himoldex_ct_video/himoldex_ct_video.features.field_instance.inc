@@ -59,7 +59,7 @@ function himoldex_ct_video_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -107,6 +107,50 @@ function himoldex_ct_video_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-video-field_video_mediasite'
+  $field_instances['node-video-field_video_mediasite'] = array(
+    'bundle' => 'video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Fullstendig lenke til Mediasite video (som starter med <i>http://mediasite.himolde.no/</i>).',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_video_mediasite',
+    'label' => 'Mediasite',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 80,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'node-video-field_video_topic'
   $field_instances['node-video-field_video_topic'] = array(
     'bundle' => 'video',
@@ -146,7 +190,7 @@ function himoldex_ct_video_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -202,8 +246,12 @@ function himoldex_ct_video_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'youtube',
         'settings' => array(
+          'youtube_autohide' => FALSE,
           'youtube_autoplay' => 0,
+          'youtube_controls' => FALSE,
           'youtube_height' => '',
+          'youtube_iv_load_policy' => FALSE,
+          'youtube_showinfo' => FALSE,
           'youtube_size' => '640x480',
           'youtube_width' => '',
         ),
@@ -237,6 +285,8 @@ function himoldex_ct_video_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Beskrivelse');
   t('Dato');
+  t('Fullstendig lenke til Mediasite video (som starter med <i>http://mediasite.himolde.no/</i>).');
+  t('Mediasite');
   t('Tema');
   t('Type');
   t('Youtube');
