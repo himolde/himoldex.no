@@ -872,7 +872,7 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['filters']['field_video_dato_value']['id'] = 'field_video_dato_value';
   $handler->display->display_options['filters']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
   $handler->display->display_options['filters']['field_video_dato_value']['field'] = 'field_video_dato_value';
-  $handler->display->display_options['filters']['field_video_dato_value']['value']['value'] = '2014';
+  $handler->display->display_options['filters']['field_video_dato_value']['value']['value'] = '2015';
   $handler->display->display_options['filters']['field_video_dato_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_video_dato_value']['expose']['operator_id'] = 'field_video_dato_value_op';
   $handler->display->display_options['filters']['field_video_dato_value']['expose']['label'] = 'År';
