@@ -1020,37 +1020,18 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['fields']['title_1']['node_in_colorbox_width'] = '600';
   $handler->display->display_options['fields']['title_1']['node_in_colorbox_height'] = '600';
   $handler->display->display_options['fields']['title_1']['node_in_colorbox_rel'] = '';
-  /* Felt: Tittel (popup) */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['ui_name'] = 'Tittel (popup)';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid_1]?width=700&height=650';
-  $handler->display->display_options['fields']['title']['alter']['alt'] = 'Dato: [field_video_dato]';
-  $handler->display->display_options['fields']['title']['alter']['link_class'] = 'colorbox-node yt_desktop';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  $handler->display->display_options['fields']['title']['node_in_colorbox'] = TRUE;
-  $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '700';
-  $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '650';
-  $handler->display->display_options['fields']['title']['node_in_colorbox_rel'] = '';
-  /* Felt: Tittel (direkte lenke) */
+  /* Felt: Innhold: Youtube */
   $handler->display->display_options['fields']['field_video_youtube']['id'] = 'field_video_youtube';
   $handler->display->display_options['fields']['field_video_youtube']['table'] = 'field_data_field_video_youtube';
   $handler->display->display_options['fields']['field_video_youtube']['field'] = 'field_video_youtube';
-  $handler->display->display_options['fields']['field_video_youtube']['ui_name'] = 'Tittel (direkte lenke)';
   $handler->display->display_options['fields']['field_video_youtube']['label'] = '';
   $handler->display->display_options['fields']['field_video_youtube']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_video_youtube']['alter']['text'] = '[title_1]';
   $handler->display->display_options['fields']['field_video_youtube']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_video_youtube']['alter']['path'] = 'https://www.youtube.com/watch?v=[field_video_youtube-video_id]';
-  $handler->display->display_options['fields']['field_video_youtube']['alter']['link_class'] = 'yt_not_desktop';
-  $handler->display->display_options['fields']['field_video_youtube']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['field_video_youtube']['alter']['path'] = 'node/[nid_1]?width=700&height=650';
+  $handler->display->display_options['fields']['field_video_youtube']['alter']['link_class'] = 'colorbox-node yt_desktop';
   $handler->display->display_options['fields']['field_video_youtube']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_youtube']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_youtube']['click_sort_column'] = 'input';
   $handler->display->display_options['fields']['field_video_youtube']['settings'] = array(
     'youtube_size' => '420x315',
@@ -1062,6 +1043,44 @@ function himoldex_views_video_views_default_views() {
     'youtube_autohide' => 0,
     'youtube_iv_load_policy' => 0,
   );
+  /* Felt: Innhold: Youtube */
+  $handler->display->display_options['fields']['field_video_youtube_1']['id'] = 'field_video_youtube_1';
+  $handler->display->display_options['fields']['field_video_youtube_1']['table'] = 'field_data_field_video_youtube';
+  $handler->display->display_options['fields']['field_video_youtube_1']['field'] = 'field_video_youtube';
+  $handler->display->display_options['fields']['field_video_youtube_1']['label'] = '';
+  $handler->display->display_options['fields']['field_video_youtube_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_video_youtube_1']['alter']['text'] = '[title_1]';
+  $handler->display->display_options['fields']['field_video_youtube_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_video_youtube_1']['alter']['path'] = 'https://www.youtube.com/watch?v=[field_video_youtube_1-video_id]';
+  $handler->display->display_options['fields']['field_video_youtube_1']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_video_youtube_1']['alter']['link_class'] = 'yt_not_desktop';
+  $handler->display->display_options['fields']['field_video_youtube_1']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['field_video_youtube_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_youtube_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_video_youtube_1']['click_sort_column'] = 'input';
+  $handler->display->display_options['fields']['field_video_youtube_1']['settings'] = array(
+    'youtube_size' => '420x315',
+    'youtube_width' => '',
+    'youtube_height' => '',
+    'youtube_autoplay' => 0,
+    'youtube_showinfo' => 0,
+    'youtube_controls' => 0,
+    'youtube_autohide' => 0,
+    'youtube_iv_load_policy' => 0,
+  );
+  /* Felt: Innhold: Mediasite */
+  $handler->display->display_options['fields']['field_video_mediasite']['id'] = 'field_video_mediasite';
+  $handler->display->display_options['fields']['field_video_mediasite']['table'] = 'field_data_field_video_mediasite';
+  $handler->display->display_options['fields']['field_video_mediasite']['field'] = 'field_video_mediasite';
+  $handler->display->display_options['fields']['field_video_mediasite']['label'] = '';
+  $handler->display->display_options['fields']['field_video_mediasite']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_video_mediasite']['alter']['text'] = '[title_1]';
+  $handler->display->display_options['fields']['field_video_mediasite']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_video_mediasite']['alter']['path'] = '[field_video_mediasite]';
+  $handler->display->display_options['fields']['field_video_mediasite']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_video_mediasite']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['field_video_mediasite']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_mediasite']['hide_empty'] = TRUE;
   /* Sorteringskriterium: Innhold: Dato (field_video_dato) */
   $handler->display->display_options['sorts']['field_video_dato_value']['id'] = 'field_video_dato_value';
   $handler->display->display_options['sorts']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
@@ -1110,7 +1129,6 @@ function himoldex_views_video_views_default_views() {
     t('Emne'),
     t('&nbsp;-'),
     t('([field_video_dato])'),
-    t('Dato: [field_video_dato]'),
     t('[title_1]'),
     t('Type'),
     t('Blokk'),
