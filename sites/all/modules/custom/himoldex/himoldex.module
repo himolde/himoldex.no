@@ -359,11 +359,12 @@ EOM;
       }
       return array('#markup' => $html);
     case 'latest_lecture':
-      // Get the ID of the latest video.
+      // Get the ID of the latest Youtube video. (We are skipping Mediasite videos for now.)
       $query = new EntityFieldQuery();
       $query->entityCondition('entity_type', 'node')
 	->entityCondition('bundle', 'video')
 	->fieldCondition('field_video_type', 'value', 'lecture', '=')
+	->fieldCondition('field_video_youtube', 'video_id', 'NULL', '!=')
 	->propertyOrderBy('created', 'DESC')
 	->range(0,1);
       $result = $query->execute();
