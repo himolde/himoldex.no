@@ -32,7 +32,7 @@ projects[entityreference][version] = "1.1"
 
 projects[features_extra][version] = "1.0-beta1"
 
-projects[features][version] = "2.1"
+projects[features][version] = "2.4"
 
 projects[field_group][version] = "1.4"
 
