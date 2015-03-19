@@ -17,14 +17,6 @@ function himoldex_user_profile_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_cell_phone',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -46,14 +38,6 @@ function himoldex_user_profile_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_lecture_desc',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -73,7 +57,6 @@ function himoldex_user_profile_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_lecture_homepage',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -104,14 +87,6 @@ function himoldex_user_profile_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_lecture_name',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -134,14 +109,6 @@ function himoldex_user_profile_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_phone',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -163,14 +130,6 @@ function himoldex_user_profile_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_room',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -195,14 +154,6 @@ function himoldex_user_profile_field_default_field_bases() {
       0 => 'user',
     ),
     'field_name' => 'ldap_user_current_dn',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -227,7 +178,6 @@ function himoldex_user_profile_field_default_field_bases() {
       0 => 'user',
     ),
     'field_name' => 'ldap_user_last_checked',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 1,
     'module' => 'number',
@@ -246,7 +196,6 @@ function himoldex_user_profile_field_default_field_bases() {
       0 => 'user',
     ),
     'field_name' => 'ldap_user_ldap_exclude',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 1,
     'module' => 'number',
@@ -265,14 +214,6 @@ function himoldex_user_profile_field_default_field_bases() {
       0 => 'user',
     ),
     'field_name' => 'ldap_user_prov_entries',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -298,14 +239,6 @@ function himoldex_user_profile_field_default_field_bases() {
       0 => 'user',
     ),
     'field_name' => 'ldap_user_puid',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -331,14 +264,6 @@ function himoldex_user_profile_field_default_field_bases() {
       0 => 'user',
     ),
     'field_name' => 'ldap_user_puid_property',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -364,14 +289,6 @@ function himoldex_user_profile_field_default_field_bases() {
       0 => 'user',
     ),
     'field_name' => 'ldap_user_puid_sid',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
