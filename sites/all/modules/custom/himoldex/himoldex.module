@@ -458,7 +458,7 @@ function himoldex_block_view_aggregator_feed_1_alter(&$data, $block) {
 }
 
 function _himoldex_youtube_js($video_id) {
-  $html .= <<<EOM
+  $html = <<<EOM
 <script type="text/javascript">// <![CDATA[
   var tag = document.createElement('script');
   tag.src = "http://www.youtube.com/player_api";
