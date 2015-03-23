@@ -831,6 +831,21 @@ function himoldex_views_video_views_default_views() {
   $handler = $view->new_display('page', 'Videoer', 'page_3');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page'] = TRUE;
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Videoer per side';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options'] = '20, 40, 80';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = TRUE;
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'neste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'siste »';
   /* Filter criterion: Innhold: Publisert */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -872,7 +887,6 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['filters']['field_video_dato_value']['id'] = 'field_video_dato_value';
   $handler->display->display_options['filters']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
   $handler->display->display_options['filters']['field_video_dato_value']['field'] = 'field_video_dato_value';
-  $handler->display->display_options['filters']['field_video_dato_value']['value']['value'] = '2015';
   $handler->display->display_options['filters']['field_video_dato_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_video_dato_value']['expose']['operator_id'] = 'field_video_dato_value_op';
   $handler->display->display_options['filters']['field_video_dato_value']['expose']['label'] = 'År';
@@ -917,6 +931,13 @@ function himoldex_views_video_views_default_views() {
     t('Forelesninger'),
     t('Kortvideoer'),
     t('Løsningsvideoer'),
+    t('Videoer per side'),
+    t('- Alle -'),
+    t('Offset'),
+    t('« første'),
+    t('‹ forrige'),
+    t('neste ›'),
+    t('siste »'),
     t('År'),
   );
   $export['videos'] = $view;

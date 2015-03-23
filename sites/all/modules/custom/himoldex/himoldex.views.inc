@@ -4,14 +4,14 @@
  * Implements hook_views_pre_view().
  */
 function himoldex_views_pre_view(&$view, &$display_id, &$args) {
-  if ($view->name == 'videos') {
+  if ($view->name == 'videos_DISABLED') {
     // Find path (to decide which course we are viewing)
     $current_path = current_path();
     $path = drupal_lookup_path('alias', $current_path);
     if (empty($path)) {
       $path = $current_path;
     }
-    // Remove video date filter for the following courses.
+    // Keep video date filter for the following courses.
     $exclude_nids = array(
       'bok500' => 98,
       'ibe101' => 7,
@@ -52,6 +52,14 @@ function himoldex_views_pre_render(&$view) {
       else {
         $lecturer_seen[] = $lecturer_id;
       }
+    }
+  }
+  elseif ($view->name == 'videos') {
+    // If there is a pager (and not all videos are shown), add info about how to select all videos
+    if (($view->query->pager->total_items > $view->query->pager->options['items_per_page']) && ($view->exposed_input['items_per_page'] != 'All')) {
+      $output = sprintf('<div class="messages status">%s</div>',
+	'For å se alle videoene for et spesifikt semester, velg riktig år og "Alle" for antall videoer per side - se øverst på denne siden.');
+      $view->attachment_after = $output;
     }
   }
 }
