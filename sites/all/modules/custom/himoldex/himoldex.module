@@ -178,8 +178,12 @@ function himoldex_block_info() {
     'info' => t('HimoldeX: Lenker til Om-siden og sosiale tjenester'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
-  $blocks['promo_video'] = array(
-    'info' => t('HimoldeX: Promovideo (YouTube)'),
+  $blocks['promo_video_tour'] = array(
+    'info' => t('HimoldeX: Promovideo Tour (YouTube)'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['promo_video_pres'] = array(
+    'info' => t('HimoldeX: Promovideo Pres. (YouTube)'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   $blocks['latest_lecture'] = array(
@@ -248,7 +252,8 @@ function himoldex_block_view($delta = '') {
     case 'studyhandbook_and_subjects':
     case 'studyhandbook':
     case 'about_social':
-    case 'promo_video':
+    case 'promo_video_tour':
+    case 'promo_video_pres':
     case 'latest_lecture':
     case 'banner':
     case 'banner_small':
@@ -347,11 +352,20 @@ Kontakt oss på <a href="mailto:post@himoldex.no" target="_blank">post@himoldex.
 </p>
 EOM;
       return array('#markup' => $html);
-    case 'promo_video':
+    case 'promo_video_tour':
       // ID of promo video
       $youtube_video_id = 'ue_UTxmtx5Y';
       $html = <<<EOM
-<!-- iframe src="//www.youtube.com/embed/ue_UTxmtx5Y?rel=0&amp;autoplay=1" frameborder="0" width="352" height="198"></iframe -->
+<div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
+EOM;
+      if (!user_is_logged_in()) {
+	$html .= _himoldex_youtube_js($youtube_video_id);
+      }
+      return array('#markup' => $html);
+    case 'promo_video_pres':
+      // ID of promo video
+      $youtube_video_id = 'gqTqAv-Ee_U';
+      $html = <<<EOM
 <div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
 EOM;
       if (!user_is_logged_in()) {
