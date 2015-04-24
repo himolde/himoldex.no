@@ -323,21 +323,22 @@ EOM;
       return array('#markup' => $html);
     case 'about_social':
       $html = <<<EOM
-<table id="about-social">
-<tbody><tr>
-<td class="left35"><a href="/side/om-himoldex">Om HiMoldeX</a> 
-</td>
-<td class="center30">Følg oss på 
-<a href="http://www.facebook.com/himolde" target="_blank"><img src="/img/fb.png"></a> 
-<a href="http://twitter.com/himolde" target="_blank"><img src="/img/twitter.png"></a> 
-<a href="http://www.youtube.com/user/himoldex" target="_blank"><img src="/img/youtube.png"></a>  
-</td>
-<td class="right35">
-Kontakt oss på <a target="_blank" href="mailto:post@himoldex.no">post@himoldex.no</a> 
-</td>
-</tr>
-</tbody>
-</table>
+<div id="about-social" class="clearfix">
+<div class="grid-5">
+<!-- a href="/side/om-himoldex">Om HiMoldeX</a -->
+Generelt: <a href="mailto:studentservice@himolde.no">studentservice@himolde.no</a> / 712&nbsp;14&nbsp;000
+</div>
+<div class="grid-2 no-margin center">Følg oss på 
+<span class="no-br">
+<a href="http://www.facebook.com/himolde" target="_blank"><img src="/img/fb.png"></a>
+<a href="http://twitter.com/himolde" target="_blank"><img src="/img/twitter.png"></a>
+<a href="http://www.youtube.com/user/himoldex" target="_blank"><img src="/img/youtube.png"></a>
+</span>
+</div>
+<div class="grid-5 last">
+Teknisk: <a href="mailto:support@himolde.no">support@himolde.no</a> / 712&nbsp;14&nbsp;175
+</div>
+</div>
 EOM;
       return array('#markup' => $html);
     case 'about_social_old':

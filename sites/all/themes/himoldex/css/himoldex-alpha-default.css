@@ -6,6 +6,9 @@ div#one-user-wrapper {
 div#block-search-form {
     float: right;
 }
+div#about-social div.last {
+    text-align: right;
+}
 
 /* Logos */
 a.study-small-logo {

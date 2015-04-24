@@ -1,6 +1,10 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
+.no-br {
+    white-space: nowrap;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial, sans-serif;
     letter-spacing: 0em; 
@@ -151,10 +155,11 @@ div#zone-postbranding {
 }
 
 /* About link and social buttons */
-p#about-social, table#about-social {
+p#about-social, table#about-social, div#about-social {
     color: black;
     background-color: #EDEBE9;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 body.context-nyheter #about-social,
 body.context-foreleser #about-social,
@@ -163,6 +168,13 @@ body.page-node-videoer #about-social,
 body.front #about-social {
     margin-top: 20px;
 }
+#about-social div.no-margin {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+div#about-social div.center {
+    text-align: center;
+}
 #about-social a {
     color: black;
     /* text-decoration: none; */
@@ -170,20 +182,6 @@ body.front #about-social {
 #about-social a:active,
 #about-social a:hover {
     text-decoration: underline;
-}
-#about-social span {
-    padding: 10px;
-}
-#about-social td.left35 {
-    width: 35%;
-}
-#about-social td.center30 {
-    width: 30%;
-    text-align: center;
-}
-#about-social td.right35 {
-    width: 35%;
-    text-align: right;
 }
 
 div.field-name-field-course-image {
