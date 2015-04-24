@@ -205,7 +205,7 @@ function himoldex_ct_course_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -270,7 +270,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -376,7 +376,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -425,6 +425,53 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
+  // Exported field_instance: 'node-course-field_course_open'
+  $field_instances['node-course-field_course_open'] = array(
+    'bundle' => 'course',
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Angir om emnet har åpner videoer eller om man må ha Feide-innlogging for å se videoene i emnet.',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_open',
+    'label' => 'Åpent',
+    'readmore_behaviour' => 'default',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-course-field_course_promovideo'
   $field_instances['node-course-field_course_promovideo'] = array(
     'bundle' => 'course',
@@ -464,7 +511,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'module' => 'youtube',
       'settings' => array(),
       'type' => 'youtube',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -565,12 +612,13 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Angir om emnet har åpner videoer eller om man må ha Feide-innlogging for å se videoene i emnet.');
   t('Beskrivelse');
   t('Enter the ID of the YouTube playlist - see https://www.youtube.com/playlist?list=<strong>PlayListID</strong>');
   t('Facebook-gruppe');
@@ -586,6 +634,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
   t('Relevante studier');
   t('Video');
   t('Youtube-spilleliste');
+  t('Åpent');
 
   return $field_instances;
 }

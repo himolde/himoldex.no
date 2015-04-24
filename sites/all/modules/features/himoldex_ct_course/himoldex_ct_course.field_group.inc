@@ -85,6 +85,7 @@ function himoldex_ct_course_field_group_info() {
       4 => 'field_course_fb_group',
       5 => 'field_course_promovideo',
       6 => 'field_youtube_playlist',
+      7 => 'field_course_open',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

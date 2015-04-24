@@ -222,6 +222,31 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_course_open'
+  $field_bases['field_course_open'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_course_open',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Ja',
+        0 => 'Nei',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_course_promovideo'
   $field_bases['field_course_promovideo'] = array(
     'active' => 1,
