@@ -465,9 +465,55 @@ function himoldex_views_course_views_default_views() {
     5 => 0,
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: Side */
+  $handler = $view->new_display('page', 'Side', 'page');
   $handler->display->display_options['path'] = 'emner';
+
+  /* Display: Side med lukkede emner */
+  $handler = $view->new_display('page', 'Side med lukkede emner', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Lukkede emner';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Innhold: Publisert */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Innhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'course' => 'course',
+  );
+  /* Filter criterion: Innhold: Tittel */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Søk i kode/navn';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'txt';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  /* Filter criterion: Innhold: Åpent (field_course_open) */
+  $handler->display->display_options['filters']['field_course_open_value']['id'] = 'field_course_open_value';
+  $handler->display->display_options['filters']['field_course_open_value']['table'] = 'field_data_field_course_open';
+  $handler->display->display_options['filters']['field_course_open_value']['field'] = 'field_course_open_value';
+  $handler->display->display_options['filters']['field_course_open_value']['value'] = array(
+    0 => '0',
+  );
+  $handler->display->display_options['path'] = 'lukkede-emner';
   $translatables['courses'] = array(
     t('Master'),
     t('Emner'),
@@ -482,7 +528,9 @@ function himoldex_views_course_views_default_views() {
     t('Navn'),
     t('Foreleser'),
     t('Søk i kode/navn'),
-    t('Page'),
+    t('Side'),
+    t('Side med lukkede emner'),
+    t('Lukkede emner'),
   );
   $export['courses'] = $view;
 
