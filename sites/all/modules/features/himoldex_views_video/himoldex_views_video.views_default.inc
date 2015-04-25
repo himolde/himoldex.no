@@ -694,6 +694,12 @@ function himoldex_views_video_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  /* Felt: Innhold: Rediger lenke */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Sorteringskriterium: Innhold: Dato (field_video_dato) */
   $handler->display->display_options['sorts']['field_video_dato_value']['id'] = 'field_video_dato_value';
   $handler->display->display_options['sorts']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
@@ -829,8 +835,6 @@ function himoldex_views_video_views_default_views() {
 
   /* Display: Videoer */
   $handler = $view->new_display('page', 'Videoer', 'page_3');
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
@@ -846,6 +850,8 @@ function himoldex_views_video_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'neste ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'siste »';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Innhold: Publisert */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
