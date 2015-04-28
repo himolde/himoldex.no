@@ -88,6 +88,8 @@ projects[transliteration][version] = "3.2"
 
 projects[views][version] = "3.10"
 
+projects[views_conditional][version] = "1.3"
+
 projects[wysiwyg][version] = "2.2"
 
 projects[youtube][version] = "1.2"
