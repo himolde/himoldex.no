@@ -428,6 +428,19 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['field_course_lecture']['settings'] = array(
     'link' => 1,
   );
+  /* Felt: Innhold: Åpent */
+  $handler->display->display_options['fields']['field_course_open']['id'] = 'field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['table'] = 'field_data_field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['field'] = 'field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['label'] = '';
+  $handler->display->display_options['fields']['field_course_open']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_open']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_open']['empty'] = '1';
+  $handler->display->display_options['fields']['field_course_open']['type'] = 'list_key';
+  /* Felt: Visninger: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
   /* Sorteringskriterium: Innhold: Tittel */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -467,6 +480,53 @@ function himoldex_views_course_views_default_views() {
 
   /* Display: Side */
   $handler = $view->new_display('page', 'Side', 'page');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Innhold: NID */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Felt: Innhold: Kode */
+  $handler->display->display_options['fields']['field_course_code']['id'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['table'] = 'field_data_field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['field'] = 'field_course_code';
+  $handler->display->display_options['fields']['field_course_code']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_course_code']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_course_code']['type'] = 'text_plain';
+  /* Felt: Innhold: Navn */
+  $handler->display->display_options['fields']['field_course_name']['id'] = 'field_course_name';
+  $handler->display->display_options['fields']['field_course_name']['table'] = 'field_data_field_course_name';
+  $handler->display->display_options['fields']['field_course_name']['field'] = 'field_course_name';
+  $handler->display->display_options['fields']['field_course_name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_course_name']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_course_name']['type'] = 'text_plain';
+  /* Felt: Innhold: Foreleser */
+  $handler->display->display_options['fields']['field_course_lecture']['id'] = 'field_course_lecture';
+  $handler->display->display_options['fields']['field_course_lecture']['table'] = 'field_data_field_course_lecture';
+  $handler->display->display_options['fields']['field_course_lecture']['field'] = 'field_course_lecture';
+  $handler->display->display_options['fields']['field_course_lecture']['settings'] = array(
+    'link' => 1,
+  );
+  /* Felt: Innhold: Åpent */
+  $handler->display->display_options['fields']['field_course_open']['id'] = 'field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['table'] = 'field_data_field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['field'] = 'field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['label'] = '';
+  $handler->display->display_options['fields']['field_course_open']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_open']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_open']['empty'] = '1';
+  $handler->display->display_options['fields']['field_course_open']['type'] = 'list_key';
+  /* Felt: Visninger: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'field_course_open';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '0';
+  $handler->display->display_options['fields']['views_conditional']['then'] = 'Lukket';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   $handler->display->display_options['path'] = 'emner';
 
   /* Display: Side med lukkede emner */
@@ -527,6 +587,7 @@ function himoldex_views_course_views_default_views() {
     t('Kode'),
     t('Navn'),
     t('Foreleser'),
+    t('1'),
     t('Søk i kode/navn'),
     t('Side'),
     t('Side med lukkede emner'),
