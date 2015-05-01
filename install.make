@@ -86,7 +86,7 @@ projects[token][version] = "1.5"
 
 projects[transliteration][version] = "3.2"
 
-projects[views][version] = "3.10"
+projects[views][version] = "3.11"
 
 projects[views_conditional][version] = "1.3"
 
