@@ -54,7 +54,7 @@ projects[link][version] = "1.2"
 
 projects[linkit][version] = "2.7"
 
-projects[module_filter][version] = "1.8"
+projects[module_filter][version] = "2.0"
 
 projects[omega_tools][version] = "3.0-rc4"
 
