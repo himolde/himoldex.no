@@ -76,7 +76,7 @@ function himoldex_ct_course_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Informasjon',
-    'weight' => '2',
+    'weight' => '1',
     'children' => array(
       0 => 'field_course_code',
       1 => 'field_course_name',
@@ -86,6 +86,7 @@ function himoldex_ct_course_field_group_info() {
       5 => 'field_course_promovideo',
       6 => 'field_youtube_playlist',
       7 => 'field_course_open',
+      8 => 'field_mediasite_folder',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

@@ -21,7 +21,7 @@ function himoldex_ct_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -66,7 +66,7 @@ function himoldex_ct_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -156,7 +156,7 @@ function himoldex_ct_course_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -221,7 +221,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'search_result' => array(
         'label' => 'inline',
@@ -348,7 +348,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'search_result' => array(
         'label' => 'inline',
@@ -391,7 +391,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -440,7 +440,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 2,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -483,7 +483,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -526,7 +526,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -566,6 +566,56 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
+  // Exported field_instance: 'node-course-field_mediasite_folder'
+  $field_instances['node-course-field_mediasite_folder'] = array(
+    'bundle' => 'course',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the ID of the folder that is linked to the course catalog on Mediasite.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_mediasite_folder',
+    'label' => 'Mediasite-folder',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-course-field_youtube_playlist'
   $field_instances['node-course-field_youtube_playlist'] = array(
     'bundle' => 'course',
@@ -577,7 +627,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -621,6 +671,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
   t('Angir om emnet har åpner videoer eller om man må ha Feide-innlogging for å se videoene i emnet.');
   t('Beskrivelse');
   t('Enter the ID of the YouTube playlist - see https://www.youtube.com/playlist?list=<strong>PlayListID</strong>');
+  t('Enter the ID of the folder that is linked to the course catalog on Mediasite.');
   t('Facebook-gruppe');
   t('Foreleser');
   t('Hjemmeside');
@@ -629,6 +680,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
   t('Hvis du har opprettet en gruppe for emnet på Facebook, fyller du inn komplett adresse - f.eks. "https://www.facebook.com/groups/himolde.mat100/".');
   t('Illustrasjonsbilde');
   t('Kode');
+  t('Mediasite-folder');
   t('Navn');
   t('Promovideo');
   t('Relevante studier');
