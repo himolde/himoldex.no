@@ -26,10 +26,16 @@ function himoldex_pathauto_alias_alter(&$alias, array &$context) {
  */
 function himoldex_node_prepare($node) {
   if (!empty($node->nid) && ($node->type == 'course')) {
+    $videos_added = 0;
+    // Fetch only 10 items on each display of the node edit page
+    $itemsPerRequest = 10;
     $node_wrapper = entity_metadata_wrapper('node', $node);
     $youtube_playlist = $node_wrapper->field_youtube_playlist->value();
-    if ($youtube_playlist) {
-      $videos_added = 0;
+    $mediasite_folder = $node_wrapper->field_mediasite_folder->value();
+    if ($youtube_playlist && $mediasite_folder) {
+      drupal_set_message('Både Youtube spilleliste og Mediasite folder oppgitt for kurset - ignorerer begge', 'warning');
+    }
+    elseif ($youtube_playlist) {
       // Use caching to get last used page token.
       $pagetoken_cache_id = 'himoldex:youtube_playlist_pagetoken:' . $node->nid;
       $pagetoken_cache = cache_get($pagetoken_cache_id, 'cache_himoldex');
@@ -50,8 +56,6 @@ function himoldex_node_prepare($node) {
       // FIXME: Move API key to settings.
       $client->setDeveloperKey('AIzaSyAaxdSVmR7z4svlhm0V1nL1a0azqQ0gG8E');
       $service = new Google_Service_YouTube($client);
-      // Fetch only 10 items on each display of the node edit page
-      $itemsPerRequest = 10;
       $optParams = array('playlistId' => $youtube_playlist, 'pageToken' => $pageToken, 'maxResults' => $itemsPerRequest);
       $results = $service->playlistItems->listPlaylistItems('snippet', $optParams);
       // Warn if there are more videos to fetch (and cache the next page token to use).
@@ -103,7 +107,95 @@ function himoldex_node_prepare($node) {
       if ($videos_added == 0) {
         drupal_set_message("Ingen nye videoer funnet i spillelisten på YouTube.");
       }
-   }
+    }
+    elseif ($mediasite_folder) {
+      set_include_path(get_include_path() . PATH_SEPARATOR . '/usr/local/lib/php5/odataphp/framework');
+      require_once 'mediasite-odata.php';
+
+      function MediaSiteOnBeforeRequestCallBack($httpRequest) {
+        try {
+          $conf = variable_get('himoldex_module');
+          // API key:
+          $httpRequest->Headers->Add('sfapikey', $conf['sfapikey']);
+          // Authorization: Basic <base64 encoded username:password>
+          $httpRequest->Headers->Add('Authorization', $conf['basic_auth']);
+        }
+        catch(Exception $ex) {
+          die("Some exception");
+        }
+      }
+
+      $videos_added = 0;
+      // Use caching to get last used skip.
+      $skip_cache_id = 'himoldex:mediasite_folder_skip:' . $node->nid;
+      $skip_cache = cache_get($skip_cache_id, 'cache_himoldex');
+      if (!$skip_cache) {
+        $skip = 0;
+      }
+      else {
+        $skip = (int) $skip_cache->data;
+      }
+
+      try {
+        $svc = new Container(DEFAULT_ODATA_SERVICE_URL);
+        $svc->OnBeforeRequest('MediaSiteOnBeforeRequestCallBack', null);
+        $request = "Folders('$mediasite_folder')/Presentations?\$select=card&\$orderby=CreationDate asc&\$top=$itemsPerRequest";
+        if ($skip > 0) {
+          $request .= "&\$skip=$skip";
+        }
+        $presentationsResponse = $svc->Execute($request);
+
+        foreach($presentationsResponse->Result as $presentation) {
+          $video_title = $presentation->Title;
+          $video_id = $presentation->Id;
+          $video_link = "http://mediasite.himolde.no/Mediasite/Play/" . $video_id;
+          $query = new EntityFieldQuery();
+          $query->entityCondition('entity_type', 'node')
+            ->entityCondition('bundle', 'video')
+            ->fieldCondition('field_video_mediasite', 'value', $video_link, '=');
+          $result = $query->execute();
+          if (!isset($result['node'])) {
+            $videos_added++;
+            $video_published = $presentation->RecordDateLocal;
+            list ($video_date, $dummy) = explode('T', $video_published);
+
+            $node = new stdClass();
+            $node->type = 'video';
+            node_object_prepare($node);
+
+            $node->language = 'nb';
+            $node->field_video_type[LANGUAGE_NONE][0]['value'] = 'lecture';
+            $node->field_video_topic[LANGUAGE_NONE][0]['value'] = $video_title;
+            $node->field_video_mediasite[LANGUAGE_NONE][0]['value'] = $video_link;
+            $node->field_video_dato[LANGUAGE_NONE][0] = array(
+              'value' =>  "$video_date 00:00:00",
+              'timezone' => 'Europe/Oslo',
+              'timezone_db' =>   'Europe/Oslo',
+              'date_type' => 'datetime',
+            );
+
+            node_save($node);
+            drupal_set_message("Opprettet video '$video_title' automatisk fra folderen på Mediasite.");
+          }
+        }
+        // Warn if there are more videos to fetch (and cache the next skip to use).
+        if ($presentationsResponse->GetContinuation() != null) {
+          cache_set($skip_cache_id, $skip + $itemsPerRequest, 'cache_himoldex');
+          $message = sprintf('Hentet %s videoer fra folderen, men det er flere - <a href="%s">last siden på nytt</a>. (skip: %s)',
+            $itemsPerRequest, request_uri(), $skip);
+          drupal_set_message($message, 'warning');
+        }
+      }
+      catch(DataServiceRequestException $ex) {
+        drupal_set_message('Error: while running the query ' . $ex->Response->getQuery(), 'warning');
+      }
+      catch (ODataServiceException $e) {
+        drupal_set_message("Error:" . $e->getError() . "<br>" . "Detailed Error:" . $e->getDetailedError(), 'warning');
+      }
+      if ($videos_added == 0) {
+        drupal_set_message("Ingen nye videoer funnet i folderen på Mediasite.");
+      }
+    }
   }
 }
 
