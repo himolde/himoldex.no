@@ -53,8 +53,8 @@ function himoldex_node_prepare($node) {
       require_once 'Google/Service/YouTube.php';
       $client = new Google_Client();
       $client->setApplicationName("HiMoldeX");
-      // FIXME: Move API key to settings.
-      $client->setDeveloperKey('AIzaSyAaxdSVmR7z4svlhm0V1nL1a0azqQ0gG8E');
+      $conf = variable_get('himoldex_module');
+      $client->setDeveloperKey($conf['google_api_dev_key']);
       $service = new Google_Service_YouTube($client);
       $optParams = array('playlistId' => $youtube_playlist, 'pageToken' => $pageToken, 'maxResults' => $itemsPerRequest);
       $results = $service->playlistItems->listPlaylistItems('snippet', $optParams);
