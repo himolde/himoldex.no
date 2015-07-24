@@ -5686,7 +5686,7 @@
     * @class:PresentationFullRepresentation
     * @type:EntityType
     */
-    class PresentationFullRepresentation extends Object
+    class PresentationFullRepresentation extends PresentationCardRepresentation
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
