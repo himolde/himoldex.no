@@ -466,28 +466,44 @@ EOM;
       }
       return array('#markup' => $html);
     case 'latest_lecture':
-      // Get the ID of the latest Youtube video. (We are skipping Mediasite videos for now.)
+      // Get the ID of the latest video (lecture).
       $query = new EntityFieldQuery();
       $query->entityCondition('entity_type', 'node')
 	->entityCondition('bundle', 'video')
 	->fieldCondition('field_video_type', 'value', 'lecture', '=')
-	->fieldCondition('field_video_youtube', 'video_id', 'NULL', '!=')
 	->propertyOrderBy('created', 'DESC')
 	->range(0,1);
       $result = $query->execute();
+      $videos = $result['node'];
       $fields = field_info_instances('node', 'video');
       $field_id = $fields['field_video_youtube']['field_id'];
-      $videos = $result['node'];
+      field_attach_load('node', $videos, FIELD_LOAD_CURRENT, array('field_id' => $field_id));
+      $field_id = $fields['field_video_mediasite']['field_id'];
       field_attach_load('node', $videos, FIELD_LOAD_CURRENT, array('field_id' => $field_id));
       $field_video_youtube = field_get_items('node', reset($videos), 'field_video_youtube');
-      $youtube_video_id = $field_video_youtube[0]['video_id'];
-      // Produce the HTML
-      $html = <<<EOM
-<!-- iframe src="//www.youtube.com/embed/ue_UTxmtx5Y?rel=0&amp;autoplay=1" frameborder="0" width="352" height="198"></iframe -->
+      $field_video_mediasite = field_get_items('node', reset($videos), 'field_video_mediasite');
+      if (!empty($field_video_youtube)) {
+        // This is a YouTube video
+        $html = <<<EOM
 <div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
 EOM;
-      if (!user_is_logged_in()) {
-	$html .= _himoldex_youtube_js($youtube_video_id);
+        $youtube_video_id = $field_video_youtube[0]['video_id'];
+        if (!user_is_logged_in()) {
+          $html .= _himoldex_youtube_js($youtube_video_id);
+        }
+      }
+      elseif (!empty($field_video_mediasite)) {
+        // This is a Mediasite video
+        $html = <<<EOM
+<div class="yt_container_third">%content%</div>
+EOM;
+        $mediasite_video_link = $field_video_mediasite[0]['value'];
+	if (user_is_logged_in()) {
+          $html = str_replace('%content%', '<img src="/sites/default/files/promovideo-stillbilde-640px.jpg" />', $html);
+        }
+        else {
+          $html = str_replace('%content%', "<iframe width='100%' height='100%' src='$mediasite_video_link?autostart=true'></iframe>", $html);
+        }
       }
       return array('#markup' => $html);
     case 'banner_small':
