@@ -12,7 +12,7 @@ projects[admin_menu][version] = "3.0-rc5"
 
 projects[auto_entitylabel][version] = "1.2"
 
-projects[ctools][version] = "1.7"
+projects[ctools][version] = "1.9"
 
 projects[coffee][version] = "1.0"
 
