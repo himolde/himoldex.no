@@ -562,7 +562,57 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 5,
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'node-course-field_course_video_thisyear'
+  $field_instances['node-course-field_course_video_thisyear'] = array(
+    'bundle' => 'course',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 13,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_video_thisyear',
+    'label' => 'Vis kun årets videoer',
+    'readmore_behaviour' => 'ignore',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 11,
     ),
   );
 
@@ -685,6 +735,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
   t('Promovideo');
   t('Relevante studier');
   t('Video');
+  t('Vis kun årets videoer');
   t('Youtube-spilleliste');
   t('Åpent');
 

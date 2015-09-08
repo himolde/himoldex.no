@@ -114,6 +114,7 @@ function himoldex_ct_course_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'field_course_video',
+      1 => 'field_course_video_thisyear',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
