@@ -4,6 +4,24 @@
  * Implements hook_views_pre_view().
  */
 function himoldex_views_pre_view(&$view, &$display_id, &$args) {
+  // Handle the display/usage of the yearly filter.
+  if ($view->name == 'videos') {
+    // Create the wrapper for the node passed to the view.
+    $wrapper = entity_metadata_wrapper('node', $args[0]);
+    $display_thisyear = $wrapper->field_course_video_thisyear->value();
+    if ($display_thisyear) {
+      // This node/course should only display videoes from the current year.
+      $current_year = date("Y");
+      $filter_item = $view->get_item($display_id, 'filter', 'field_video_dato_value');
+      $filter_item['value']['min'] = NULL;
+      $filter_item['value']['max'] = NULL;
+      $filter_item['value']['value'] = $current_year;
+      // Disable exposed filter in UI to hide the videos from other years.
+      $filter_item['exposed'] = FALSE;
+      $view->set_item($display_id, 'filter', 'field_video_dato_value', $filter_item);
+    }
+  }
+  // Handle the display of the yearly filter - not used.
   if ($view->name == 'videos_DISABLED') {
     // Find path (to decide which course we are viewing)
     $current_path = current_path();
