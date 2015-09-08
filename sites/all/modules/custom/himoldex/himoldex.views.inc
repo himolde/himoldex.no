@@ -10,8 +10,15 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
     $wrapper = entity_metadata_wrapper('node', $args[0]);
     $display_thisyear = $wrapper->field_course_video_thisyear->value();
     if ($display_thisyear) {
-      // This node/course should only display videoes from the current year.
-      $current_year = date("Y");
+      // This node/course should only display videoes from the current year
+      // or a given year if we allow bypassing with direct URL.
+      $query_parameters = drupal_get_query_parameters();
+      if (!empty($query_parameters['period']['value']['year'])) {
+	$current_year = $query_parameters['period']['value']['year'];
+      }
+      else {
+	$current_year = date("Y");
+      }
       $filter_item = $view->get_item($display_id, 'filter', 'field_video_dato_value');
       $filter_item['value']['min'] = NULL;
       $filter_item['value']['max'] = NULL;
