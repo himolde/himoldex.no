@@ -579,9 +579,8 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'hidden',
         'weight' => 13,
       ),
       'search_result' => array(
