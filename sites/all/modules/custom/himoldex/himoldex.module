@@ -470,15 +470,33 @@ EOM;
       }
       return array('#markup' => $html);
     case 'latest_lecture':
-      // Get the ID of the latest video (lecture).
+      // Get the IDs of the 10 latest videos (lecture).
       $query = new EntityFieldQuery();
       $query->entityCondition('entity_type', 'node')
 	->entityCondition('bundle', 'video')
 	->fieldCondition('field_video_type', 'value', 'lecture', '=')
 	->propertyOrderBy('created', 'DESC')
-	->range(0,1);
-      $result = $query->execute();
-      $videos = $result['node'];
+	->range(0,10);
+      $videoes = $query->execute();
+      // Select the first video referenced from an open course
+      foreach ($videoes['node'] as $video) {
+        $course_query = new EntityFieldQuery();
+        $course_query->entityCondition('entity_type', 'node')
+	  ->entityCondition('bundle', 'course')
+	  ->fieldCondition('field_course_video', 'target_id', $video->nid, 'CONTAINS')
+	  ->propertyOrderBy('changed', 'DESC')
+	  ->range(0,1);
+	$courses = $course_query->execute();
+	$course = array_pop($courses['node']);
+	$course_wrapper = entity_metadata_wrapper('node', $course->nid);
+	$open = $course_wrapper->field_course_open->value();
+	if ($open) {
+	  break;
+	}
+      }
+      // Reassigning $videoes to the selected video.
+      $videos = array($video->nid => $video);
+
       $fields = field_info_instances('node', 'video');
       $field_id = $fields['field_video_youtube']['field_id'];
       field_attach_load('node', $videos, FIELD_LOAD_CURRENT, array('field_id' => $field_id));
