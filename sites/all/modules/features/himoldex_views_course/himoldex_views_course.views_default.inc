@@ -386,6 +386,7 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['title'] = 'Emner';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mer';
+  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -426,6 +427,11 @@ function himoldex_views_course_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Relasjon: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_course_video_target_id']['id'] = 'field_course_video_target_id';
+  $handler->display->display_options['relationships']['field_course_video_target_id']['table'] = 'field_data_field_course_video';
+  $handler->display->display_options['relationships']['field_course_video_target_id']['field'] = 'field_course_video_target_id';
+  $handler->display->display_options['relationships']['field_course_video_target_id']['label'] = 'Videoer';
   /* Felt: Innhold: NID */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -577,6 +583,7 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['field_course_name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_course_name']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_course_name']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_course_name']['group_column'] = 'entity_id';
   /* Felt: Innhold: Foreleser */
   $handler->display->display_options['fields']['field_course_lecture']['id'] = 'field_course_lecture';
   $handler->display->display_options['fields']['field_course_lecture']['table'] = 'field_data_field_course_lecture';
@@ -593,19 +600,28 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['field_course_open']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_course_open']['empty'] = '1';
   $handler->display->display_options['fields']['field_course_open']['type'] = 'list_key';
-  /* Felt: Innhold: Oppdatert dato */
-  $handler->display->display_options['fields']['changed']['id'] = 'changed';
-  $handler->display->display_options['fields']['changed']['table'] = 'node';
-  $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['changed']['date_format'] = 'shortest';
-  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Felt: MAX(Innhold: Dato) */
+  $handler->display->display_options['fields']['field_video_dato']['id'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['relationship'] = 'field_course_video_target_id';
+  $handler->display->display_options['fields']['field_video_dato']['group_type'] = 'max';
+  $handler->display->display_options['fields']['field_video_dato']['label'] = '';
+  $handler->display->display_options['fields']['field_video_dato']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_video_dato']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_dato']['settings'] = array(
+    'format_type' => 'shortest',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Felt: Visninger: Views Conditional */
   $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['label'] = 'Semester';
-  $handler->display->display_options['fields']['views_conditional']['if'] = 'changed';
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'field_video_dato';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '3';
   $handler->display->display_options['fields']['views_conditional']['equalto'] = '2015-08-15';
   $handler->display->display_options['fields']['views_conditional']['then'] = 'Høst 2015';
@@ -693,19 +709,28 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['field_course_open']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_course_open']['empty'] = '1';
   $handler->display->display_options['fields']['field_course_open']['type'] = 'list_key';
-  /* Felt: Innhold: Oppdatert dato */
-  $handler->display->display_options['fields']['changed']['id'] = 'changed';
-  $handler->display->display_options['fields']['changed']['table'] = 'node';
-  $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['changed']['date_format'] = 'shortest';
-  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Felt: MAX(Innhold: Dato) */
+  $handler->display->display_options['fields']['field_video_dato']['id'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
+  $handler->display->display_options['fields']['field_video_dato']['relationship'] = 'field_course_video_target_id';
+  $handler->display->display_options['fields']['field_video_dato']['group_type'] = 'max';
+  $handler->display->display_options['fields']['field_video_dato']['label'] = '';
+  $handler->display->display_options['fields']['field_video_dato']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_video_dato']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_dato']['settings'] = array(
+    'format_type' => 'shortest',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Felt: Visninger: Views Conditional */
   $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['label'] = 'Semester';
-  $handler->display->display_options['fields']['views_conditional']['if'] = 'changed';
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'field_video_dato';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '3';
   $handler->display->display_options['fields']['views_conditional']['equalto'] = '2015-08-15';
   $handler->display->display_options['fields']['views_conditional']['then'] = 'Høst 2015';
@@ -762,6 +787,7 @@ function himoldex_views_course_views_default_views() {
     t('Sortér på'),
     t('Stigende'),
     t('Synkende'),
+    t('Videoer'),
     t('NID'),
     t('Kode'),
     t('Navn'),
@@ -771,7 +797,6 @@ function himoldex_views_course_views_default_views() {
     t('Side'),
     t('Side med lukkede emner'),
     t('Lukkede emner'),
-    t('Oppdatert dato'),
     t('Semester'),
     t('Side med åpne emner'),
     t('Åpne emner'),
