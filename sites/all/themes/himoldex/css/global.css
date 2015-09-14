@@ -52,6 +52,13 @@ div.view-studyplans-categorized h3 {
     font-size: 15px;
 }
 
+div.view-course-menu div.course-locked {
+    float: right;
+}
+div.view-course-menu img#lock-locked {
+    height: 50px;
+}
+
 div.view-course-menu a, 
 div.view-studyplans-categorized a, 
 div.bigmenu a, 

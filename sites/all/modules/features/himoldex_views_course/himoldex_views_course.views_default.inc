@@ -280,6 +280,29 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
   $handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
+  /* Felt: Innhold: Åpent */
+  $handler->display->display_options['fields']['field_course_open']['id'] = 'field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['table'] = 'field_data_field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['field'] = 'field_course_open';
+  $handler->display->display_options['fields']['field_course_open']['label'] = '';
+  $handler->display->display_options['fields']['field_course_open']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_open']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_course_open']['empty'] = '1';
+  $handler->display->display_options['fields']['field_course_open']['type'] = 'list_key';
+  /* Felt: Visninger: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['views_conditional']['element_wrapper_class'] = 'course-locked';
+  $handler->display->display_options['fields']['views_conditional']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'field_course_open';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '0';
+  $handler->display->display_options['fields']['views_conditional']['then'] = '<img id=\'lock-locked\' src=\'/sites/all/themes/himoldex/icons/lock-512.png\' />';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -343,6 +366,7 @@ function himoldex_views_course_views_default_views() {
     t('Meldinger'),
     t('Alle'),
     t('Blokk'),
+    t('1'),
     t('Blokk med meldinger'),
   );
   $export['course_menu'] = $view;
