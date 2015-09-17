@@ -489,7 +489,12 @@ EOM;
 	$courses = $course_query->execute();
 	$course = array_pop($courses['node']);
 	$course_wrapper = entity_metadata_wrapper('node', $course->nid);
-	$open = $course_wrapper->field_course_open->value();
+	if (isset($course_wrapper->field_course_open)) {
+	  $open = $course_wrapper->field_course_open->value();
+	}
+	else {
+	  $open = FALSE;
+	}
 	if ($open) {
 	  break;
 	}
