@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the himolder_ct_research_group feature.
+ */
+
+include_once 'himolder_ct_research_group.features.inc';

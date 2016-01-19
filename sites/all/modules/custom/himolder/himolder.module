@@ -1,0 +1,187 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function himolder_block_info() {
+  $blocks['about_social_himolder'] = array(
+    'info' => t('HimoldeR: Lenker til Om-siden og sosiale tjenester'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['banner_small_himolder'] = array(
+    'info' => t('HimoldeR: Banner liten'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['banner_himolder'] = array(
+    'info' => t('HimoldeR: Banner'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_IMDL'] = array(
+    'info' => 'HimoldeR: Liten logo for Integrated Market Dynamics and Logistics',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_EL'] = array(
+    'info' => 'HimoldeR: Liten logo for Engineering Logistics',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_VTL'] = array(
+    'info' => 'HimoldeR: Liten logo for Virtual Technologies and Learning',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_T'] = array(
+    'info' => 'HimoldeR: Liten logo for Transportation',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_SM'] = array(
+    'info' => 'HimoldeR: Liten logo for Sport Management',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_SCMIS'] = array(
+    'info' => 'HimoldeR: Liten logo for SCM and Information Systems',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_PODS'] = array(
+    'info' => 'HimoldeR: Liten logo for Planning, Optimization and Decision Support',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['group_small_logo_SOL'] = array(
+    'info' => 'HimoldeR: Liten logo for Society, Organisation and Management',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function himolder_block_view($delta = '') {
+  //The $delta parameter tells us which block is being requested.
+  $block['subject'] = '<none>';
+  switch ($delta) {
+    case 'about_social_himolder':
+    case 'banner_himolder':
+    case 'banner_small_himolder':
+      $block['content'] = _himolder_block_contents($delta);
+      break;
+    case 'group_small_logo_IMDL':
+      $block['content'] = _himolder_block_contents($delta, 'Integrated Market Dynamics and Logistics');
+      break;
+    case 'group_small_logo_EL':
+      $block['content'] = _himolder_block_contents($delta, 'Engineering Logistics');
+      break;
+    case 'group_small_logo_VTL':
+      $block['content'] = _himolder_block_contents($delta, 'Virtual Technologies and Learning');
+      break;
+    case 'group_small_logo_T':
+      $block['content'] = _himolder_block_contents($delta, 'Transportation');
+      break;
+    case 'group_small_logo_SM':
+      $block['content'] = _himolder_block_contents($delta, 'Sport Management');
+      break;
+    case 'group_small_logo_SCMIS':
+      $block['content'] = _himolder_block_contents($delta, 'SCM and Information Systems');
+      break;
+    case 'group_small_logo_PODS':
+      $block['content'] = _himolder_block_contents($delta, 'Planning, Optimization and Decision Support');
+      break;
+    case 'group_small_logo_SOL':
+      $block['content'] = _himolder_block_contents($delta, 'Society, Organisation and Management');
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Produces the actual block content.
+ */
+function _himolder_block_contents($which_block, $title='') {
+    switch ($which_block) {
+    case 'about_social_himolder':
+      $html = <<<EOM
+<div id="about-social" class="clearfix">
+<div class="grid-5">
+<!-- a href="/side/om-himoldex">Om HiMoldeX</a -->
+General: <a href="mailto:post@himolde.no">post@himolde.no</a> / 712&nbsp;14&nbsp;000
+</div>
+<div class="grid-2 no-margin center">Follow us on
+<span class="no-br">
+<a href="http://www.facebook.com/himolde" target="_blank"><img src="/img/fb.png"></a>
+<a href="http://twitter.com/himolde" target="_blank"><img src="/img/twitter.png"></a>
+<a href="http://www.youtube.com/user/himoldex" target="_blank"><img src="/img/youtube.png"></a>
+</span>
+</div>
+<div class="grid-5 last">
+Technical: <a href="mailto:support@himolde.no">support@himolde.no</a> / 712&nbsp;14&nbsp;175
+</div>
+</div>
+EOM;
+      return array('#markup' => $html);
+    case 'banner_small_himolder':
+      $html = <<<EOM
+<p>
+<a href="/"><img src="/img/banner-liten-2013-03-11.jpg" width="100%" 
+title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
+På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
+</p>
+EOM;
+      return array('#markup' => $html);
+    case 'banner_himolder':
+      $html = <<<EOM
+<p>
+<a href="/"><img src="/img/banner-2013-03-11.jpg" width="100%" 
+title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
+På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
+</p>
+EOM;
+      return array('#markup' => $html);
+    default:
+      $name = str_replace('group_small_logo_', '', $which_block);
+      $img = '/img/' . $name . '.png';
+      $path = 'group/' . str_replace(array(' ',','), array('-',''), strtolower($title));
+      if (false) {
+        $html = <<<EOM
+<div style="position: relative;">
+<div style="position: absolute; top: 20px; left: 20px;">
+<a class="study-small-logo" href="$path" style="color: white;">$title</a>
+</div>
+<p><a href="$path"><img class="study-small-logo" src="$img" alt=""/></a></p>
+</div>
+EOM;
+      }
+      else {
+        $html = <<<EOM
+<p class="study-small-logo group-small-logo">
+<a href="$path"><img class="study-small-logo" alt="" src="$img"></a> 
+<a class="study-small-logo group-small-logo" href="$path">$title</a>
+</p>
+EOM;
+      }
+      return array('#markup' => $html);
+  }
+}
+
+function _himolder_youtube_js($video_id) {
+  $html = <<<EOM
+<script type="text/javascript">// <![CDATA[
+  var tag = document.createElement('script');
+  tag.src = "http://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('yt_player', {
+      playerVars: { 'autoplay': 1, 'autohide': 1, 'rel': 0, 'showinfo': 0},
+      height: '100%',
+      width: '100%',
+      videoId: '$video_id',
+      events: {
+        'onReady': onPlayerReady}
+    });
+  }
+  function onPlayerReady(event) {
+    event.target.mute();
+  }
+// ]]></script>
+EOM;
+  return $html;
+}
