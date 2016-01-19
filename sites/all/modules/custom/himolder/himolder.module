@@ -119,7 +119,7 @@ EOM;
     case 'banner_small_himolder':
       $html = <<<EOM
 <p>
-<a href="/"><img src="/img/banner-liten-2013-03-11.jpg" width="100%" 
+<a href="/"><img src="/img/banner-himolder-liten-2016-01-19.jpg" width="100%" 
 title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
 På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
 </p>
@@ -128,7 +128,7 @@ EOM;
     case 'banner_himolder':
       $html = <<<EOM
 <p>
-<a href="/"><img src="/img/banner-2013-03-11.jpg" width="100%" 
+<a href="/"><img src="/img/banner-himolder-2016-01-19.jpg" width="100%" 
 title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
 På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
 </p>
@@ -158,6 +158,15 @@ EOM;
       }
       return array('#markup' => $html);
   }
+}
+
+/**
+ * Implements hook_block_view_MODULE_DELTA_alter().
+ *
+ * Removing Norwegian "intro" from the items.
+ */
+function himolder_block_view_aggregator_feed_2_alter(&$data, $block) {
+  $data['content'] = str_replace('Ny artikkel - ', '', $data['content']);
 }
 
 function _himolder_youtube_js($video_id) {
