@@ -7,7 +7,7 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial, sans-serif;
-    letter-spacing: 0em; 
+    letter-spacing: 0em;
 }
 
 div#page {
@@ -27,24 +27,26 @@ div.field-name-field-study-handbook {
 }
 
 /*
- * Comments: 
- * - The class bigmenu is currently unused. 
+ * Comments:
+ * - The class bigmenu is currently unused.
  */
 
-#block-menu-menu-log-in ul, 
+#block-menu-menu-log-in ul,
 #block-menu-menu-log-in li,
-#block-menu-menu-all ul, 
+#block-menu-menu-all ul,
 #block-menu-menu-all li {
     list-style: none;
 }
 
-div.view-course-menu h2, 
-div.view-course-menu h3, 
-div.view-studyplans-categorized h2, 
-div.view-studyplans-categorized h3, 
-div.bigmenu h2, 
-div.bigmenu h3, 
-#block-menu-menu-all h2, 
+div.view-course-menu h2,
+div.view-course-menu h3,
+div.view-research-group-menu h2,
+div.view-research-group-menu h3,
+div.view-studyplans-categorized h2,
+div.view-studyplans-categorized h3,
+div.bigmenu h2,
+div.bigmenu h3,
+#block-menu-menu-all h2,
 #block-menu-menu-all h3 {
     margin-bottom: 0px;
 }
@@ -52,16 +54,19 @@ div.view-studyplans-categorized h3 {
     font-size: 15px;
 }
 
-div.view-course-menu div.course-locked {
+div.view-course-menu div.course-locked,
+div.view-research-group-menu div.course-locked {
     float: right;
 }
-div.view-course-menu img#lock-locked {
+div.view-course-menu img#lock-locked,
+div.view-research-group-menu img#lock-locked {
     height: 50px;
 }
 
-div.view-course-menu a, 
-div.view-studyplans-categorized a, 
-div.bigmenu a, 
+div.view-course-menu a,
+div.view-research-group-menu a,
+div.view-studyplans-categorized a,
+div.bigmenu a,
 a.study-small-logo,
 #block-menu-menu-all a {
     display: block;
@@ -72,17 +77,19 @@ a.study-small-logo,
     border-bottom: 1px solid white;
 }
 
-div.view-course-menu a.active, 
-div.view-studyplans-categorized a.active, 
-div.bigmenu a.active, 
+div.view-course-menu a.active,
+div.view-research-group-menu a.active,
+div.view-studyplans-categorized a.active,
+div.bigmenu a.active,
 #block-menu-menu-all a.active {
     color: white;
     background-color: #005DA1;
 }
 
-div.view-course-menu a:hover, 
-div.view-studyplans-categorized a:hover, 
-div.bigmenu a:hover, 
+div.view-course-menu a:hover,
+div.view-research-group-menu a:hover,
+div.view-studyplans-categorized a:hover,
+div.bigmenu a:hover,
 a.study-small-logo:hover,
 #block-menu-menu-all a:hover {
     color: white;
@@ -117,18 +124,25 @@ p#textlogo a {
     text-decoration: none;
 }
 p#textlogo {
-    font-family: arial; 
+    font-family: arial;
     margin-bottom: 0px
 }
 p#textlogo span {
-    color: #0456a0; 
+    color: #0456a0;
     font-size: 36px;
 }
 p#textlogo span#x {
-    /* color: #009ee2; */ 
+    /* color: #009ee2; */
     /* color: #CC1A2A; */
     color: red;
-    font-size: 43px; 
+    font-size: 43px;
+    font-weight: bold;
+}
+p#textlogo span#r {
+    /* color: #009ee2; */
+    /* color: #CC1A2A; */
+    color: green;
+    font-size: 43px;
     font-weight: bold;
 }
 p#textlogo span.desc {
@@ -140,7 +154,7 @@ p.study-small-logo {
     margin-bottom: 0px;
 }
 a.study-small-logo {
-    font-size: 36px; 
+    font-size: 36px;
     text-decoration: none;
 }
 img.study-small-logo {

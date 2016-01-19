@@ -11,6 +11,9 @@ div#block-search-form {
     padding-top: 24px;
 }
 
+p.study-small-logo a.group-small-logo {
+    height: 8ex;
+}
 
 /* Logos */
 a.study-small-logo {

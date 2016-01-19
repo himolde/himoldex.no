@@ -6,6 +6,10 @@ input#edit-search-block-form--2 {
     font-size: 16px;
 }
 
+p.study-small-logo a.group-small-logo {
+    height: 6ex;
+}
+
 /* Text logo */
 p#textlogo a {
     text-decoration: none;
@@ -24,6 +28,9 @@ p#textlogo span#x {
     color: red;
     font-size: 64px;
     font-weight: bold;
+}
+p#textlogo span#r {
+    font-size: 64px;
 }
 p#textlogo span.desc {
     font-size: 35px;
