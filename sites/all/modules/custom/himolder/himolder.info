@@ -1,3 +1,4 @@
 name = HiMoldeR
 description = Custom code for himolder.no
 core = 7.x
+dependencies[] = himoldex
