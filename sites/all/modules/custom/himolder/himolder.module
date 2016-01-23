@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Implements hook_node_prepare().
+ *
+ * - Add new videos from YouTube playlist or Mediasite folder for research groups.
+ */
+function himolder_node_prepare($node) {
+  if (!empty($node->nid) && ($node->type == 'research_group')) {
+    _himoldex_add_videos_to_node($node);
+  }
+}
+
+/**
  * Implements hook_block_info().
  */
 function himolder_block_info() {
