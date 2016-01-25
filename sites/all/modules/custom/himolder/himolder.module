@@ -111,7 +111,7 @@ function _himolder_block_contents($which_block, $title='') {
       $html = <<<EOM
 <div id="about-social" class="clearfix">
 <div class="grid-5">
-<!-- a href="/side/om-himoldex">Om HiMoldeX</a -->
+<!-- a href="/side/om-himoldex">About HiMoldeR</a -->
 General: <a href="mailto:post@himolde.no">post@himolde.no</a> / 712&nbsp;14&nbsp;000
 </div>
 <div class="grid-2 no-margin center">Follow us on
@@ -131,8 +131,8 @@ EOM;
       $html = <<<EOM
 <p>
 <a href="/"><img src="/img/banner-himolder-liten-2016-01-19.jpg" width="100%" 
-title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
-På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
+title="HiMoldeR.no is an open research platform for Molde University College. 
+On this page you'll find our research groups."/></a>
 </p>
 EOM;
       return array('#markup' => $html);
@@ -140,8 +140,8 @@ EOM;
       $html = <<<EOM
 <p>
 <a href="/"><img src="/img/banner-himolder-2016-01-19.jpg" width="100%" 
-title="HiMoldeX.no er en åpen kursplattform ved Høgskolen i Molde. 
-På denne siden finner du kursmateriell for utvalgte kurs ved HiMolde."/></a>
+title="HiMoldeR.no is an open research platform for Molde University College. 
+On this page you'll find our research groups."/></a>
 </p>
 EOM;
       return array('#markup' => $html);
