@@ -27,36 +27,20 @@ function himolder_block_info() {
     'info' => t('HimoldeR: Banner'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
-  $blocks['group_small_logo_IMDL'] = array(
-    'info' => 'HimoldeR: Liten logo for Integrated Market Dynamics and Logistics',
+  $blocks['area_small_logo_business'] = array(
+    'info' => 'HimoldeR: Liten logo for area Business Administration and Social Sciences',
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
-  $blocks['group_small_logo_EL'] = array(
-    'info' => 'HimoldeR: Liten logo for Engineering Logistics',
+  $blocks['area_small_logo_health'] = array(
+    'info' => 'HimoldeR: Liten logo for area Health Sciences and Social Care',
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
-  $blocks['group_small_logo_VTL'] = array(
-    'info' => 'HimoldeR: Liten logo for Virtual Technologies and Learning',
+  $blocks['area_small_logo_logistics'] = array(
+    'info' => 'HimoldeR: Liten logo for area Logistics',
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
-  $blocks['group_small_logo_T'] = array(
-    'info' => 'HimoldeR: Liten logo for Transportation',
-    'cache' => DRUPAL_CACHE_PER_PAGE,
-  );
-  $blocks['group_small_logo_SM'] = array(
-    'info' => 'HimoldeR: Liten logo for Sport Management',
-    'cache' => DRUPAL_CACHE_PER_PAGE,
-  );
-  $blocks['group_small_logo_SCMIS'] = array(
-    'info' => 'HimoldeR: Liten logo for SCM and Information Systems',
-    'cache' => DRUPAL_CACHE_PER_PAGE,
-  );
-  $blocks['group_small_logo_PODS'] = array(
-    'info' => 'HimoldeR: Liten logo for Planning, Optimization and Decision Support',
-    'cache' => DRUPAL_CACHE_PER_PAGE,
-  );
-  $blocks['group_small_logo_SOL'] = array(
-    'info' => 'HimoldeR: Liten logo for Society, Organisation and Management',
+  $blocks['area_small_logo_moreforsking'] = array(
+    'info' => 'HimoldeR: Liten logo for area Møreforsking Molde',
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   return $blocks;
@@ -74,29 +58,17 @@ function himolder_block_view($delta = '') {
     case 'banner_small_himolder':
       $block['content'] = _himolder_block_contents($delta);
       break;
-    case 'group_small_logo_IMDL':
-      $block['content'] = _himolder_block_contents($delta, 'Integrated Market Dynamics and Logistics');
+    case 'area_small_logo_business':
+      $block['content'] = _himolder_block_contents($delta, 'Business Administration and Social Sciences');
       break;
-    case 'group_small_logo_EL':
-      $block['content'] = _himolder_block_contents($delta, 'Engineering Logistics');
+    case 'area_small_logo_health':
+      $block['content'] = _himolder_block_contents($delta, 'Health Sciences and Social Care');
       break;
-    case 'group_small_logo_VTL':
-      $block['content'] = _himolder_block_contents($delta, 'Virtual Technologies and Learning');
+    case 'area_small_logo_logistics':
+      $block['content'] = _himolder_block_contents($delta, 'Logistics');
       break;
-    case 'group_small_logo_T':
-      $block['content'] = _himolder_block_contents($delta, 'Transportation');
-      break;
-    case 'group_small_logo_SM':
-      $block['content'] = _himolder_block_contents($delta, 'Sport Management');
-      break;
-    case 'group_small_logo_SCMIS':
-      $block['content'] = _himolder_block_contents($delta, 'SCM and Information Systems');
-      break;
-    case 'group_small_logo_PODS':
-      $block['content'] = _himolder_block_contents($delta, 'Planning, Optimization and Decision Support');
-      break;
-    case 'group_small_logo_SOL':
-      $block['content'] = _himolder_block_contents($delta, 'Society, Organisation and Management');
+    case 'area_small_logo_moreforsking':
+      $block['content'] = _himolder_block_contents($delta, 'Møreforsking Molde');
       break;
   }
   return $block;
@@ -146,9 +118,11 @@ On this page you'll find our research groups."/></a>
 EOM;
       return array('#markup' => $html);
     default:
-      $name = str_replace('group_small_logo_', '', $which_block);
-      $img = '/img/' . $name . '.png';
-      $path = 'group/' . str_replace(array(' ',','), array('-',''), strtolower($title));
+      $name = str_replace(array(' ',','), array('-',''), strtolower($title));
+      $name = str_replace('ø', 'o', $name);
+      $img = '/img/r/' . $name . '.png';
+      $path = '/page/' . $name;
+
       if (false) {
         $html = <<<EOM
 <div style="position: relative;">
