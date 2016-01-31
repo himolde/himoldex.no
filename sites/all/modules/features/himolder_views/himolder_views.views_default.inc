@@ -445,7 +445,7 @@ function himolder_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Forskningsgrupper';
+  $handler->display->display_options['title'] = 'All research groups';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -495,9 +495,19 @@ function himolder_views_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['path'] = 'research-groups';
   $translatables['research_groups'] = array(
     t('Master'),
-    t('Forskningsgrupper'),
+    t('All research groups'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -507,6 +517,7 @@ function himolder_views_views_default_views() {
     t('Nid'),
     t('node/[nid]'),
     t('Block'),
+    t('Page'),
   );
   $export['research_groups'] = $view;
 
