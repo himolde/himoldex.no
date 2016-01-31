@@ -68,7 +68,7 @@ function himolder_ct_research_group_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -133,7 +133,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'search_result' => array(
         'label' => 'inline',
@@ -395,7 +395,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -438,7 +438,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -493,7 +493,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -538,7 +538,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -585,11 +585,10 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     'description' => 'Gruppemedlemmer som ikke er ansatt ved Høgskolen i Molde (og dermed ikke har Feide-bruker).',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'link',
+        'label' => 'inline',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 14,
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -647,7 +646,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'search_result' => array(
         'label' => 'above',
