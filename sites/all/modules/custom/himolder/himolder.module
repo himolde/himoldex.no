@@ -7,7 +7,7 @@
  */
 function himolder_node_prepare($node) {
   if (!empty($node->nid) && ($node->type == 'research_group')) {
-    _himoldex_add_videos_to_node($node);
+    _himoldex_add_videos_to_node($node, 'en');
   }
 }
 

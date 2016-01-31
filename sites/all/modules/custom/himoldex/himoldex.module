@@ -26,7 +26,7 @@ function himoldex_pathauto_alias_alter(&$alias, array &$context) {
  */
 function himoldex_node_prepare($node) {
   if (!empty($node->nid) && ($node->type == 'course')) {
-    _himoldex_add_videos_to_node($node);
+    _himoldex_add_videos_to_node($node, 'nb');
   }
 }
 
@@ -460,7 +460,7 @@ EOM;
   return $html;
 }
 
-function _himoldex_add_videos_to_node($node) {
+function _himoldex_add_videos_to_node($node, $language) {
   $videos_added = array();
   // Fetch only 10 items on each display of the node edit page
   $itemsPerRequest = 10;
@@ -521,7 +521,7 @@ function _himoldex_add_videos_to_node($node) {
           $videonode->type = 'video';
           node_object_prepare($videonode);
 
-          $videonode->language = 'nb';
+          $videonode->language = $language;
           $videonode->field_video_type[LANGUAGE_NONE][0]['value'] = 'lecture';
           $videonode->field_video_topic[LANGUAGE_NONE][0]['value'] = $video_title;
           $videonode->field_video_mediasite[LANGUAGE_NONE][0]['value'] = $video_link;
@@ -607,7 +607,7 @@ function _himoldex_add_videos_to_node($node) {
         $videonode->type = 'video';
         node_object_prepare($videonode);
 
-        $videonode->language = 'nb';
+        $videonode->language = $language;
         $videonode->field_video_type[LANGUAGE_NONE][0]['value'] = 'lecture';
         $videonode->field_video_topic[LANGUAGE_NONE][0]['value'] = $video_title;
         $videonode->field_video_youtube[LANGUAGE_NONE][0]['input'] = $youtube_videolink;
