@@ -117,7 +117,7 @@ function himolder_ct_research_group_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 8,
     ),
   );
 
@@ -172,7 +172,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'rel_remove' => 'default',
       'title' => 'value',
       'title_maxlength' => 128,
-      'title_value' => 'Materiell for emnet',
+      'title_value' => 'Homepage',
       'url' => 0,
       'user_register_form' => FALSE,
       'validate_url' => 1,
@@ -182,7 +182,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
@@ -277,7 +277,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_lecture',
-    'label' => 'Foreleser',
+    'label' => 'Interne gruppemedlemmer',
     'readmore_behaviour' => 'default',
     'required' => 1,
     'settings' => array(
@@ -288,7 +288,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 4,
+      'weight' => 6,
     ),
   );
 
@@ -346,7 +346,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       ),
     ),
     'deleted' => 0,
-    'description' => 'Angir om emnet har åpner videoer eller om man må ha Feide-innlogging for å se videoene i emnet.',
+    'description' => 'Angir om forskningsgruppen har åpne videoer/dokumenter.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -423,7 +423,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'module' => 'youtube',
       'settings' => array(),
       'type' => 'youtube',
-      'weight' => 7,
+      'weight' => 9,
     ),
   );
 
@@ -573,7 +573,66 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'node-research_group-field_research_group_ext_members'
+  $field_instances['node-research_group-field_research_group_ext_members'] = array(
+    'bundle' => 'research_group',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Gruppemedlemmer som ikke er ansatt ved Høgskolen i Molde (og dermed ikke har Feide-bruker).',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 14,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_research_group_ext_members',
+    'label' => 'Eksterne gruppemedlemmer',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'required',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 5,
     ),
   );
 
@@ -623,23 +682,25 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 10,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Angir om emnet har åpner videoer eller om man må ha Feide-innlogging for å se videoene i emnet.');
+  t('Angir om forskningsgruppen har åpne videoer/dokumenter.');
   t('Beskrivelse');
+  t('Eksterne gruppemedlemmer');
   t('Enter the ID of the YouTube playlist - see https://www.youtube.com/playlist?list=<strong>PlayListID</strong>');
   t('Enter the ID of the folder that is linked to the course catalog on Mediasite.');
   t('Facebook-gruppe');
-  t('Foreleser');
+  t('Gruppemedlemmer som ikke er ansatt ved Høgskolen i Molde (og dermed ikke har Feide-bruker).');
   t('Hjemmeside');
   t('Hvis du bruker et åpent rom i Fronter, fyller du bare inn "fronter/ROM_ID" (eller bare "fronter" hvis du ikke finner ID-en fra URL-en). <br />
 For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett adresse - f.eks. "http://kursinfo.himolde.no/in-kurs/IBE101/".');
   t('Hvis du har opprettet en gruppe for emnet på Facebook, fyller du inn komplett adresse - f.eks. "https://www.facebook.com/groups/himolde.mat100/".');
   t('Illustrasjonsbilde');
+  t('Interne gruppemedlemmer');
   t('Mediasite-folder');
   t('Navn');
   t('Promovideo');
