@@ -37,12 +37,12 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relasjon: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_course_lecture_target_id']['id'] = 'field_course_lecture_target_id';
   $handler->display->display_options['relationships']['field_course_lecture_target_id']['table'] = 'field_data_field_course_lecture';
   $handler->display->display_options['relationships']['field_course_lecture_target_id']['field'] = 'field_course_lecture_target_id';
   $handler->display->display_options['relationships']['field_course_lecture_target_id']['label'] = 'Foreleser';
-  /* Felt: Bruker: Navn */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -53,7 +53,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_type'] = 'h4';
   $handler->display->display_options['fields']['name']['element_label_type'] = 'h3';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Felt: Innhold: Promovideo */
+  /* Field: Content: Promovideo */
   $handler->display->display_options['fields']['field_course_promovideo']['id'] = 'field_course_promovideo';
   $handler->display->display_options['fields']['field_course_promovideo']['table'] = 'field_data_field_course_promovideo';
   $handler->display->display_options['fields']['field_course_promovideo']['field'] = 'field_course_promovideo';
@@ -71,7 +71,7 @@ function himolder_views_views_default_views() {
     'youtube_autohide' => 0,
     'youtube_iv_load_policy' => 0,
   );
-  /* Contextual filter: Innhold: NID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -81,14 +81,14 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -96,8 +96,8 @@ function himolder_views_views_default_views() {
     'research_group' => 'research_group',
   );
 
-  /* Display: Medlemmer */
-  $handler = $view->new_display('block', 'Medlemmer', 'block');
+  /* Display: Interne medlemmer */
+  $handler = $view->new_display('block', 'Interne medlemmer', 'block');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -105,7 +105,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Bruker: Navn */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -115,11 +115,16 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['link_class'] = 'colorbox-node';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Realname: Real name */
+  $handler->display->display_options['sorts']['realname']['id'] = 'realname';
+  $handler->display->display_options['sorts']['realname']['table'] = 'realname';
+  $handler->display->display_options['sorts']['realname']['field'] = 'realname';
+  $handler->display->display_options['sorts']['realname']['relationship'] = 'field_course_lecture_target_id';
 
   /* Display: Promovideo */
   $handler = $view->new_display('block', 'Promovideo', 'block_1');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Innhold: Promovideo */
+  /* Field: Content: Promovideo */
   $handler->display->display_options['fields']['field_course_promovideo']['id'] = 'field_course_promovideo';
   $handler->display->display_options['fields']['field_course_promovideo']['table'] = 'field_data_field_course_promovideo';
   $handler->display->display_options['fields']['field_course_promovideo']['field'] = 'field_course_promovideo';
@@ -137,6 +142,53 @@ function himolder_views_views_default_views() {
     'youtube_autohide' => 0,
     'youtube_iv_load_policy' => 0,
   );
+
+  /* Display: Eksterne medlemmer */
+  $handler = $view->new_display('block', 'Eksterne medlemmer', 'block_2');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Eksterne gruppemedlemmer */
+  $handler->display->display_options['fields']['field_research_group_ext_members']['id'] = 'field_research_group_ext_members';
+  $handler->display->display_options['fields']['field_research_group_ext_members']['table'] = 'field_data_field_research_group_ext_members';
+  $handler->display->display_options['fields']['field_research_group_ext_members']['field'] = 'field_research_group_ext_members';
+  $handler->display->display_options['fields']['field_research_group_ext_members']['label'] = '';
+  $handler->display->display_options['fields']['field_research_group_ext_members']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_research_group_ext_members']['empty'] = 'None';
+  $handler->display->display_options['fields']['field_research_group_ext_members']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_research_group_ext_members']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_research_group_ext_members']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_research_group_ext_members']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_research_group_ext_members']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'research_group' => 'research_group',
+  );
+  /* Filter criterion: Content: Eksterne gruppemedlemmer (field_research_group_ext_members:title) */
+  $handler->display->display_options['filters']['field_research_group_ext_members_title']['id'] = 'field_research_group_ext_members_title';
+  $handler->display->display_options['filters']['field_research_group_ext_members_title']['table'] = 'field_data_field_research_group_ext_members';
+  $handler->display->display_options['filters']['field_research_group_ext_members_title']['field'] = 'field_research_group_ext_members_title';
+  $handler->display->display_options['filters']['field_research_group_ext_members_title']['operator'] = 'not empty';
   $translatables['research_group_information'] = array(
     t('Master'),
     t('Medlemmer'),
@@ -149,6 +201,10 @@ function himolder_views_views_default_views() {
     t('Foreleser'),
     t('Promovideo'),
     t('Alle'),
+    t('Interne medlemmer'),
+    t('more'),
+    t('Eksterne medlemmer'),
+    t('None'),
   );
   $export['research_group_information'] = $view;
 
@@ -181,14 +237,14 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Felt: Innhold: NID */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
   $handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
-  /* Felt: Global: Tilpasset tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -198,7 +254,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'h3';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Felt: Innhold: Hjemmeside */
+  /* Field: Content: Hjemmeside */
   $handler->display->display_options['fields']['field_course_homepage']['id'] = 'field_course_homepage';
   $handler->display->display_options['fields']['field_course_homepage']['table'] = 'field_data_field_course_homepage';
   $handler->display->display_options['fields']['field_course_homepage']['field'] = 'field_course_homepage';
@@ -206,7 +262,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['field_course_homepage']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_course_homepage']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_course_homepage']['click_sort_column'] = 'url';
-  /* Felt: Innhold: Video */
+  /* Field: Content: Video */
   $handler->display->display_options['fields']['field_course_video']['id'] = 'field_course_video';
   $handler->display->display_options['fields']['field_course_video']['table'] = 'field_data_field_course_video';
   $handler->display->display_options['fields']['field_course_video']['field'] = 'field_course_video';
@@ -224,7 +280,7 @@ function himolder_views_views_default_views() {
   );
   $handler->display->display_options['fields']['field_course_video']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_course_video']['delta_offset'] = '0';
-  /* Felt: Meldinger */
+  /* Field: Meldinger */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -240,7 +296,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
   $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
-  /* Felt: Innhold: Facebook-gruppe */
+  /* Field: Content: Facebook-gruppe */
   $handler->display->display_options['fields']['field_course_fb_group']['id'] = 'field_course_fb_group';
   $handler->display->display_options['fields']['field_course_fb_group']['table'] = 'field_data_field_course_fb_group';
   $handler->display->display_options['fields']['field_course_fb_group']['field'] = 'field_course_fb_group';
@@ -248,7 +304,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['field_course_fb_group']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_course_fb_group']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_course_fb_group']['click_sort_column'] = 'url';
-  /* Contextual filter: Innhold: NID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -263,14 +319,14 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'research_group' => 'research_group',
   );
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -281,14 +337,14 @@ function himolder_views_views_default_views() {
   /* Display: Blokk */
   $handler = $view->new_display('block', 'Blokk', 'block');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Innhold: NID */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
   $handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
-  /* Felt: Innhold: Åpent */
+  /* Field: Content: Åpent */
   $handler->display->display_options['fields']['field_course_open']['id'] = 'field_course_open';
   $handler->display->display_options['fields']['field_course_open']['table'] = 'field_data_field_course_open';
   $handler->display->display_options['fields']['field_course_open']['field'] = 'field_course_open';
@@ -297,7 +353,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['field_course_open']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_course_open']['empty'] = '1';
   $handler->display->display_options['fields']['field_course_open']['type'] = 'list_key';
-  /* Felt: Visninger: Views Conditional */
+  /* Field: Views: Views Conditional */
   $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
@@ -311,7 +367,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['equalto'] = '0';
   $handler->display->display_options['fields']['views_conditional']['then'] = '<img id=\'lock-locked\' src=\'/sites/all/themes/himoldex/icons/lock-512.png\' />';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
-  /* Felt: Global: Tilpasset tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -321,7 +377,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'h3';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Felt: Innhold: Hjemmeside */
+  /* Field: Content: Hjemmeside */
   $handler->display->display_options['fields']['field_course_homepage']['id'] = 'field_course_homepage';
   $handler->display->display_options['fields']['field_course_homepage']['table'] = 'field_data_field_course_homepage';
   $handler->display->display_options['fields']['field_course_homepage']['field'] = 'field_course_homepage';
@@ -329,7 +385,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['field_course_homepage']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_course_homepage']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_course_homepage']['click_sort_column'] = 'url';
-  /* Felt: Innhold: Video */
+  /* Field: Content: Video */
   $handler->display->display_options['fields']['field_course_video']['id'] = 'field_course_video';
   $handler->display->display_options['fields']['field_course_video']['table'] = 'field_data_field_course_video';
   $handler->display->display_options['fields']['field_course_video']['field'] = 'field_course_video';
@@ -347,7 +403,7 @@ function himolder_views_views_default_views() {
   );
   $handler->display->display_options['fields']['field_course_video']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_course_video']['delta_offset'] = '0';
-  /* Felt: Innhold: Facebook-gruppe */
+  /* Field: Content: Facebook-gruppe */
   $handler->display->display_options['fields']['field_course_fb_group']['id'] = 'field_course_fb_group';
   $handler->display->display_options['fields']['field_course_fb_group']['table'] = 'field_data_field_course_fb_group';
   $handler->display->display_options['fields']['field_course_fb_group']['field'] = 'field_course_fb_group';
@@ -364,17 +420,95 @@ function himolder_views_views_default_views() {
     t('Sortér på'),
     t('Stigende'),
     t('Synkende'),
-    t('NID'),
+    t('Nid'),
     t('Beskrivelse'),
     t('Videoer'),
     t('Meldinger'),
     t('Alle'),
     t('Blokk'),
+    t('more'),
     t('1'),
     t(' About'),
     t('Videos'),
   );
   $export['research_group_menu'] = $view;
+
+  $view = new view();
+  $view->name = 'research_groups';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Forskningsgrupper';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Forskningsgrupper';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'jump_menu';
+  $handler->display->display_options['style_options']['hide'] = TRUE;
+  $handler->display->display_options['style_options']['path'] = 'nid';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '60';
+  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
+  $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
+  $handler->display->display_options['fields']['title']['node_in_colorbox_rel'] = '';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'node/[nid]';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'research_group' => 'research_group',
+  );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $translatables['research_groups'] = array(
+    t('Master'),
+    t('Forskningsgrupper'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Nid'),
+    t('node/[nid]'),
+    t('Block'),
+  );
+  $export['research_groups'] = $view;
 
   $view = new view();
   $view->name = 'research_videos';
@@ -464,26 +598,26 @@ function himolder_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relasjon: Entity Reference: Referencing entity */
+  /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_course_video_node']['id'] = 'reverse_field_course_video_node';
   $handler->display->display_options['relationships']['reverse_field_course_video_node']['table'] = 'node';
   $handler->display->display_options['relationships']['reverse_field_course_video_node']['field'] = 'reverse_field_course_video_node';
   $handler->display->display_options['relationships']['reverse_field_course_video_node']['label'] = 'Emne som refererer til video';
-  /* Felt: Innhold: NID */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['node_in_colorbox_width'] = '600';
   $handler->display->display_options['fields']['nid']['node_in_colorbox_height'] = '600';
-  /* Felt: Innhold: Tema */
+  /* Field: Content: Tema */
   $handler->display->display_options['fields']['field_video_topic_1']['id'] = 'field_video_topic_1';
   $handler->display->display_options['fields']['field_video_topic_1']['table'] = 'field_data_field_video_topic';
   $handler->display->display_options['fields']['field_video_topic_1']['field'] = 'field_video_topic';
   $handler->display->display_options['fields']['field_video_topic_1']['label'] = 'Tema (ikke lenke)';
   $handler->display->display_options['fields']['field_video_topic_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_video_topic_1']['type'] = 'text_plain';
-  /* Felt: Innhold: Youtube */
+  /* Field: Content: Youtube */
   $handler->display->display_options['fields']['field_video_youtube_1']['id'] = 'field_video_youtube_1';
   $handler->display->display_options['fields']['field_video_youtube_1']['table'] = 'field_data_field_video_youtube';
   $handler->display->display_options['fields']['field_video_youtube_1']['field'] = 'field_video_youtube';
@@ -504,7 +638,7 @@ function himolder_views_views_default_views() {
     'youtube_autohide' => 0,
     'youtube_iv_load_policy' => 0,
   );
-  /* Felt: Innhold: Youtube */
+  /* Field: Content: Youtube */
   $handler->display->display_options['fields']['field_video_youtube']['id'] = 'field_video_youtube';
   $handler->display->display_options['fields']['field_video_youtube']['table'] = 'field_data_field_video_youtube';
   $handler->display->display_options['fields']['field_video_youtube']['field'] = 'field_video_youtube';
@@ -527,7 +661,7 @@ function himolder_views_views_default_views() {
     'youtube_autohide' => 0,
     'youtube_iv_load_policy' => 0,
   );
-  /* Felt: Innhold: Mediasite */
+  /* Field: Content: Mediasite */
   $handler->display->display_options['fields']['field_video_mediasite']['id'] = 'field_video_mediasite';
   $handler->display->display_options['fields']['field_video_mediasite']['table'] = 'field_data_field_video_mediasite';
   $handler->display->display_options['fields']['field_video_mediasite']['field'] = 'field_video_mediasite';
@@ -537,7 +671,7 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['fields']['field_video_mediasite']['alter']['path'] = '[field_video_mediasite]';
   $handler->display->display_options['fields']['field_video_mediasite']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['field_video_mediasite']['hide_empty'] = TRUE;
-  /* Felt: Innhold: Dato */
+  /* Field: Content: Dato */
   $handler->display->display_options['fields']['field_video_dato']['id'] = 'field_video_dato';
   $handler->display->display_options['fields']['field_video_dato']['table'] = 'field_data_field_video_dato';
   $handler->display->display_options['fields']['field_video_dato']['field'] = 'field_video_dato';
@@ -549,23 +683,23 @@ function himolder_views_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Felt: Innhold: Rediger lenke */
+  /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  /* Sorteringskriterium: Innhold: Dato (field_video_dato) */
+  /* Sort criterion: Content: Dato (field_video_dato) */
   $handler->display->display_options['sorts']['field_video_dato_value']['id'] = 'field_video_dato_value';
   $handler->display->display_options['sorts']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
   $handler->display->display_options['sorts']['field_video_dato_value']['field'] = 'field_video_dato_value';
   $handler->display->display_options['sorts']['field_video_dato_value']['order'] = 'DESC';
-  /* Sorteringskriterium: Innhold: Video (field_course_video:delta) */
+  /* Sort criterion: Content: Video (field_course_video:delta) */
   $handler->display->display_options['sorts']['delta']['id'] = 'delta';
   $handler->display->display_options['sorts']['delta']['table'] = 'field_data_field_course_video';
   $handler->display->display_options['sorts']['delta']['field'] = 'delta';
   $handler->display->display_options['sorts']['delta']['order'] = 'DESC';
-  /* Contextual filter: Innhold: NID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -583,14 +717,14 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'research_group' => 'research_group',
   );
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -605,14 +739,14 @@ function himolder_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -620,7 +754,7 @@ function himolder_views_views_default_views() {
     'video' => 'video',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Innhold: Dato (field_video_dato) */
+  /* Filter criterion: Content: Dato (field_video_dato) */
   $handler->display->display_options['filters']['field_video_dato_value']['id'] = 'field_video_dato_value';
   $handler->display->display_options['filters']['field_video_dato_value']['table'] = 'field_data_field_video_dato';
   $handler->display->display_options['filters']['field_video_dato_value']['field'] = 'field_video_dato_value';
@@ -655,7 +789,7 @@ function himolder_views_views_default_views() {
     t('Stigende'),
     t('Synkende'),
     t('Emne som refererer til video'),
-    t('NID'),
+    t('Nid'),
     t('Tema (ikke lenke)'),
     t(' Topic'),
     t('[field_video_topic_1]'),
@@ -665,6 +799,7 @@ function himolder_views_views_default_views() {
     t('Alle'),
     t('Videos by the %1 group'),
     t('Videoer'),
+    t('more'),
     t(' Year'),
   );
   $export['research_videos'] = $view;
