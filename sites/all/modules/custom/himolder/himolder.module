@@ -153,3 +153,22 @@ EOM;
 function himolder_block_view_aggregator_feed_2_alter(&$data, $block) {
   $data['content'] = str_replace('Ny artikkel - ', '', $data['content']);
 }
+
+
+/**
+ * Implements the computed field (value) for the lecture_mypage field on the user entity.
+ */
+function computed_field_field_lecture_mypage_compute(&$entity_field, $entity_type, $entity, $field, $instance, $langcode, $items) {
+  $minside_base_url_en = 'http://www.himolde.no/english/Sider/Minside/%FULLNAME%.aspx';
+  $minside_base_url_nb = 'http://www.himolde.no/Sider/Minside/%FULLNAME%.aspx';
+
+  list($fullname, $domain) = explode('@', $entity->mail);
+
+  if ($domain == 'stud.himolde.no') {
+    // Students don't have standard homepage / MyPage.
+    $entity_field[0]['value'] = '';
+  }
+  else {
+    $entity_field[0]['value'] = str_replace('%FULLNAME%', $fullname, $minside_base_url_en);
+  }
+}
