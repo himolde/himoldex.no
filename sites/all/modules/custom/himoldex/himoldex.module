@@ -101,6 +101,10 @@ function himoldex_block_info() {
     'info' => t('HimoldeX: Lenker til Om-siden og sosiale tjenester'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
+  $blocks['promo_video_himoldex'] = array(
+    'info' => t('HimoldeX: Promovideo HiMoldeX (YouTube)'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
   $blocks['promo_video_tour'] = array(
     'info' => t('HimoldeX: Promovideo Tour (YouTube)'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
@@ -175,6 +179,7 @@ function himoldex_block_view($delta = '') {
     case 'studyhandbook_and_subjects':
     case 'studyhandbook':
     case 'about_social':
+    case 'promo_video_himoldex':
     case 'promo_video_tour':
     case 'promo_video_pres':
     case 'latest_lecture':
@@ -275,6 +280,16 @@ Kontakt oss på <a href="mailto:post@himoldex.no" target="_blank">post@himoldex.
 <a href="http://www.himolde.no" target="_blank">www.himolde.no</a> 
 </p>
 EOM;
+      return array('#markup' => $html);
+    case 'promo_video_himoldex':
+      // ID of promo video
+      $youtube_video_id = 'Ic3TqFlATRU';
+      $html = <<<EOM
+<div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
+EOM;
+      if (!user_is_logged_in()) {
+	$html .= _himoldex_youtube_js($youtube_video_id);
+      }
       return array('#markup' => $html);
     case 'promo_video_tour':
       // ID of promo video
