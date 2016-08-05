@@ -2,7 +2,7 @@
 core = 7.x
 
 api = 2
-projects[drupal][version] = "7.44"
+projects[drupal][version] = "7.50"
 projects[drupal][patch][] = "http://himoldex.no/patches/1969208-2.patch"
 
 defaults[projects][subdir] = "contrib"
@@ -32,7 +32,7 @@ projects[entityreference][version] = "1.1"
 
 projects[features_extra][version] = "1.0-beta1"
 
-projects[features][version] = "2.4"
+projects[features][version] = "2.10"
 
 projects[field_group][version] = "1.5"
 
