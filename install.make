@@ -38,7 +38,7 @@ projects[field_group][version] = "1.5"
 
 projects[flexslider][version] = "2.0-alpha3"
 
-projects[google_analytics][version] = "2.1"
+projects[google_analytics][version] = "2.3"
 
 projects[imce][version] = "1.9"
 
@@ -46,7 +46,7 @@ projects[imce_wysiwyg][version] = "1.0"
 
 projects[l10n_update][version] = "1.0"
 
-projects[ldap][version] = "2.0-beta8"
+projects[ldap][version] = "7.x-2.0-beta11"
 
 projects[libraries][version] = "2.2"
 
