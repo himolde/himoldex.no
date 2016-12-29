@@ -12,6 +12,7 @@ sites/*/themes/*
 sites/*/libraries
 
 # Ignore default text files
+.editorconfig
 .htaccess
 robots.txt
 /CHANGELOG.txt
