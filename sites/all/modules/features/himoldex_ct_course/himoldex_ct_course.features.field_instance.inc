@@ -10,7 +10,7 @@
 function himoldex_ct_course_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-course-field_course_code'
+  // Exported field_instance: 'node-course-field_course_code'.
   $field_instances['node-course-field_course_code'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -55,7 +55,7 @@ function himoldex_ct_course_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_consumers'
+  // Exported field_instance: 'node-course-field_course_consumers'.
   $field_instances['node-course-field_course_consumers'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -98,7 +98,7 @@ function himoldex_ct_course_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_desc'
+  // Exported field_instance: 'node-course-field_course_desc'.
   $field_instances['node-course-field_course_desc'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -145,7 +145,7 @@ function himoldex_ct_course_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_fb_group'
+  // Exported field_instance: 'node-course-field_course_fb_group'.
   $field_instances['node-course-field_course_fb_group'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -177,6 +177,7 @@ function himoldex_ct_course_field_default_field_instances() {
     'readmore_behaviour' => 'default',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -194,6 +195,7 @@ function himoldex_ct_course_field_default_field_instances() {
       ),
       'rel_remove' => 'default',
       'title' => 'value',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => 'Facebook',
       'url' => 0,
@@ -209,7 +211,7 @@ function himoldex_ct_course_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_homepage'
+  // Exported field_instance: 'node-course-field_course_homepage'.
   $field_instances['node-course-field_course_homepage'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -242,6 +244,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     'readmore_behaviour' => 'default',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -259,6 +262,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       ),
       'rel_remove' => 'default',
       'title' => 'value',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => 'Materiell for emnet',
       'url' => 0,
@@ -274,7 +278,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_image'
+  // Exported field_instance: 'node-course-field_course_image'.
   $field_instances['node-course-field_course_image'] = array(
     'bundle' => 'course',
     'deleted' => 0,
@@ -327,17 +331,29 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'media',
       'settings' => array(
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 0,
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 'upload',
+        ),
       ),
-      'type' => 'image_image',
+      'type' => 'media_generic',
       'weight' => 9,
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_lecture'
+  // Exported field_instance: 'node-course-field_course_lecture'.
   $field_instances['node-course-field_course_lecture'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -380,7 +396,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_name'
+  // Exported field_instance: 'node-course-field_course_name'.
   $field_instances['node-course-field_course_name'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -425,7 +441,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_open'
+  // Exported field_instance: 'node-course-field_course_open'.
   $field_instances['node-course-field_course_open'] = array(
     'bundle' => 'course',
     'default_value' => array(
@@ -472,7 +488,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_promovideo'
+  // Exported field_instance: 'node-course-field_course_promovideo'.
   $field_instances['node-course-field_course_promovideo'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -515,7 +531,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_video'
+  // Exported field_instance: 'node-course-field_course_video'.
   $field_instances['node-course-field_course_video'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -566,7 +582,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_video_thisyear'
+  // Exported field_instance: 'node-course-field_course_video_thisyear'.
   $field_instances['node-course-field_course_video_thisyear'] = array(
     'bundle' => 'course',
     'default_value' => array(
@@ -615,7 +631,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_mediasite_folder'
+  // Exported field_instance: 'node-course-field_mediasite_folder'.
   $field_instances['node-course-field_mediasite_folder'] = array(
     'bundle' => 'course',
     'default_value' => NULL,
@@ -665,7 +681,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
     ),
   );
 
-  // Exported field_instance: 'node-course-field_youtube_playlist'
+  // Exported field_instance: 'node-course-field_youtube_playlist'.
   $field_instances['node-course-field_youtube_playlist'] = array(
     'bundle' => 'course',
     'default_value' => NULL,

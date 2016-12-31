@@ -8,6 +8,7 @@ dependencies[] = field_group
 dependencies[] = image
 dependencies[] = link
 dependencies[] = list
+dependencies[] = media
 dependencies[] = node
 dependencies[] = options
 dependencies[] = text

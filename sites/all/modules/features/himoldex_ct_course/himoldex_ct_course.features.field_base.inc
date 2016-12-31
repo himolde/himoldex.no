@@ -10,7 +10,7 @@
 function himoldex_ct_course_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_course_code'
+  // Exported field_base: 'field_course_code'.
   $field_bases['field_course_code'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_course_consumers'
+  // Exported field_base: 'field_course_consumers'.
   $field_bases['field_course_consumers'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -68,7 +68,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_course_desc'
+  // Exported field_base: 'field_course_desc'.
   $field_bases['field_course_desc'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -87,7 +87,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_course_fb_group'
+  // Exported field_base: 'field_course_fb_group'.
   $field_bases['field_course_fb_group'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -116,7 +116,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_course_homepage'
+  // Exported field_base: 'field_course_homepage'.
   $field_bases['field_course_homepage'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -145,7 +145,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_course_image'
+  // Exported field_base: 'field_course_image'.
   $field_bases['field_course_image'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -167,7 +167,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_course_lecture'
+  // Exported field_base: 'field_course_lecture'.
   $field_bases['field_course_lecture'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -201,7 +201,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_course_name'
+  // Exported field_base: 'field_course_name'.
   $field_bases['field_course_name'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -222,7 +222,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_course_open'
+  // Exported field_base: 'field_course_open'.
   $field_bases['field_course_open'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -247,7 +247,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_course_promovideo'
+  // Exported field_base: 'field_course_promovideo'.
   $field_bases['field_course_promovideo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -266,7 +266,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'youtube',
   );
 
-  // Exported field_base: 'field_course_video'
+  // Exported field_base: 'field_course_video'.
   $field_bases['field_course_video'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -300,7 +300,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_course_video_thisyear'
+  // Exported field_base: 'field_course_video_thisyear'.
   $field_bases['field_course_video_thisyear'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -325,7 +325,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_mediasite_folder'
+  // Exported field_base: 'field_mediasite_folder'.
   $field_bases['field_mediasite_folder'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -346,7 +346,7 @@ function himoldex_ct_course_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_youtube_playlist'
+  // Exported field_base: 'field_youtube_playlist'.
   $field_bases['field_youtube_playlist'] = array(
     'active' => 1,
     'cardinality' => 1,

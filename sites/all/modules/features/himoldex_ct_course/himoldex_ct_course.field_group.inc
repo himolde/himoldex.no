@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function himoldex_ct_course_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -35,7 +35,7 @@ function himoldex_ct_course_field_group_info() {
       ),
     ),
   );
-  $export['group_course_consumers|node|course|form'] = $field_group;
+  $field_groups['group_course_consumers|node|course|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -63,7 +63,7 @@ function himoldex_ct_course_field_group_info() {
       ),
     ),
   );
-  $export['group_course_desc|node|course|form'] = $field_group;
+  $field_groups['group_course_desc|node|course|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -98,7 +98,7 @@ function himoldex_ct_course_field_group_info() {
       ),
     ),
   );
-  $export['group_course_info|node|course|form'] = $field_group;
+  $field_groups['group_course_info|node|course|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -126,7 +126,14 @@ function himoldex_ct_course_field_group_info() {
       ),
     ),
   );
-  $export['group_course_videos|node|course|form'] = $field_group;
+  $field_groups['group_course_videos|node|course|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Beskrivelse og bilde');
+  t('Informasjon');
+  t('Relevante studier');
+  t('Videoer');
+
+  return $field_groups;
 }
