@@ -24,34 +24,28 @@ function himoldex_views_studies_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Studium';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Synkende';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Felt: Innhold: Tittel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -64,12 +58,12 @@ function himoldex_views_studies_views_default_views() {
   $translatables['studium'] = array(
     t('Master'),
     t('Studium'),
-    t('mer'),
-    t('Bruk'),
-    t('Nullstill'),
-    t('Sortér på'),
-    t('Stigende'),
-    t('Synkende'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
     t('Block'),
   );
   $export['studium'] = $view;
@@ -88,28 +82,22 @@ function himoldex_views_studies_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Studiuminformasjon';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Synkende';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relasjon: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_study_video_target_id']['id'] = 'field_study_video_target_id';
   $handler->display->display_options['relationships']['field_study_video_target_id']['table'] = 'field_data_field_study_video';
   $handler->display->display_options['relationships']['field_study_video_target_id']['field'] = 'field_study_video_target_id';
   $handler->display->display_options['relationships']['field_study_video_target_id']['label'] = 'Video';
-  /* Felt: Innhold: Lenke */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -124,12 +112,12 @@ function himoldex_views_studies_views_default_views() {
   $handler->display->display_options['fields']['view_node']['node_in_colorbox'] = TRUE;
   $handler->display->display_options['fields']['view_node']['node_in_colorbox_width'] = '700';
   $handler->display->display_options['fields']['view_node']['node_in_colorbox_height'] = '650';
-  /* Sorteringskriterium: Innhold: Innleggsdato */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Innhold: NID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -144,14 +132,14 @@ function himoldex_views_studies_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'study' => 'study',
   );
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -164,12 +152,12 @@ function himoldex_views_studies_views_default_views() {
   $translatables['study_information'] = array(
     t('Master'),
     t('Studiuminformasjon'),
-    t('mer'),
-    t('Bruk'),
-    t('Nullstill'),
-    t('Sortér på'),
-    t('Stigende'),
-    t('Synkende'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
     t('Video'),
     t('Se&nbsp;'),
     t('.'),
@@ -193,25 +181,19 @@ function himoldex_views_studies_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Årsstudium';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Bruk';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Nullstill';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér på';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Synkende';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relasjon: Entity Reference: Referencing entity */
+  /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_study_plans_node']['id'] = 'reverse_field_study_plans_node';
   $handler->display->display_options['relationships']['reverse_field_study_plans_node']['table'] = 'node';
   $handler->display->display_options['relationships']['reverse_field_study_plans_node']['field'] = 'reverse_field_study_plans_node';
   $handler->display->display_options['relationships']['reverse_field_study_plans_node']['label'] = 'Studium';
-  /* Felt: Innhold: Tittel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -222,11 +204,11 @@ function himoldex_views_studies_views_default_views() {
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'h3';
   $handler->display->display_options['fields']['title']['node_in_colorbox_width'] = '600';
   $handler->display->display_options['fields']['title']['node_in_colorbox_height'] = '600';
-  /* Sorteringskriterium: Innhold: Tittel */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Innhold: NID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -242,14 +224,14 @@ function himoldex_views_studies_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'study' => 'study',
   );
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type (field_study_type) */
+  /* Filter criterion: Content: Type (field_study_type) */
   $handler->display->display_options['filters']['field_study_type_value']['id'] = 'field_study_type_value';
   $handler->display->display_options['filters']['field_study_type_value']['table'] = 'field_data_field_study_type';
   $handler->display->display_options['filters']['field_study_type_value']['field'] = 'field_study_type_value';
@@ -266,14 +248,14 @@ function himoldex_views_studies_views_default_views() {
   $handler->display->display_options['title'] = 'Bachelor';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type (field_study_type) */
+  /* Filter criterion: Content: Type (field_study_type) */
   $handler->display->display_options['filters']['field_study_type_value']['id'] = 'field_study_type_value';
   $handler->display->display_options['filters']['field_study_type_value']['table'] = 'field_data_field_study_type';
   $handler->display->display_options['filters']['field_study_type_value']['field'] = 'field_study_type_value';
@@ -287,14 +269,14 @@ function himoldex_views_studies_views_default_views() {
   $handler->display->display_options['title'] = 'Master';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type (field_study_type) */
+  /* Filter criterion: Content: Type (field_study_type) */
   $handler->display->display_options['filters']['field_study_type_value']['id'] = 'field_study_type_value';
   $handler->display->display_options['filters']['field_study_type_value']['table'] = 'field_data_field_study_type';
   $handler->display->display_options['filters']['field_study_type_value']['field'] = 'field_study_type_value';
@@ -308,14 +290,14 @@ function himoldex_views_studies_views_default_views() {
   $handler->display->display_options['title'] = 'PhD';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Innhold: Publisert */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Innhold: Type (field_study_type) */
+  /* Filter criterion: Content: Type (field_study_type) */
   $handler->display->display_options['filters']['field_study_type_value']['id'] = 'field_study_type_value';
   $handler->display->display_options['filters']['field_study_type_value']['table'] = 'field_data_field_study_type';
   $handler->display->display_options['filters']['field_study_type_value']['field'] = 'field_study_type_value';
@@ -325,12 +307,12 @@ function himoldex_views_studies_views_default_views() {
   $translatables['studyplans_categorized'] = array(
     t('Master'),
     t('Årsstudium'),
-    t('mer'),
-    t('Bruk'),
-    t('Nullstill'),
-    t('Sortér på'),
-    t('Stigende'),
-    t('Synkende'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
     t('Studium'),
     t('Alle'),
     t('Bachelor'),
