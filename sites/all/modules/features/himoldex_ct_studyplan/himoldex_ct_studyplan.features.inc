@@ -18,5 +18,6 @@ function himoldex_ct_studyplan_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

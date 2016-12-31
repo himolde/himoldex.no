@@ -10,7 +10,7 @@
 function himoldex_user_profile_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'user-user-field_cell_phone'
+  // Exported field_instance: 'user-user-field_cell_phone'.
   $field_instances['user-user-field_cell_phone'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -48,7 +48,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_lecture_desc'
+  // Exported field_instance: 'user-user-field_lecture_desc'.
   $field_instances['user-user-field_lecture_desc'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -86,7 +86,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_lecture_homepage'
+  // Exported field_instance: 'user-user-field_lecture_homepage'.
   $field_instances['user-user-field_lecture_homepage'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -106,6 +106,7 @@ function himoldex_user_profile_field_default_field_instances() {
     'label' => 'Hjemmeside',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -123,6 +124,7 @@ function himoldex_user_profile_field_default_field_instances() {
       ),
       'rel_remove' => 'default',
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -138,7 +140,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_lecture_name'
+  // Exported field_instance: 'user-user-field_lecture_name'.
   $field_instances['user-user-field_lecture_name'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -175,7 +177,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_phone'
+  // Exported field_instance: 'user-user-field_phone'.
   $field_instances['user-user-field_phone'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -213,7 +215,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_room'
+  // Exported field_instance: 'user-user-field_room'.
   $field_instances['user-user-field_room'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -251,7 +253,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-ldap_user_current_dn'
+  // Exported field_instance: 'user-user-ldap_user_current_dn'.
   $field_instances['user-user-ldap_user_current_dn'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -294,7 +296,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-ldap_user_last_checked'
+  // Exported field_instance: 'user-user-ldap_user_last_checked'.
   $field_instances['user-user-ldap_user_last_checked'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -339,7 +341,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-ldap_user_ldap_exclude'
+  // Exported field_instance: 'user-user-ldap_user_ldap_exclude'.
   $field_instances['user-user-ldap_user_ldap_exclude'] = array(
     'bundle' => 'user',
     'default_value' => 0,
@@ -384,7 +386,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-ldap_user_prov_entries'
+  // Exported field_instance: 'user-user-ldap_user_prov_entries'.
   $field_instances['user-user-ldap_user_prov_entries'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -426,7 +428,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-ldap_user_puid'
+  // Exported field_instance: 'user-user-ldap_user_puid'.
   $field_instances['user-user-ldap_user_puid'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -469,7 +471,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-ldap_user_puid_property'
+  // Exported field_instance: 'user-user-ldap_user_puid_property'.
   $field_instances['user-user-ldap_user_puid_property'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -512,7 +514,7 @@ function himoldex_user_profile_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-ldap_user_puid_sid'
+  // Exported field_instance: 'user-user-ldap_user_puid_sid'.
   $field_instances['user-user-ldap_user_puid_sid'] = array(
     'bundle' => 'user',
     'default_value' => NULL,

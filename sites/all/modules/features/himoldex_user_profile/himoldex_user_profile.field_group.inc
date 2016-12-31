@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function himoldex_user_profile_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -43,7 +43,7 @@ function himoldex_user_profile_field_group_info() {
       ),
     ),
   );
-  $export['group_user_data|user|user|form'] = $field_group;
+  $field_groups['group_user_data|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -70,7 +70,7 @@ function himoldex_user_profile_field_group_info() {
       ),
     ),
   );
-  $export['group_user_homepage|user|user|form'] = $field_group;
+  $field_groups['group_user_homepage|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -97,7 +97,7 @@ function himoldex_user_profile_field_group_info() {
       ),
     ),
   );
-  $export['group_user_information|user|user|form'] = $field_group;
+  $field_groups['group_user_information|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -125,7 +125,7 @@ function himoldex_user_profile_field_group_info() {
       ),
     ),
   );
-  $export['group_user_info|user|user|form'] = $field_group;
+  $field_groups['group_user_info|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -154,7 +154,15 @@ function himoldex_user_profile_field_group_info() {
       ),
     ),
   );
-  $export['group_user_settings|user|user|form'] = $field_group;
+  $field_groups['group_user_settings|user|user|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Annen informasjon');
+  t('Automatiske data');
+  t('Bilde og beskrivelse');
+  t('Hjemmeside');
+  t('Innstillinger');
+
+  return $field_groups;
 }
