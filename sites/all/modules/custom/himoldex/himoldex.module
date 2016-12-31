@@ -482,6 +482,7 @@ function _himoldex_add_videos_to_node($node, $language) {
   $node_wrapper = entity_metadata_wrapper('node', $node);
   $youtube_playlist = $node_wrapper->field_youtube_playlist->value();
   $mediasite_folder = $node_wrapper->field_mediasite_folder->value();
+  $cache_bin = 'cache_himoldex';
   // If both YouTube playlist and Mediasite folder is set for the course, Mediasite takes presedence.
   if ($mediasite_folder) {
     set_include_path(get_include_path() . PATH_SEPARATOR . '/usr/local/lib/php5/odataphp/framework');
@@ -502,7 +503,7 @@ function _himoldex_add_videos_to_node($node, $language) {
 
     // Use caching to get last used skip.
     $skip_cache_id = 'himoldex:mediasite_folder_skip:' . $node->nid;
-    $skip_cache = cache_get($skip_cache_id, 'cache_himoldex');
+    $skip_cache = cache_get($skip_cache_id, $cache_bin);
     if (!$skip_cache) {
       $skip = 0;
     }
@@ -554,7 +555,7 @@ function _himoldex_add_videos_to_node($node, $language) {
       }
       // Warn if there are more videos to fetch (and cache the next skip to use).
       if ($presentationsResponse->GetContinuation() != null) {
-        cache_set($skip_cache_id, $skip + $itemsPerRequest, 'cache_himoldex');
+        cache_set($skip_cache_id, $skip + $itemsPerRequest, $cache_bin);
         $message = sprintf('Hentet %s videoer fra folderen, men det er flere - lagre siden og velg rediger på nytt. (skip: %s)',
           $itemsPerRequest, $skip);
         drupal_set_message($message, 'warning');
@@ -573,7 +574,7 @@ function _himoldex_add_videos_to_node($node, $language) {
   elseif ($youtube_playlist) {
     // Use caching to get last used page token.
     $pagetoken_cache_id = 'himoldex:youtube_playlist_pagetoken:' . $node->nid;
-    $pagetoken_cache = cache_get($pagetoken_cache_id, 'cache_himoldex');
+    $pagetoken_cache = cache_get($pagetoken_cache_id, $cache_bin);
     if (!$pagetoken_cache) {
       $pageToken = '';
     }
@@ -595,7 +596,7 @@ function _himoldex_add_videos_to_node($node, $language) {
     $results = $service->playlistItems->listPlaylistItems('snippet', $optParams);
     // Warn if there are more videos to fetch (and cache the next page token to use).
     if (isset($results['nextPageToken'])) {
-      cache_set($pagetoken_cache_id, $results['nextPageToken'], 'cache_himoldex');
+      cache_set($pagetoken_cache_id, $results['nextPageToken'], $cache_bin);
       $message = sprintf('Hentet %s videoer fra spillelisten, men det er flere - lagre siden og velg rediger på nytt. (pageToken: %s)',
         $itemsPerRequest, $pageToken);
       drupal_set_message($message, 'warning');
