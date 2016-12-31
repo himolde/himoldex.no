@@ -81,7 +81,8 @@ function himoldex_views_pre_render(&$view) {
   }
   elseif ($view->name == 'videos') {
     // If there is a pager (and not all videos are shown), add info about how to select all videos
-    if (($view->query->pager->total_items > $view->query->pager->options['items_per_page']) && ($view->exposed_input['items_per_page'] != 'All')) {
+    if (($view->query->pager->total_items > $view->query->pager->options['items_per_page']) &&
+        (!isset($view->exposed_input['items_per_page']) || ($view->exposed_input['items_per_page'] != 'All'))) {
       $output = sprintf('<div class="messages status">%s</div>',
 	'For å se alle videoene for et spesifikt semester, velg riktig år og "Alle" for antall videoer per side - se øverst på denne siden.');
       $view->attachment_after = $output;
