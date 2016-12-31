@@ -31,6 +31,32 @@ function himoldex_node_prepare($node) {
 }
 
 /**
+ * Implements hook_node_presave().
+ *
+ * - Empty cache for course if YouTube playlist or Mediasite folder changed.
+ */
+function himoldex_node_presave($node) {
+  if (($node->type == 'course') && (isset($node->original))) {
+    $cache_bin = 'cache_himoldex';
+    $node_wrapper = entity_metadata_wrapper('node', $node);
+    $mediasite_folder = $node_wrapper->field_mediasite_folder->value();
+    $youtube_playlist = $node_wrapper->field_youtube_playlist->value();
+    $orig_node_wrapper = entity_metadata_wrapper('node', $node->original);
+    $orig_mediasite_folder = $orig_node_wrapper->field_mediasite_folder->value();
+    $orig_youtube_playlist = $orig_node_wrapper->field_youtube_playlist->value();
+
+    if ($mediasite_folder != $orig_mediasite_folder) {
+      $skip_cache_id = 'himoldex:mediasite_folder_skip:' . $node->nid;
+      cache_clear_all($skip_cache_id, $cache_bin);
+    }
+    if ($youtube_playlist != $orig_youtube_playlist) {
+      $pagetoken_cache_id = 'himoldex:youtube_playlist_pagetoken:' . $node->nid;
+      cache_clear_all($pagetoken_cache_id, $cache_bin);
+    }
+  }
+}
+
+/**
  * Implements hook_node_validate().
  *
  * - Avoid duplicate course codes.
