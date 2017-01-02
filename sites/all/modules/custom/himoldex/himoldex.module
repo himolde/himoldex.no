@@ -253,7 +253,7 @@ function _himoldex_block_contents($which_block, $title='') {
     case 'studyhandbook_and_samordnaopptak':
       $html = <<<EOM
 <p>
-    Les i <a href="http://himolde.studiehandbok.no/">studiehåndboken</a> for mer informasjon 
+    Les i <a href="https://studiehandbok.himolde.no/">studiehåndboken</a> for mer informasjon 
     om våre studier og gå til <a href="http://www.samordnaopptak.no/">Samordna opptak</a> for å søke. 
     Søknadsfrist 15. april.
 </p>
@@ -262,7 +262,7 @@ EOM;
     case 'studyhandbook_and_subjects':
       $html = <<<EOM
 <ul>
-<li>Les i <a href="http://himolde.studiehandbok.no/">studiehåndboken</a> for mer informasjon om våre studier.</li>
+<li>Les i <a href="https://studiehandbok.himolde.no/">studiehåndboken</a> for mer informasjon om våre studier.</li>
 <li>Du kan søke om å bli <a href="http://www.himolde.no/studier/Sider/Opptak/Opptak-til-enkeltemne.aspx">emnestudent</a> innen 15. august.</li>
 </ul>
 EOM;
@@ -270,8 +270,7 @@ EOM;
     case 'studyhandbook':
       $html = <<<EOM
 <p>
-    Les i <a href="http://himolde.studiehandbok.no/">studiehåndboken</a> for mer informasjon 
-    om våre studier.
+    Les i <a href="https://studiehandbok.himolde.no/">studiehåndboken</a> for mer informasjon om våre studier.
 </p>
 EOM;
       return array('#markup' => $html);
