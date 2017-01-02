@@ -80,8 +80,6 @@ projects[redirect][version] = "1.0-rc3"
 
 projects[references_dialog][version] = "1.0-beta1"
 
-projects[revision_deletion][version] = "1.x-dev"
-
 projects[rules][version] = "2.9"
 
 projects[securelogin][version] = "1.6"
