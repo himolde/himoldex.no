@@ -60,6 +60,8 @@ projects[media][version] = "2.0-rc1"
 
 projects[module_filter][version] = "2.0"
 
+projects[node_revision_delete][version] = "2.6"
+
 projects[omega_tools][version] = "3.0-rc4"
 
 projects[panels][version] = "3.8"
