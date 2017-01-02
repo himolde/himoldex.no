@@ -247,6 +247,7 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
+        'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
         'target' => 'default',
@@ -262,12 +263,12 @@ For de som bruker andre løsninger som f.eks. kursinfo, fyller du inn komplett a
       ),
       'rel_remove' => 'default',
       'title' => 'value',
-      'title_label_use_field_label' => FALSE,
+      'title_label_use_field_label' => 0,
       'title_maxlength' => 128,
       'title_value' => 'Materiell for emnet',
       'url' => 0,
       'user_register_form' => FALSE,
-      'validate_url' => 1,
+      'validate_url' => 0,
     ),
     'widget' => array(
       'active' => 0,
