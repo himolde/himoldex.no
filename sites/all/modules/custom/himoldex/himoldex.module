@@ -224,7 +224,7 @@ function himoldex_block_view($delta = '') {
       $block['content'] = _himoldex_block_contents($delta, 'Juss og samfunnsfag');
       break;
     case 'study_small_logo_idrett':
-      $block['content'] = _himoldex_block_contents($delta, 'Idrett');
+      $block['content'] = _himoldex_block_contents($delta, 'Sport');
       break;
     case 'study_small_logo_sykepleie':
       $block['content'] = _himoldex_block_contents($delta, 'Sykepleie');
@@ -433,6 +433,9 @@ EOM;
       }
       else if ($name == 'euv') {
         $name = 'videre-og-etterutdanning';
+      }
+      else if ($name == 'idrett') {
+        $name = 'sport';
       }
       if ($name == 'ALL') {
         $path = 'emner';
