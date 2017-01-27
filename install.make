@@ -42,6 +42,8 @@ projects[flexslider][version] = "2.0-rc1"
 
 projects[google_analytics][version] = "2.3"
 
+projects[google_api][version] = "1.0"
+
 projects[imce][version] = "1.10"
 
 projects[imce_wysiwyg][version] = "1.0"
