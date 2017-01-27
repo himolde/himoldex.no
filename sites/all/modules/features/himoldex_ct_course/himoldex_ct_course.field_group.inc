@@ -87,6 +87,7 @@ function himoldex_ct_course_field_group_info() {
       6 => 'field_youtube_playlist',
       7 => 'field_course_open',
       8 => 'field_mediasite_folder',
+      9 => 'field_study_handbook',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -115,6 +116,7 @@ function himoldex_ct_course_field_group_info() {
     'children' => array(
       0 => 'field_course_video',
       1 => 'field_course_video_thisyear',
+      2 => 'field_course_video_curryear_def',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
