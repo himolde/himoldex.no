@@ -221,7 +221,7 @@ function himoldex_block_view($delta = '') {
       $block['content'] = _himoldex_block_contents($delta, 'Økonomi');
       break;
     case 'study_small_logo_samfunn':
-      $block['content'] = _himoldex_block_contents($delta, 'Juss og samfunnsfag');
+      $block['content'] = _himoldex_block_contents($delta, 'Juss og samfunnsvitenskap');
       break;
     case 'study_small_logo_idrett':
       $block['content'] = _himoldex_block_contents($delta, 'Sport');
@@ -429,7 +429,7 @@ EOM;
     default:
       $name = str_replace('study_small_logo_', '', $which_block);
       if ($name == 'samfunn') {
-        $name = 'juss-og-samfunnsfag';
+        $name = 'juss-og-samfunnsvitenskap';
       }
       else if ($name == 'euv') {
         $name = 'videre-og-etterutdanning';
