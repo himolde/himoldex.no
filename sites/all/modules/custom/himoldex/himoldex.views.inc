@@ -9,6 +9,7 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
     // Create the wrapper for the node passed to the view.
     $wrapper = entity_metadata_wrapper('node', $args[0]);
     $display_thisyear = $wrapper->field_course_video_thisyear->value();
+    $curryear_def = $wrapper->field_course_video_curryear_def->value();
     if ($display_thisyear) {
       // This node/course should only display videoes from the current year
       // or a given year if we allow bypassing with direct URL.
@@ -25,6 +26,14 @@ function himoldex_views_pre_view(&$view, &$display_id, &$args) {
       $filter_item['value']['value'] = $current_year;
       // Disable exposed filter in UI to hide the videos from other years.
       $filter_item['exposed'] = FALSE;
+      $view->set_item($display_id, 'filter', 'field_video_dato_value', $filter_item);
+    }
+    elseif ($curryear_def) {
+      // This node/course should display videos from the current year
+      // as default (but not hide other years).
+      $current_year = date("Y");
+      $filter_item = $view->get_item($display_id, 'filter', 'field_video_dato_value');
+      $filter_item['value']['value'] = $current_year;
       $view->set_item($display_id, 'filter', 'field_video_dato_value', $filter_item);
     }
   }
