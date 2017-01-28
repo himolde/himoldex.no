@@ -52,11 +52,11 @@ function himoldex_cron_queue_info() {
  * and adds them to the course.
  */
 function himoldex_check_course($nid) {
-  watchdog('himoldex', 'Checking course with NID @nid', array('@nid' => $nid));
   $node = node_load($nid);
   if ($node->type == 'course') {
     $node = node_load($nid);
     if (_himoldex_add_videos_to_node($node, 'nb')) {
+      watchdog('himoldex', 'Updating course with NID @nid', array('@nid' => $nid));
       node_save($node);
     }
   }
