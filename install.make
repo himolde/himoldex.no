@@ -92,6 +92,8 @@ projects[token][version] = "1.6"
 
 projects[transliteration][version] = "3.2"
 
+projects[ultimate_cron][version] = "2.3"
+
 projects[views][version] = "3.14"
 
 projects[views_conditional][version] = "1.3"
