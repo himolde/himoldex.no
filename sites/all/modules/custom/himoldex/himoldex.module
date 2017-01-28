@@ -10,6 +10,59 @@ function himoldex_views_api() {
 }
 
 /**
+ * Implements hook_cron().
+ *
+ * Currently only does one thing:
+ * Queues courses that should be checked for newly recorded videos.
+ */
+function himoldex_cron() {
+  // Get IDs for all published courses.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'course')
+    ->propertyCondition('status', 1);
+  $result = $query->execute();
+  if (!empty($result['node'])) {
+    $nids = array_keys($result['node']);
+  }
+  watchdog('himoldex', 'Queueing @count courses for checking', array('@count' => count($nids)));
+  $queue = DrupalQueue::get('himoldex_courses');
+  foreach ($nids as $nid) {
+    if (!$queue->createItem($nid)) {
+      watchdog('himoldex', 'Failed to queue course with NID @nid', array('@nid' => $nid));
+    }
+  }
+}
+
+/**
+ * Implements hook_cron_queue_info().
+ */
+function himoldex_cron_queue_info() {
+  $queues['himoldex_courses'] = array(
+    'worker callback' => 'himoldex_check_course',
+    'time' => 60,
+  );
+  return $queues;
+}
+
+/**
+ * Checking a course.
+ *
+ * Currently doing only one thing: Checking if there are any new videos recorded
+ * and adds them to the course.
+ */
+function himoldex_check_course($nid) {
+  watchdog('himoldex', 'Checking course with NID @nid', array('@nid' => $nid));
+  $node = node_load($nid);
+  if ($node->type == 'course') {
+    $node = node_load($nid);
+    if (_himoldex_add_videos_to_node($node, 'nb')) {
+      node_save($node);
+    }
+  }
+}
+
+/**
  * Fix in date/pathauto module
  */
 function himoldex_pathauto_alias_alter(&$alias, array &$context) {
@@ -503,6 +556,12 @@ EOM;
   return $html;
 }
 
+
+/**
+ * Adds any newly recorded videos from Mediasite or Youtube to the given course (node).
+ *
+ * Returns true if one or more videos have been added.
+ */
 function _himoldex_add_videos_to_node($node, $language) {
   $videos_added = array();
   // Fetch only 10 items on each display of the node edit page
@@ -578,6 +637,7 @@ function _himoldex_add_videos_to_node($node, $language) {
 
           node_save($videonode);
           drupal_set_message("Opprettet video '$video_title' automatisk fra folderen på Mediasite.");
+          watchdog('himoldex', 'Opprettet video "@title" automatisk fra folderen på Mediasite.', array('@title' => $video_title));
           $videos_added[] = $videonode->nid;
         }
       }
@@ -665,6 +725,7 @@ function _himoldex_add_videos_to_node($node, $language) {
 
         node_save($videonode);
         drupal_set_message("Opprettet video '$video_title' automatisk fra spillelisten på YouTube.");
+        watchdog('himoldex', 'Opprettet video "@title" automatisk fra spillelisten på YouTube.', array('@title' => $video_title));
         $videos_added[] = $videonode->nid;
       }
     }
@@ -678,6 +739,11 @@ function _himoldex_add_videos_to_node($node, $language) {
       $node->field_course_video[LANGUAGE_NONE][] = array('target_id' => $videonode_id);
     }
     drupal_set_message('NB! Husk å lagre siden slik at de nylig importerte videoene faktisk blir knyttet til emnet.', 'warning');
+    watchdog('himoldex', 'La til @count videoer for kurs med ID @id.', array('@count' => count($videos_added), '@id' => $node->nid));
+    return TRUE;
+  }
+  else {
+    return FALSE;
   }
 }
 
