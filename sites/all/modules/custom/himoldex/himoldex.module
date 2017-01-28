@@ -126,7 +126,7 @@ function himoldex_node_validate($node, $form) {
       $orig_node_wrapper = entity_metadata_wrapper('node', $orig_node);
       $orig_course_code = $orig_node_wrapper->field_course_code->value();
       if ($course_code == $orig_course_code) {
-	return;
+        return;
       }
     }
     $query = new EntityFieldQuery();
@@ -366,7 +366,7 @@ EOM;
 <div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
 EOM;
       if (!user_is_logged_in()) {
-	$html .= _himoldex_youtube_js($youtube_video_id);
+        $html .= _himoldex_youtube_js($youtube_video_id);
       }
       return array('#markup' => $html);
     case 'promo_video_tour':
@@ -376,7 +376,7 @@ EOM;
 <div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
 EOM;
       if (!user_is_logged_in()) {
-	$html .= _himoldex_youtube_js($youtube_video_id);
+        $html .= _himoldex_youtube_js($youtube_video_id);
       }
       return array('#markup' => $html);
     case 'promo_video_pres':
@@ -386,38 +386,38 @@ EOM;
 <div class="yt_container_third"><div id="yt_player"><img src="/sites/default/files/promovideo-stillbilde-640px.jpg" /></div></div>
 EOM;
       if (!user_is_logged_in()) {
-	$html .= _himoldex_youtube_js($youtube_video_id);
+        $html .= _himoldex_youtube_js($youtube_video_id);
       }
       return array('#markup' => $html);
     case 'latest_lecture':
       // Get the IDs of the 10 latest videos (lecture).
       $query = new EntityFieldQuery();
       $query->entityCondition('entity_type', 'node')
-	->entityCondition('bundle', 'video')
-	->fieldCondition('field_video_type', 'value', 'lecture', '=')
-	->propertyOrderBy('created', 'DESC')
-	->range(0,10);
+        ->entityCondition('bundle', 'video')
+        ->fieldCondition('field_video_type', 'value', 'lecture', '=')
+        ->propertyOrderBy('created', 'DESC')
+        ->range(0,10);
       $videoes = $query->execute();
       // Select the first video referenced from an open course
       foreach ($videoes['node'] as $video) {
         $course_query = new EntityFieldQuery();
         $course_query->entityCondition('entity_type', 'node')
-	  ->entityCondition('bundle', 'course')
-	  ->fieldCondition('field_course_video', 'target_id', $video->nid, 'CONTAINS')
-	  ->propertyOrderBy('changed', 'DESC')
-	  ->range(0,1);
-	$courses = $course_query->execute();
-	$course = array_pop($courses['node']);
-	$course_wrapper = entity_metadata_wrapper('node', $course->nid);
-	if (isset($course_wrapper->field_course_open)) {
-	  $open = $course_wrapper->field_course_open->value();
-	}
-	else {
-	  $open = FALSE;
-	}
-	if ($open) {
-	  break;
-	}
+          ->entityCondition('bundle', 'course')
+          ->fieldCondition('field_course_video', 'target_id', $video->nid, 'CONTAINS')
+          ->propertyOrderBy('changed', 'DESC')
+          ->range(0,1);
+        $courses = $course_query->execute();
+        $course = array_pop($courses['node']);
+        $course_wrapper = entity_metadata_wrapper('node', $course->nid);
+        if (isset($course_wrapper->field_course_open)) {
+          $open = $course_wrapper->field_course_open->value();
+        }
+        else {
+          $open = FALSE;
+        }
+        if ($open) {
+          break;
+        }
       }
       // Reassigning $videoes to the selected video.
       $videos = array($video->nid => $video);
@@ -445,7 +445,7 @@ EOM;
 <div class="yt_container_third">%content%</div>
 EOM;
         $mediasite_video_link = $field_video_mediasite[0]['value'];
-	if (user_is_logged_in()) {
+        if (user_is_logged_in()) {
           $html = str_replace('%content%', '<img src="/sites/default/files/promovideo-stillbilde-640px.jpg" />', $html);
         }
         else {
@@ -575,16 +575,19 @@ function _himoldex_add_videos_to_node($node, $language) {
     set_include_path(get_include_path() . PATH_SEPARATOR . '/usr/local/lib/php5/odataphp/framework');
     require_once 'mediasite-odata.php';
 
-    function MediaSiteOnBeforeRequestCallBack($httpRequest) {
-      try {
-        $conf = variable_get('himoldex_module');
-        // API key:
-        $httpRequest->Headers->Add('sfapikey', $conf['sfapikey']);
-        // Authorization: Basic <base64 encoded username:password>
-        $httpRequest->Headers->Add('Authorization', $conf['basic_auth']);
-      }
-      catch(Exception $ex) {
-        die("Some exception");
+    // Define the callback function only if needed, but only once.
+    if (!function_exists('MediaSiteOnBeforeRequestCallBack')) {
+      function MediaSiteOnBeforeRequestCallBack($httpRequest) {
+        try {
+          $conf = variable_get('himoldex_module');
+          // API key:
+          $httpRequest->Headers->Add('sfapikey', $conf['sfapikey']);
+          // Authorization: Basic <base64 encoded username:password>
+          $httpRequest->Headers->Add('Authorization', $conf['basic_auth']);
+        }
+        catch(Exception $ex) {
+          die("Some exception");
+        }
       }
     }
 
