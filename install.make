@@ -58,6 +58,8 @@ projects[link][version] = "1.4"
 
 projects[linkit][version] = "2.7"
 
+projects[masquerade][version] = "1.0-rc7"
+
 projects[media][version] = "2.0-rc1"
 
 projects[module_filter][version] = "2.0"
