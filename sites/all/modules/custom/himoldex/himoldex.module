@@ -495,7 +495,7 @@ EOM;
         $img = '/img/alle-emner.jpg';
       } 
       else {
-        $img = '/img/' . $name . '.png';
+        $img = '/img/button/' . $name . '.png';
         $path = 'studium/' . $name;
       }
       // if ($name == 'ALL') {
