@@ -28,7 +28,7 @@ projects[diff][version] = "3.3"
 
 projects[entity][version] = "1.8"
 
-projects[entityreference][version] = "1.2"
+projects[entityreference][version] = "1.5"
 
 projects[features_extra][version] = "1.0"
 
@@ -50,7 +50,7 @@ projects[imce_wysiwyg][version] = "1.0"
 
 projects[l10n_update][version] = "1.1"
 
-projects[ldap][version] = "2.0-beta11"
+projects[ldap][version] = "2.2"
 
 projects[libraries][version] = "2.3"
 
@@ -96,7 +96,7 @@ projects[transliteration][version] = "3.2"
 
 projects[ultimate_cron][version] = "2.3"
 
-projects[views][version] = "3.15"
+projects[views][version] = "3.17"
 
 projects[views_conditional][version] = "1.3"
 
