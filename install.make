@@ -10,6 +10,8 @@ defaults[projects][subdir] = "contrib"
 ; Modules
 projects[admin_menu][version] = "3.0-rc5"
 
+projects[admin_views][version] = "1.6"
+
 projects[auto_entitylabel][version] = "1.3"
 
 projects[ctools][version] = "1.12"
@@ -97,6 +99,8 @@ projects[transliteration][version] = "3.2"
 projects[ultimate_cron][version] = "2.3"
 
 projects[views][version] = "3.17"
+
+projects[views_bulk_operations][version] = "3.4"
 
 projects[views_conditional][version] = "1.3"
 
