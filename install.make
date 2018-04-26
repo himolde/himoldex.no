@@ -38,7 +38,7 @@ projects[features][version] = "2.10"
 
 projects[field_group][version] = "1.5"
 
-projects[file_entity][version] = "2.0-beta3"
+projects[file_entity][version] = "2.20"
 
 projects[flexslider][version] = "2.0-rc1"
 
@@ -62,7 +62,7 @@ projects[linkit][version] = "2.7"
 
 projects[masquerade][version] = "1.0-rc7"
 
-projects[media][version] = "2.0-rc1"
+projects[media][version] = "2.19"
 
 projects[module_filter][version] = "2.0"
 
