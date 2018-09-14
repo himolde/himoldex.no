@@ -642,8 +642,8 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['label'] = 'Semester';
   $handler->display->display_options['fields']['views_conditional']['if'] = 'field_video_dato';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '3';
-  $handler->display->display_options['fields']['views_conditional']['equalto'] = '2017-01-08';
-  $handler->display->display_options['fields']['views_conditional']['then'] = 'Våren 2017';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '2018-01-08';
+  $handler->display->display_options['fields']['views_conditional']['then'] = 'Våren 2018';
   $handler->display->display_options['fields']['views_conditional']['or'] = 'Tidligere';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -757,8 +757,8 @@ function himoldex_views_course_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['label'] = 'Semester';
   $handler->display->display_options['fields']['views_conditional']['if'] = 'field_video_dato';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '3';
-  $handler->display->display_options['fields']['views_conditional']['equalto'] = '2017-01-08';
-  $handler->display->display_options['fields']['views_conditional']['then'] = 'Våren 2017';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '2018-01-08';
+  $handler->display->display_options['fields']['views_conditional']['then'] = 'Våren 2018';
   $handler->display->display_options['fields']['views_conditional']['or'] = 'Tidligere';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;

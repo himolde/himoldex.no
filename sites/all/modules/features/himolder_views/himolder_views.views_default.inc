@@ -785,7 +785,7 @@ function himolder_views_views_default_views() {
     8 => 0,
   );
   $handler->display->display_options['filters']['field_video_dato_value']['granularity'] = 'year';
-  $handler->display->display_options['filters']['field_video_dato_value']['year_range'] = '2013:2017';
+  $handler->display->display_options['filters']['field_video_dato_value']['year_range'] = '2013:2018';
   $handler->display->display_options['path'] = 'node/%/videos';
   $handler->display->display_options['menu']['title'] = 'Videoer';
   $handler->display->display_options['menu']['weight'] = '0';
