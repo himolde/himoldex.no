@@ -572,7 +572,7 @@ function _himoldex_add_videos_to_node($node, $language) {
   $cache_bin = 'cache_himoldex';
   // If both YouTube playlist and Mediasite folder is set for the course, Mediasite takes presedence.
   if ($mediasite_folder) {
-    set_include_path(get_include_path() . PATH_SEPARATOR . '/usr/local/lib/php5/odataphp/framework');
+    set_include_path(get_include_path() . PATH_SEPARATOR . '/usr/local/lib/php/odataphp/framework');
     require_once 'mediasite-odata.php';
 
     // Define the callback function only if needed, but only once.

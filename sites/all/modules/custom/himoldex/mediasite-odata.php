@@ -35,7 +35,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class FolderRepresentation extends Object
+    class FolderRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -232,7 +232,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class JobRepresentation extends Object
+    class JobRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -359,7 +359,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class TemplateRepresentation extends Object
+    class TemplateRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -708,7 +708,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PresentationDefaultRepresentation extends Object
+    class PresentationDefaultRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -1023,7 +1023,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class CatalogRepresentation extends Object
+    class CatalogRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -1292,7 +1292,7 @@
     * @type:EntityType
     * @key:CatalogId
     */
-    class CatalogSettingsRepresentation extends Object
+    class CatalogSettingsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -1629,7 +1629,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ScheduleRepresentation extends Object
+    class ScheduleRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -2196,7 +2196,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class RecorderRepresentation extends Object
+    class RecorderRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -2425,7 +2425,7 @@
     * @type:EntityType
     * @key:RecorderId
     */
-    class RecorderStatusRepresentation extends Object
+    class RecorderStatusRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -2532,7 +2532,7 @@
     * @type:EntityType
     * @key:RecorderId
     */
-    class RecorderLicenseStatusRepresentation extends Object
+    class RecorderLicenseStatusRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -2641,7 +2641,7 @@
     * @type:EntityType
     * @key:RecorderId
     */
-    class ScheduledRecordingTime extends Object
+    class ScheduledRecordingTime extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -2824,7 +2824,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PresentationReportRepresentation extends Object
+    class PresentationReportRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -3047,7 +3047,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PresenterReportRepresentation extends Object
+    class PresenterReportRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -3230,7 +3230,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class UserReportRepresentation extends Object
+    class UserReportRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -3453,7 +3453,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class CatalogReportRepresentation extends Object
+    class CatalogReportRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -3624,7 +3624,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class DownloadReportRepresentation extends Object
+    class DownloadReportRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -3825,7 +3825,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class AuthoringReportRepresentation extends Object
+    class AuthoringReportRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -4002,7 +4002,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PlayerRepresentation extends Object
+    class PlayerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -4221,7 +4221,7 @@
     * @type:EntityType
     * @key:ApiVersion
     */
-    class Home extends Object
+    class Home extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -4458,7 +4458,7 @@
     * @type:EntityType
     * @key:SiteId
     */
-    class ShowcaseSettingsRepresentation extends Object
+    class ShowcaseSettingsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -4733,7 +4733,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class CategoryRepresentation extends Object
+    class CategoryRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -4868,7 +4868,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class QuotaPolicyRepresentation extends Object
+    class QuotaPolicyRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -5067,7 +5067,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class QuotaLevelRepresentation extends Object
+    class QuotaLevelRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -5248,7 +5248,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class TermsAndConditionsRepresentation extends Object
+    class TermsAndConditionsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -5397,7 +5397,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class TagRepresentation extends Object
+    class TagRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -6016,7 +6016,7 @@
     * @type:EntityType
     * @key:QuestionId
     */
-    class PresentationQuestionRepresentation extends Object
+    class PresentationQuestionRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -6191,7 +6191,7 @@
     * @type:EntityType
     * @key:MediasiteId
     */
-    class PlayerLayoutOptionsRepresentation extends Object
+    class PlayerLayoutOptionsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -6302,7 +6302,7 @@
     * @type:EntityType
     * @key:ParentResourceId
     */
-    class EmailInvitationRepresentation extends Object
+    class EmailInvitationRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -6451,7 +6451,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class TimedEventRepresentation extends Object
+    class TimedEventRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -6596,7 +6596,7 @@
     * @type:EntityType
     * @key:ContentServerId
     */
-    class DistributionContentServerEndpointRepresentation extends Object
+    class DistributionContentServerEndpointRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -6711,7 +6711,7 @@
     * @type:EntityType
     * @key:ContentServerId
     */
-    class StorageContentServerEndpointRepresentation extends Object
+    class StorageContentServerEndpointRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -6870,7 +6870,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ContentServerRepresentation extends Object
+    class ContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -7005,7 +7005,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PresenterRepresentation extends Object
+    class PresenterRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -7210,7 +7210,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ContentEncodingSettingRepresentation extends Object
+    class ContentEncodingSettingRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -7407,7 +7407,7 @@
     * @type:EntityType
     * @key:FilterType
     */
-    class EncodingSettingsFilterRepresentation extends Object
+    class EncodingSettingsFilterRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -7522,7 +7522,7 @@
     * @type:EntityType
     * @key:Number
     */
-    class EncodingStreamDescriptionRepresentation extends Object
+    class EncodingStreamDescriptionRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -7653,7 +7653,7 @@
     * @type:EntityType
     * @key:TicketId
     */
-    class AuthorizationTicketRepresentation extends Object
+    class AuthorizationTicketRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -7814,7 +7814,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ShowcaseChannelRepresentation extends Object
+    class ShowcaseChannelRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -8107,7 +8107,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ScheduleRecurrenceRepresentation extends Object
+    class ScheduleRecurrenceRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -8316,7 +8316,7 @@
     * @type:EntityType
     * @key:PresentationId
     */
-    class PresentationAnalyticsRepresentation extends Object
+    class PresentationAnalyticsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -8617,7 +8617,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PresentationClientAnalyticsRepresentation extends Object
+    class PresentationClientAnalyticsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -8795,7 +8795,7 @@
     * @class:PresentationUserAnalyticsRepresentation
     * @type:EntityType
     */
-    class PresentationUserAnalyticsRepresentation extends Object
+    class PresentationUserAnalyticsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -8888,7 +8888,7 @@
     * @class:PresentationIPAddressAnalyticsRepresentation
     * @type:EntityType
     */
-    class PresentationIPAddressAnalyticsRepresentation extends Object
+    class PresentationIPAddressAnalyticsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -8990,7 +8990,7 @@
     * @type:EntityType
     * @key:StartTime
     */
-    class ViewingTrendsSegmentRepresentation extends Object
+    class ViewingTrendsSegmentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -9107,7 +9107,7 @@
     * @type:EntityType
     * @key:PlaybackTicket
     */
-    class ViewingSessionRepresentation extends Object
+    class ViewingSessionRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -9318,7 +9318,7 @@
     * @type:EntityType
     * @key:PlaybackTicket
     */
-    class ActiveSessionRepresentation extends Object
+    class ActiveSessionRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -9509,7 +9509,7 @@
     * @type:EntityType
     * @key:Platform
     */
-    class ViewingPlatformTotalRepresentation extends Object
+    class ViewingPlatformTotalRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -9618,7 +9618,7 @@
     * @type:EntityType
     * @key:UserName
     */
-    class UserAnalyticsRepresentation extends Object
+    class UserAnalyticsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -9858,7 +9858,7 @@
     * @class:UserPresentationAnalyticsRepresentation
     * @type:EntityType
     */
-    class UserPresentationAnalyticsRepresentation extends Object
+    class UserPresentationAnalyticsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -9984,7 +9984,7 @@
     * @type:EntityType
     * @key:SiteId
     */
-    class ServerAnalyticsRepresentation extends Object
+    class ServerAnalyticsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -10283,7 +10283,7 @@
     * @type:EntityType
     * @key:Source
     */
-    class PresentationSourceTotalRepresentation extends Object
+    class PresentationSourceTotalRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -10392,7 +10392,7 @@
     * @type:EntityType
     * @key:SiteId
     */
-    class ActiveConnectionsRepresentation extends Object
+    class ActiveConnectionsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -10571,7 +10571,7 @@
     * @type:EntityType
     * @key:PresentationId
     */
-    class ActivePresentationRepresentation extends Object
+    class ActivePresentationRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -10734,7 +10734,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class UserProfileRepresentation extends Object
+    class UserProfileRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -10987,7 +10987,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class MediasiteTimeZoneRepresentation extends Object
+    class MediasiteTimeZoneRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -11126,7 +11126,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ApiKeyDefaultRepresentation extends Object
+    class ApiKeyDefaultRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -11303,7 +11303,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PresentationThumbnailRepresentation extends Object
+    class PresentationThumbnailRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -11564,7 +11564,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PodcastContentRepresentation extends Object
+    class PodcastContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -11817,7 +11817,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class VideoPodcastContentRepresentation extends Object
+    class VideoPodcastContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -12088,7 +12088,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class CaptionContentRepresentation extends Object
+    class CaptionContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -12365,7 +12365,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class SlideContentRepresentation extends Object
+    class SlideContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -12628,7 +12628,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class OcrContentRepresentation extends Object
+    class OcrContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -12887,7 +12887,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class OnDemandContentRepresentation extends Object
+    class OnDemandContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -13140,7 +13140,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class BroadcastContentRepresentation extends Object
+    class BroadcastContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -13393,7 +13393,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class AudioPeaksRepresentation extends Object
+    class AudioPeaksRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -13726,7 +13726,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ExternalPublishingContentRepresentation extends Object
+    class ExternalPublishingContentRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14007,7 +14007,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ExternalPubPointRepresentation extends Object
+    class ExternalPubPointRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14162,7 +14162,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class RoleRepresentation extends Object
+    class RoleRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14295,7 +14295,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ResourcePermissionsRepresentation extends Object
+    class ResourcePermissionsRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14422,7 +14422,7 @@
     * @type:EntityType
     * @key:SiteId
     */
-    class SsoRoleCacheRepresentation extends Object
+    class SsoRoleCacheRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14537,7 +14537,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class EmailTemplateRepresentation extends Object
+    class EmailTemplateRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14652,7 +14652,7 @@
     * @type:EntityType
     * @key:ResourceId
     */
-    class RegistrationRepresentation extends Object
+    class RegistrationRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14831,7 +14831,7 @@
     * @type:EntityType
     * @key:EmailAddress
     */
-    class ResourceRegistrationRepresentation extends Object
+    class ResourceRegistrationRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -14978,7 +14978,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class VideoPodcastProjectRepresentation extends Object
+    class VideoPodcastProjectRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -15159,7 +15159,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ModuleRepresentation extends Object
+    class ModuleRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -15316,7 +15316,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class CustomFieldDefRepresentation extends Object
+    class CustomFieldDefRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -15491,7 +15491,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class CustomFieldValuesRepresentation extends Object
+    class CustomFieldValuesRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -15600,7 +15600,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ReportRecurrenceRepresentation extends Object
+    class ReportRecurrenceRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -15781,7 +15781,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class PodcastRepresentation extends Object
+    class PodcastRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -15880,7 +15880,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ServerReportRepresentation extends Object
+    class ServerReportRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -15979,7 +15979,7 @@
     * @type:EntityType
     * @key:Id
     */
-    class ApplicationTicketRepresentation extends Object
+    class ApplicationTicketRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16127,7 +16127,7 @@
     * @class:WmsOnDemandContentServerRepresentation
     * @type:EntityType
     */
-    class WmsOnDemandContentServerRepresentation extends Object
+    class WmsOnDemandContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16220,7 +16220,7 @@
     * @class:SlideContentServerRepresentation
     * @type:EntityType
     */
-    class SlideContentServerRepresentation extends Object
+    class SlideContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16313,7 +16313,7 @@
     * @class:IIsMediaOnDemandContentServerRepresentation
     * @type:EntityType
     */
-    class IIsMediaOnDemandContentServerRepresentation extends Object
+    class IIsMediaOnDemandContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16440,7 +16440,7 @@
     * @class:SmoothStreamingCustomPushContentServerRepresentation
     * @type:EntityType
     */
-    class SmoothStreamingCustomPushContentServerRepresentation extends Object
+    class SmoothStreamingCustomPushContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16581,7 +16581,7 @@
     * @class:PublishToGoContentServerRepresentation
     * @type:EntityType
     */
-    class PublishToGoContentServerRepresentation extends Object
+    class PublishToGoContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16694,7 +16694,7 @@
     * @class:IIsMediaPushContentServerRepresentation
     * @type:EntityType
     */
-    class IIsMediaPushContentServerRepresentation extends Object
+    class IIsMediaPushContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16803,7 +16803,7 @@
     * @class:IIsProgressiveContentServerRepresentation
     * @type:EntityType
     */
-    class IIsProgressiveContentServerRepresentation extends Object
+    class IIsProgressiveContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -16896,7 +16896,7 @@
     * @class:CustomPullServerContentServerRepresentation
     * @type:EntityType
     */
-    class CustomPullServerContentServerRepresentation extends Object
+    class CustomPullServerContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -17021,7 +17021,7 @@
     * @class:WmsPushContentServerRepresentation
     * @type:EntityType
     */
-    class WmsPushContentServerRepresentation extends Object
+    class WmsPushContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -17134,7 +17134,7 @@
     * @class:SmoothStreamingCustomPullContentServerRepresentation
     * @type:EntityType
     */
-    class SmoothStreamingCustomPullContentServerRepresentation extends Object
+    class SmoothStreamingCustomPullContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -17269,7 +17269,7 @@
     * @class:IIsMediaPullContentServerRepresentation
     * @type:EntityType
     */
-    class IIsMediaPullContentServerRepresentation extends Object
+    class IIsMediaPullContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -17470,7 +17470,7 @@
     * @class:WmsMulticastPullContentServerRepresentation
     * @type:EntityType
     */
-    class WmsMulticastPullContentServerRepresentation extends Object
+    class WmsMulticastPullContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -17601,7 +17601,7 @@
     * @class:WmsUnicastPullContentServerRepresentation
     * @type:EntityType
     */
-    class WmsUnicastPullContentServerRepresentation extends Object
+    class WmsUnicastPullContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -17714,7 +17714,7 @@
     * @class:CustomPushServerContentServerRepresentation
     * @type:EntityType
     */
-    class CustomPushServerContentServerRepresentation extends Object
+    class CustomPushServerContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
@@ -17845,7 +17845,7 @@
     * @class:MediasiteDataContentServerRepresentation
     * @type:EntityType
     */
-    class MediasiteDataContentServerRepresentation extends Object
+    class MediasiteDataContentServerRepresentation extends BaseObject
     {
         protected $_entityMap = array();
         protected $_entityKey = array();
